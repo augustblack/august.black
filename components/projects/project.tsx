@@ -9,7 +9,7 @@ export type ShortProps = {
 }
 
 const ProjectRow: Component<ShortProps & { pid: string }> = (props) => (
-  <details id={props.project.key} class="collapse bg-base-100 rounded-none w-full">
+  <details id={props.project.key} class="collapse rounded-none w-full">
     <summary class="collapse-title font-semibold w-full text-nowrap opacity-90 bg-slate-300 text-slate-900 hover:bg-red-200 hover:opacity-95 dark:hover:bg-red-900 dark:hover:text-red-300 dark:bg-slate-800 dark:text-slate-300 focus:opacity-100 focus:bg-red-400 focus:text-slate-900 focus:dark:bg-red-800 focus:dark:text-red-200">
       <span class="w-32 hidden lg:inline align-middle p-4 whitespace-no-wrap uppercase select-none">{props.project.date}</span>
       <span class="w-64 whitespace-no-wrap align-middle p-4 tracking-wider uppercase select-none">{props.project.title}</span>
