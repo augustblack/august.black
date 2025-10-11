@@ -1,14 +1,26 @@
-import { createMemo } from "solid-js";
-import { usePageContext } from "vike-solid/usePageContext";
+import { Component, JSX } from "solid-js";
 
-export function Link(props: { href: string; children: string }) {
-  const pageContext = usePageContext();
-  const isActive = createMemo(() =>
-    props.href === "/" ? pageContext.urlPathname === props.href : pageContext.urlPathname.startsWith(props.href),
-  );
-  return (
-    <a href={props.href} class={isActive() ? "is-active" : undefined}>
-      {props.children}
-    </a>
-  );
+export type LinkProps = {
+  href: string
+  external?: true
+  class?: string
+  //typeof(Class)
+  children: JSX.Element
 }
+
+export const LinkPlain: Component<LinkProps> = (props) =>
+  props.external ? (
+    <a target="_blank" class={props.class} href={props.href} rel="noreferrer">{props.children}</a>
+  ) : (
+    <a href={props.href} class={props.class}>{props.children}</a>
+  )
+
+export const Link: Component<LinkProps> = (props) => (
+  <LinkPlain
+    external={props.external}
+    class={'bg-orange-100 text-slate-950 dark:bg-slate-950 dark:text-slate-300 pl-1 pr-1  rounded ' + props.class}
+    href={props.href}
+  >
+    {props.children}
+  </LinkPlain>
+)

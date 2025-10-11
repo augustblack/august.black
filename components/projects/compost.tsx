@@ -11,7 +11,7 @@ const media: MediaProps[] = [
     width: 1600,
     height: 1200,
     blurDataURL: "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAAAwAgCdASoKAAgAAUAmJZQCdEf/geqKSSFeAAD+/WD/xO15vT2YI5wqfe3jcD7/cZGeFoKUgVuBaVsqL08MWlnKNhgvSv0EQAA=",
-    caption: (<div>ID:Artes residency  @ Botota Planetarium, Colombia 2023.</div>),
+    caption: () => (<div>ID:Artes residency  @ Botota Planetarium, Colombia 2023.</div>),
   },
   {
     kind: 'image',
@@ -20,7 +20,7 @@ const media: MediaProps[] = [
     width: 1600,
     height: 1200,
     blurDataURL: "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAAAwAgCdASoKAAgAAUAmJZACdEf/gh3H4J0IAAD+++9+EY2XvnNYl5MOcDxaCl4/AlZIRHHGrT7sQj+TiZ/ZHp38pLURj/zXnPNdzE2GfAAAAA==",
-    caption: (<div>ID:Artes residency  @ Botota Planetarium, Colombia 2023.</div>),
+    caption: () => (<div>ID:Artes residency  @ Botota Planetarium, Colombia 2023.</div>),
   },
   {
     kind: 'image',
@@ -29,7 +29,7 @@ const media: MediaProps[] = [
     width: 4032,
     height: 2268,
     blurDataURL: "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAADQAQCdASoKAAYAAUAmJZQCdAEPDTZ8AAD+/nJ+AcD9gdP1oTDIRJE+U6CXQgPltbqqWhAEja7N7nZiXrAttcUhHwHgAA==",
-    caption: (<div>live @ University of Wyoming Planetarium, 2024.</div>),
+    caption: () => (<div>live @ University of Wyoming Planetarium, 2024.</div>),
   },
   {
     kind: 'image',
@@ -38,7 +38,7 @@ const media: MediaProps[] = [
     width: 4032,
     height: 2268,
     blurDataURL: "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAADQAQCdASoKAAYAAUAmJZQCdAD0uFsOqAD+/ql2pbx9/K1UanemsFfO/2yma+qcpQH/8VdhTSyyO9wA",
-    caption: (<div>live @ University of Wyoming Planetarium, 2024.</div>),
+    caption: () => (<div>live @ University of Wyoming Planetarium, 2024.</div>),
   },
   {
     kind: 'image',
@@ -49,7 +49,7 @@ const media: MediaProps[] = [
     bg: 'bg-black',
     imgClass: 'object-contain w-full h-full',
     blurDataURL: "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAACwAQCdASoKAAUAAUAmJYwCdAEOI+oAAP7+eaNxaIMd7+N/G+O/UigiqD5TAlQBhX/ePE8AEvte4ovIg7FCAAXz4/5t6f/Vh+gAAA==",
-    caption: (<div>mobile interface with button to record, 2024.</div>)
+    caption: () => (<div>mobile interface with button to record, 2024.</div>)
   },
 
   {
@@ -61,7 +61,7 @@ const media: MediaProps[] = [
     bg: 'bg-black',
     imgClass: 'object-contain w-full h-full',
     blurDataURL: "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAADwAQCdASoKAAUAAUAmJQBOhlQAMCG79AAA/vx28xml4b/M502nH+P8a0jCgr7yFdjsvjlm+iruRG33x4jYDEaxVUn/x/Mmri4mzJaffyH9xm/8fwf3OcPyiGfzQoA4BKWgAA==",
-    caption: (<div>mobile interface with button to record, 2024.</div>)
+    caption: () => (<div>mobile interface with button to record, 2024.</div>)
   },
   {
     kind: 'video',
@@ -69,7 +69,7 @@ const media: MediaProps[] = [
     imgClass: 'object-contain w-full h-full',
     src: 'https://assets.august.black/media/compost/wyoming_edit2024.mp4',
     poster: 'https://assets.august.black/media/compost/wyoming01poster.jpg',
-    caption: (<div>Recording from Cowboy Sandbox show at the Wyoming Planetarium. March 2024.</div>)
+    caption: () => (<div>Recording from Cowboy Sandbox show at the Wyoming Planetarium. March 2024.</div>)
   },
   {
     kind: 'video',
@@ -77,7 +77,7 @@ const media: MediaProps[] = [
     imgClass: 'object-contain w-full h-full',
     src: 'https://assets.august.black/media/compost/audio_compost-idartes.mp4',
     poster: 'https://assets.august.black/media/compost/idartesposter.jpg',
-    caption: (<div>Early discussion of the system while on residency at IDArtes in Bogotá, Colombia, 2023.</div>)
+    caption: () => (<div>Early discussion of the system while on residency at IDArtes in Bogotá, Colombia, 2023.</div>)
   },
 
   {
@@ -87,7 +87,7 @@ const media: MediaProps[] = [
     width: 4032,
     height: 3024,
     blurDataURL: "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAABQAgCdASoKAAcAAUAmJQBOiP/xavHKfMqnmFgA/vNlC/vmM/8t2YOloWZ68S/8xFgWZYT+1Y9G24gzZ8MtL/g/vmD28H2xirGc3dnj47L/99ISqzqUbpxBdLa5JnNwbq4sAWvY3SsCgkeHPFO47i2JfoAAAA==",
-    caption: (<div>an early prototype made at <a target="_blank" href="https://www.2022.dinacon.org/">Dinacon in Sri Lanka, 2022</a>.</div>)
+    caption: () => (<div>an early prototype made at <a target="_blank" href="https://www.2022.dinacon.org/">Dinacon in Sri Lanka, 2022</a>.</div>)
   }
 ]
 const page: Component<{ children?: JSX.Element }> = (props) => (

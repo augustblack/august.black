@@ -44,7 +44,7 @@ function getCriticalColor(pos: number) {
 }
 
 // Draw MARPAT-like digital camo
-function drawCamo(ctx: CanvasRenderingContext2D, width: number, height: number, runlen: number) {
+function drawCamo(ctx: CanvasRenderingContext2D, width: number, height: number, runlen: number, rsize: number) {
   const timeSeg = 180 * 1000
   const pos = 1 - (Math.cos(((runlen % timeSeg) / timeSeg) * Math.PI * 2) * 0.5 + 0.5)
 
@@ -57,7 +57,7 @@ function drawCamo(ctx: CanvasRenderingContext2D, width: number, height: number, 
   ctx.fillStyle = bgcol
   ctx.fillRect(0, 0, width, height)
 
-  const rectSize = 6 // Size of each "pixel" in the pattern
+  const rectSize = rsize || 6 // Size of each "pixel" in the pattern
   const density = Math.min(1, 0.2 + pos) // Percentage of rectangles to draw
 
   for (let y = 0; y < height; y += rectSize) {
@@ -75,6 +75,34 @@ function drawCamo(ctx: CanvasRenderingContext2D, width: number, height: number, 
   }
   return pos
 }
+// Draw MARPAT-like digital camo
+function drawCamoIter(ctx: CanvasRenderingContext2D, width: number, height: number, x: number, y: number) {
+  const rectSize = 20 // Size of each "pixel" in the pattern
+  const density = Math.min(1, 0.2) // Percentage of rectangles to draw
+  if (x > width) {
+    //console.log('new line')
+    x = 0
+    y += rectSize
+  }
+  if (y > height) {
+    //console.log('back to top')
+    x = 0
+    y = 0
+  }
+
+  if (Math.random() < density) {
+    ctx.fillStyle = getRandomColor(0)
+    // Add small clusters by drawing several rectangles
+    const clusterSize = Math.random() < 0.3 ? 3 : 2 // Single or double-sized clusters
+    const clusterX = Math.random() < 0.5 ? rectSize : 0
+    const clusterY = Math.random() < 0.5 ? rectSize : 0
+    ctx.fillRect(x, y, rectSize * clusterSize, rectSize)
+    ctx.fillRect(x + clusterX, y + clusterY, rectSize, rectSize * clusterSize)
+  }
+  x += rectSize
+  return [x, y]
+}
+
 
 const Page: Component<{ children?: JSX.Element; showNav: boolean }> = (props) => (
   <Show when={props.showNav}>
@@ -84,11 +112,12 @@ const Page: Component<{ children?: JSX.Element; showNav: boolean }> = (props) =>
 
 export default function LayoutDefault(props: { children?: JSX.Element }) {
   const [showNav, setShowNav] = createSignal(true)
-  const [fps, setFps] = createSignal(0.25)
+  const [fps, setFps] = createSignal(9)
   const [pos, setPos] = createSignal(0)
   const { setVol, resume, audioState, left, ctx } = createZzz()
   let canvRef: HTMLCanvasElement | undefined
   let af = 0
+  let x = 0, y = 0
 
   createEffect(() => {
     if (!canvRef) return
@@ -105,7 +134,8 @@ export default function LayoutDefault(props: { children?: JSX.Element }) {
     let elapsed: number
     let then: number
     const fpsInterval = 1000 / fps()
-    console.log('fpsInterval', fpsInterval)
+    //console.log('fpsInterval', fpsInterval)
+    drawCamo(context, canvas.width, canvas.height, 0, 20)
 
     function onAnimate(timestamp: number) {
       if (start === undefined) {
@@ -122,13 +152,16 @@ export default function LayoutDefault(props: { children?: JSX.Element }) {
         // runlen comes in as millisecons
         const mul = 1 - (Math.cos(((runlen % len) / len) * Math.PI * 2) * 0.5 + 0.5)
         max = Math.max(mul, max)
-
-        const posValue = drawCamo(context, canvas.width, canvas.height, fps() > 1 ? (timestamp - start) : 0)
-        setPos(fps() > 1 ? posValue : 0)
+        if (fps() > 10 && context) {
+          const posValue = drawCamo(context, canvas.width, canvas.height, (timestamp - start), 6)
+          setPos(posValue)
+        } else if (context) {
+          [x, y] = drawCamoIter(context, canvas.width, canvas.height, x, y)
+          //console.log(x, y)
+        }
       }
       af = window.requestAnimationFrame(onAnimate)
     }
-
     af = window.requestAnimationFrame(onAnimate)
   })
 
@@ -159,7 +192,7 @@ export default function LayoutDefault(props: { children?: JSX.Element }) {
           }
         } else {
           console.log('slow')
-          setFps(0.25)
+          setFps(5)
           setPos(0)
           setVol(0.0)
           if (document.fullscreenElement) {

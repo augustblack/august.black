@@ -1,9 +1,10 @@
-import { Component, For, JSX, createSignal, onMount } from 'solid-js'
-import { adjustVolume, mainAudioId } from './utils'
+import { Component, For, JSX, createSignal, onMount, onCleanup } from 'solid-js'
+import { fadeOutElement } from './utils'
+import Image from './image'
 
 type SubProps = { sub?: string; subLabel?: string }
 type SubsProps = { subs?: Array<SubProps>; src: string }
-type CaptionProps = { caption?: JSX.Element }
+type CaptionProps = { caption?: () => JSX.Element }
 
 type VideoProps = {
   kind: "video"
@@ -11,15 +12,15 @@ type VideoProps = {
   imgClass?: string
   src: string
   poster?: string
-  caption?: JSX.Element
+  caption?: () => JSX.Element
   subs?: Array<SubProps>
 }
 
 export type GenericProps = {
   kind: 'generic'
   src: string
-  children: JSX.Element
-  caption?: JSX.Element
+  content: () => JSX.Element
+  caption?: () => JSX.Element
 }
 
 export type ImageProps = {
@@ -31,7 +32,7 @@ export type ImageProps = {
   alt: string
   bg?: string
   imgClass?: string
-  caption?: JSX.Element
+  caption?: () => JSX.Element
 }
 
 export type MediaProps = VideoProps | GenericProps | ImageProps
@@ -48,7 +49,7 @@ type MediaGridProps = {
 const Caption: Component<CaptionProps> = (props) =>
   props.caption ? (
     <div class="absolute bottom-0 text-xs lg:text-sm xl:text-sm p-2 bg-slate-900 text-slate-100 w-full opacity-75">
-      {props.caption}
+      {props.caption()}
     </div>
   ) : null
 
@@ -75,11 +76,8 @@ const pausePlayingAudio = (audioId: string) => {
   const audioEls = document.getElementsByTagName('audio')
   for (let i = 0; i < audioEls.length; i++) {
     const el = audioEls.item(i)
-    if (el && el.id !== audioId && el.id !== mainAudioId) {
-      adjustVolume(el, 0.0)
-        .then(() => el.pause())
-        .then(() => adjustVolume(el, 1.0))
-        .catch(console.error)
+    if (el && el.id !== audioId) {
+      fadeOutElement(el, 0.0)
     }
   }
 }
@@ -88,11 +86,8 @@ const pausePlayingVideo = (videoId: string) => {
   const videoEls = document.getElementsByTagName('video')
   for (let i = 0; i < videoEls.length; i++) {
     const el = videoEls.item(i)
-    if (el && el.id !== videoId && el.id !== mainAudioId) {
-      adjustVolume(el, 0.0)
-        .then(() => el.pause())
-        .then(() => adjustVolume(el, 1.0))
-        .catch(console.error)
+    if (el && el.id !== videoId) {
+      fadeOutElement(el, 0.0)
     }
   }
 }
@@ -102,6 +97,7 @@ const Video: Component<VideoProps> = (props) => {
     pausePlayingAudio(props.src)
     pausePlayingVideo(props.src)
   }
+
   return (
     <div class={"w-full h-full relative flex items-center " + (props.bg || '')} >
       <video
@@ -125,22 +121,22 @@ const Video: Component<VideoProps> = (props) => {
 
 const ImageLocal: Component<ImageProps> = (props) => (
   <div class={"w-full h-full relative " + (props.bg || '')} >
-    <img
+    <Image
       draggable={false}
-      src={props.width < props.width
-        ? `https://assets.august.black/${props.src.split('.').slice(0, -1)}-${props.width}.webp`
-        : `https://assets.august.black/${props.src}`
-      }
+      src={props.src}
       alt={props.alt}
       class={props.imgClass || "object-cover object-center w-full h-full"}
+      width={props.width}
+      height={props.height}
+      blurDataURL={props.blurDataURL}
     />
     <Caption caption={props.caption} />
   </div>
 )
 
 const GenericMedia: Component<GenericProps> = (props) => (
-  <div>
-    {props.children}
+  <div class="w-full m-4 md:m-8">
+    {props.content()}
     <Caption caption={props.caption} />
   </div>
 )
@@ -182,19 +178,52 @@ export const Audio: Component<{
 }
 
 export const MediaGroup: Component<MediaGroupProps> = (props) => {
-  const [currentIndex, setCurrentIndex] = createSignal(0)
+  let carouselRef: HTMLDivElement | undefined
+  let slideRefs: HTMLDivElement[] = []
 
-  const onChangeIndex = (index: number) => {
-    setCurrentIndex(index)
+  const onChangeIndex = () => {
     pausePlayingVideo('wtf')
     pausePlayingAudio('wtf')
   }
 
+  onMount(() => {
+    if (!carouselRef) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+            const slideId = entry.target.id
+            const slideIndex = parseInt(slideId.replace('slide', ''))
+            if (!isNaN(slideIndex)) {
+              onChangeIndex()
+            }
+          }
+        })
+      },
+      {
+        root: carouselRef,
+        threshold: 0.5, // Trigger when 50% of the slide is visible
+        rootMargin: '0px'
+      }
+    )
+
+    // Observe all slide elements
+    slideRefs.forEach((slide) => {
+      if (slide) observer.observe(slide)
+    })
+
+    onCleanup(() => {
+      observer.disconnect()
+    })
+  })
+
   return (
-    <div class="carousel w-full h-full">
+    <div ref={carouselRef} class="carousel w-full h-full">
       <For each={props.media}>
         {(mediaItem, index) => (
           <div
+            ref={(el) => (slideRefs[index()] = el)}
             id={`slide${index()}`}
             class="carousel-item relative w-full h-full"
           >

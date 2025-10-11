@@ -3,10 +3,10 @@
 
 export const mainAudioId = 'befree'
 
-export function swing (p: number) : number {
+export function swing(p: number): number {
   return 0.5 - Math.cos(p * Math.PI) / 2
 }
-export async function adjustVolume (
+export function fadeOutElement(
   element: HTMLMediaElement,
   newVolume: number,
   {
@@ -18,24 +18,23 @@ export async function adjustVolume (
     easing?: typeof swing,
     interval?: number
   } = {}
-) : Promise<void> {
+) {
   const originalVolume = element.volume
   const delta = newVolume - originalVolume
   if (!delta || !duration || !easing || !interval) {
     element.volume = newVolume
-    return Promise.resolve()
+    return
   }
   const ticks = Math.floor(duration / interval)
   let tick = 1
-  return new Promise<void>((resolve) => {
-    const timer = setInterval(() => {
-      element.volume = originalVolume + (
-        easing(tick / ticks) * delta
-      )
-      if (++tick === ticks) {
-        clearInterval(timer)
-        resolve()
-      }
-    }, interval)
-  })
+  const timer = setInterval(() => {
+    element.volume = originalVolume + (
+      easing(tick / ticks) * delta
+    )
+    if (++tick === ticks) {
+      clearInterval(timer)
+      element.pause()
+      element.volume = 1
+    }
+  }, interval)
 }

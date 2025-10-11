@@ -10,7 +10,7 @@ const media: MediaProps[] = [
     blurDataURL: "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADQAQCdASoKAAcAAUAmJQBdgBupULEIQAD+/l9uMdP/fY7IVSm7bs8t3gbxdjyioq4arkV7Cyvjp8y332n+To6CH2SNdUNxgW4RYXHHKjWNr6Y49cAAAA==",
     alt: 'August Black presenting art papers at SIGGRPAH 2024 in Denver, Colorado.',
     bg: 'bg-slate-800',
-    caption: (
+    caption: () => (
       <div>
         August Black presenting the Art Papers @ SIGGRAPH 2024, Denver Colorado. <span class='text-xs'>photo by John Fujii © 2024 ACM SIGGRAPH</span>
       </div>
@@ -25,7 +25,7 @@ const media: MediaProps[] = [
     blurDataURL: "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAAAQAgCdASoKAAgAAUAmJYwCdAEVu5bTLGsAAPw+WHft8E+1o18Sb9l5d276owj/Er8h8V/vZCtYkdxB2HvgXjKewBXvZ0dQtOx/AO88ehxPgVXA1eAAAA==",
     bg: 'bg-slate-800',
     alt: 'August Black in white protective suit standing in front of a large white table with lights on it and a project of superworms behind him.',
-    caption: (
+    caption: () => (
       <div>
         August Black in residency @ Evans School October 2024, Denver Colorado. <div class='text-xs'>photo by Nima Bahrehmand © 2024</div>
       </div>
@@ -39,9 +39,9 @@ const media: MediaProps[] = [
     width: 4007,
     height: 3098,
     blurDataURL: "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAADwAQCdASoKAAgAAUAmJQBOgCLQM8yrv/QA/vb/38KDYH8f/KEg6/R8v5Z147/Pb4S10FCvw9x5P+dni58px6P8vQii2q/WCudOsg4/07nP41Y6CIbxtdmlA9ArTSU5zxkFkt4/0HjKqN/k7686zC+W/1AAAA==",
-    caption: (
+    caption: () => (
       <div>
-        Office portrait in stereo, summer 2024.
+        Office portrait in stereo, summer 2024. <small>Squint and concentrate your vision on the center to see a 3D image pop-out.</small>
       </div>
     )
   },
@@ -52,7 +52,7 @@ const media: MediaProps[] = [
     width: 4111,
     height: 3138,
     blurDataURL: "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADwAQCdASoKAAgAAUAmJZwCw7Ddhzn3qWgA/q2aK/9fyNDl3Acp+bkTk/Liy3f/gEPDmMehg21frzOmlMKWnxIB8ysDUJWPaxHrvS00jp0azi1sWpEAAA==",
-    caption: (
+    caption: () => (
       <div>
         August Black and his first PhD advisee, <a target="_blank" href="https://nimabahrehmand.com/">Nima Bahrehmand</a>,on &quot;team critical&quot; outside the offices of DCMP (and the ROTC), under the football stadium bleachers (July 5, 2023).
       </div>
@@ -67,7 +67,7 @@ const media: MediaProps[] = [
     blurDataURL: "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAADwAQCdASoKAAcAAUAmJYwCdADdpwoP7AAA+yOJSVd6FXg0z7oNW3cPPAojOEjyUNJlRmo5S0p7YSs32NxDC/Hfc6EWXd9wzC0gLh+a5uT91bmAxQJ0Uuu31IP0a0s4AAA=",
     alt: 'August Black presenting Mezcal via video link to the Ars Acoustica group o the European Broadcasting Union.',
     bg: 'bg-slate-800',
-    caption: (
+    caption: () => (
       <div>
         August Black presenting his radio work via video link to the Ars Acoustica
         group of the European Broadcasting Union. Geneva, Switzerland 2022.
@@ -83,7 +83,7 @@ const media: MediaProps[] = [
     bg: 'bg-slate-800',
     imgClass: 'object-contain',
     alt: 'Two photos of August Black, one in gray long sleeve shirt with blue sky behind, another portrait shot from below and looking upwards with T-shirt that says &lsquo;resist&rsquo;',
-    caption: (<div>Left: California, 2022.  Right: PIF Camp, Slovenia 2022.</div>)
+    caption: () => (<div>Left: California, 2022.  Right: PIF Camp, Slovenia 2022.</div>)
   },
   {
     kind: 'image',
@@ -93,7 +93,7 @@ const media: MediaProps[] = [
     blurDataURL: "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAAAQAgCdASoKAAYAAUAmJYgCdAD5j2Pt9LQAAP7psLLhv5X+5lxpCHOz+6LL+TqEd5dVa/gY3imOsRUfABTQk3RB1wqyvOeEXYMY1RKK827wcx7eBovl5xN98C3LsW/F1G20csAA",
     bg: 'bg-slate-800',
     alt: 'Photo of August Black from behind with blue shirt and dark pants, talking to a group seated on benches under a red tent.',
-    caption: (<div>August Black conducting a mezcal workshop at PIF Camp 2022 in Soča, Slovenia</div>)
+    caption: () => (<div>August Black conducting a mezcal workshop at PIF Camp 2022 in Soča, Slovenia</div>)
   },
   {
     kind: 'image',
@@ -104,7 +104,7 @@ const media: MediaProps[] = [
     imgClass: 'object-contain',
     bg: 'bg-slate-800',
     alt: 'self-portraits in two separate fancy bathrooms',
-    caption: (<div>I have a fondness for self-portraits in fancy bathrooms.</div>)
+    caption: () => (<div>I have a fondness for self-portraits in fancy bathrooms.</div>)
   },
   {
     kind: 'image',
@@ -115,7 +115,7 @@ const media: MediaProps[] = [
     imgClass: 'object-contain',
     bg: 'bg-slate-800',
     alt: 'Three photos of August Black, one in an art museaum dressing black, another portrait with fava beans in mouth looking like a smile, a third with his face showing through an elephant stick mask.',
-    caption: (<div>Left: lookin&apos; at aaaaaart, 2017.  Middle: Our Fava Who Art in Heaven, 2015. Right: Let&apos;s talk about this elephant in the room, 2017.</div>)
+    caption: () => (<div>Left: lookin&apos; at aaaaaart, 2017.  Middle: Our Fava Who Art in Heaven, 2015. Right: Let&apos;s talk about this elephant in the room, 2017.</div>)
   }
 ]
 
