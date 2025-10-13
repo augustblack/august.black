@@ -1,6 +1,7 @@
 import { Component, JSX } from 'solid-js'
 import { Project } from './types'
 import { MediaProps } from '../media'
+import { Link } from '../link'
 
 
 const media: MediaProps[] = [
@@ -47,7 +48,6 @@ const media: MediaProps[] = [
     width: 2400,
     height: 1080,
     bg: 'bg-black',
-    imgClass: 'object-contain w-full h-full',
     blurDataURL: "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAACwAQCdASoKAAUAAUAmJYwCdAEOI+oAAP7+eaNxaIMd7+N/G+O/UigiqD5TAlQBhX/ePE8AEvte4ovIg7FCAAXz4/5t6f/Vh+gAAA==",
     caption: () => (<div>mobile interface with button to record, 2024.</div>)
   },
@@ -59,7 +59,6 @@ const media: MediaProps[] = [
     width: 2400,
     height: 1080,
     bg: 'bg-black',
-    imgClass: 'object-contain w-full h-full',
     blurDataURL: "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAADwAQCdASoKAAUAAUAmJQBOhlQAMCG79AAA/vx28xml4b/M502nH+P8a0jCgr7yFdjsvjlm+iruRG33x4jYDEaxVUn/x/Mmri4mzJaffyH9xm/8fwf3OcPyiGfzQoA4BKWgAA==",
     caption: () => (<div>mobile interface with button to record, 2024.</div>)
   },
@@ -87,7 +86,7 @@ const media: MediaProps[] = [
     width: 4032,
     height: 3024,
     blurDataURL: "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAABQAgCdASoKAAcAAUAmJQBOiP/xavHKfMqnmFgA/vNlC/vmM/8t2YOloWZ68S/8xFgWZYT+1Y9G24gzZ8MtL/g/vmD28H2xirGc3dnj47L/99ISqzqUbpxBdLa5JnNwbq4sAWvY3SsCgkeHPFO47i2JfoAAAA==",
-    caption: () => (<div>an early prototype made at <a target="_blank" href="https://www.2022.dinacon.org/">Dinacon in Sri Lanka, 2022</a>.</div>)
+    caption: () => (<div>an early prototype made at <Link external href="https://www.2022.dinacon.org/">Dinacon in Sri Lanka, 2022</Link>.</div>)
   }
 ]
 const page: Component<{ children?: JSX.Element }> = (props) => (
@@ -96,7 +95,7 @@ const page: Component<{ children?: JSX.Element }> = (props) => (
       One of the most disruptive technological developments of our time is also, now, one of the most diverse and overlooked.  While mobile smart phones come packed with computational capabilities (such as lidar, multiple cameras, and hi resolution displays) a very under-appreciated feature is the lowly wireless microphone built into each device.  While people tend to be attentive and accepting to their own photographic image, often smitten by their own appearance, the recorded voice  holds a parallax tension that is simultaneously  too personal and too foreign for many to accept as easily as a photograph. Like a camera, we carry a mic with us at all times, but don&apos;t use it in the same capacity despite (or because) it is so electric and cutting.
     </div>
     <div>
-      Audio Compost is a performance instrument and radiophonic installation whereby visitors can use their mobile phones to capture their voice and send it into a live  <a target="_blank" href="https://happymag.tv/frippertronics/">frippertronic loop</a> that mixes their voices with others in an ever evolving and undetermined sonic event. For the performance part, the mobile phones of all participants act as both the microphone and the audio output.  Given 20-100 participants, each opens a simple web url in their mobile phone’s browser and clicks a button to record their voice.  The recording of any participant is sent to all others in real-time. Each user sees the audio waveforms of the other participants as well as a line going across their screen to mark the current play/record head. In bidirectional mode, each participant’s phone plays the entire loop in sync with all of the other participants as one big multi-channel wall of sound. In unidirectional mode, the sound is played for everyone over a PA.
+      Audio Compost is a performance instrument and radiophonic installation whereby visitors can use their mobile phones to capture their voice and send it into a live  <Link external href="https://happymag.tv/frippertronics/">frippertronic loop</Link> that mixes their voices with others in an ever evolving and undetermined sonic event. For the performance part, the mobile phones of all participants act as both the microphone and the audio output.  Given 20-100 participants, each opens a simple web url in their mobile phone’s browser and clicks a button to record their voice.  The recording of any participant is sent to all others in real-time. Each user sees the audio waveforms of the other participants as well as a line going across their screen to mark the current play/record head. In bidirectional mode, each participant’s phone plays the entire loop in sync with all of the other participants as one big multi-channel wall of sound. In unidirectional mode, the sound is played for everyone over a PA.
     </div>
     <div>
       The software is adaptable for various installations and venues, and is part of ongoing research in how to use global networking for hyper-local connectivity - how to create, mark, or display a sense of &ldquo;togetherness&rdquo;.
@@ -107,7 +106,7 @@ const page: Component<{ children?: JSX.Element }> = (props) => (
 const longy: Component<{ children?: JSX.Element }> = (props) => (
   <>
     <div>
-      Audio Compost is a performance instrument and radiophonic installation whereby visitors can use their mobile phones to capture their voice and send it into a live  <a target="_blank" href="https://happymag.tv/frippertronics/">frippertronic loop</a> that mixes their voices with others in an ever evolving and undetermined sonic event.
+      Audio Compost is a performance instrument and radiophonic installation whereby visitors can use their mobile phones to capture their voice and send it into a live  <Link external href="https://happymag.tv/frippertronics/">frippertronic loop</Link> that mixes their voices with others in an ever evolving and undetermined sonic event.
     </div>
     <div>
       The software is adaptable for various installations and venues, and is part of ongoing research in how to use global networking for hyper-local connectivity.

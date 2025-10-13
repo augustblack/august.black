@@ -28,7 +28,7 @@ const FullNav: Component<NavProps> = (props) => (
   </ul>
 )
 
-const X: Component<{ canPlayAudio: boolean }> = (props) => 
+const X: Component<{ canPlayAudio: boolean }> = (props) =>
   props.canPlayAudio
     ? <span class="cursor-pointer select-none">&#9776;</span>
     : <span class="cursor-pointer select-none">click me</span>
@@ -80,7 +80,7 @@ const NoNav: Component<NoNavProps> = (props) => {
 }
 
 const Nav: Component<NoNavProps & { show: boolean }> = (props) => (
-  <Show 
+  <Show
     when={props.show}
     fallback={<NoNav toggle={props.toggle} canPlayAudio={props.canPlayAudio} />}
   >

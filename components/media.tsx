@@ -38,6 +38,7 @@ export type ImageProps = {
 export type MediaProps = VideoProps | GenericProps | ImageProps
 
 type MediaGroupProps = {
+  aspect: string
   media: MediaProps[]
 }
 
@@ -125,7 +126,7 @@ const ImageLocal: Component<ImageProps> = (props) => (
       draggable={false}
       src={props.src}
       alt={props.alt}
-      class={props.imgClass || "object-cover object-center w-full h-full"}
+      class={props.imgClass || "object-cover object-center  w-full h-full "}
       width={props.width}
       height={props.height}
       blurDataURL={props.blurDataURL}
@@ -219,13 +220,13 @@ export const MediaGroup: Component<MediaGroupProps> = (props) => {
   })
 
   return (
-    <div ref={carouselRef} class="carousel w-full h-full">
+    <div ref={carouselRef} class={"carousel w-full " + (props.aspect || "aspect-video")}>
       <For each={props.media}>
         {(mediaItem, index) => (
           <div
             ref={(el) => (slideRefs[index()] = el)}
             id={`slide${index()}`}
-            class="carousel-item relative w-full h-full"
+            class="carousel-item relative w-full h-full overflow-hidden "
           >
             <Media {...mediaItem} />
           </div>
@@ -240,7 +241,7 @@ export const MediaGrid: Component<MediaGridProps> = (props) => (
     <div class="grid grid-flow-row gap-2 md:gap4 lg:gap-8 grid-cols-1 md:grid-cols-2 2xl:grid-cols-3">
       <For each={props.media}>
         {(m, _idx) => (
-          <div class={"relative " + (props.aspect || 1)}>
+          <div class={"relative w-full " + (props.aspect)}>
             <Media {...m} />
           </div>
         )}

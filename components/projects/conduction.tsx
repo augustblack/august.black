@@ -18,6 +18,7 @@ const media: MediaProps[] = [
   {
     kind: 'image',
     src: "media/conduction_series/conduction_series_photo.jpg",
+    imgClass: 'object-contain w-full h-full bg-black',
     alt: 'conduction series members',
     width: 1200,
     height: 1200,
@@ -42,8 +43,7 @@ const media: MediaProps[] = [
     width: 1791,
     height: 1600,
     blurDataURL: "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAADQAQCdASoKAAkAAUAmJbACw7EO/y2RAAD+/ojDNe+R8wPAGo2koBADo1JPSN/9h16l+m/v//iANZxmdZ0cRfcNYSAAAA==",
-    bg: 'bg-black',
-    imgClass: 'object-contain w-full h-full',
+    imgClass: 'object-contain w-full h-full bg-black',
     alt: 'mezcal interface',
     caption: () => (<div>Dec. 1st, 2023 - Live from the Bogot&aacute; Planetario as part of the Domo Lleno Festival 2023. <audio src="https://assets.august.black/conduction_series/recordings/2023_12_01-the_sun.mp3" controls class="h-8 outline-none mt-1" /></div>)
   },

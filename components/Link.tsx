@@ -18,7 +18,7 @@ export const LinkPlain: Component<LinkProps> = (props) =>
 export const Link: Component<LinkProps> = (props) => (
   <LinkPlain
     external={props.external}
-    class={'bg-orange-100 text-slate-950 dark:bg-slate-950 dark:text-slate-300 pl-1 pr-1  rounded ' + props.class}
+    class={'bg-accent text-accent-content pl-1 pr-1  rounded ' + props.class}
     href={props.href}
   >
     {props.children}

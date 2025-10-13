@@ -6,7 +6,6 @@ export default function HeadDefault() {
       <link rel="icon" href="https://assets.august.black/img/camo64.png" type="image/png" />
       <title>august black</title>
       <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-      <meta http-equiv="content-language" content="EN" />
       <meta name="Author" content="August Black" />
       <meta name="Publisher" content="August Black" />
       <meta name="Keywords" content="August Black, black august, Augusto Nero, Augusto Negro, Gustl Schwarz,
@@ -15,7 +14,7 @@ export default function HeadDefault() {
       <meta name="description" content="the black august of time and space" />
       <meta name="Abstract" content="This is the online content of August Black, great lover of art
         and poetry." />
-      <meta name="Copyright" content="All contents Copyright © August Black 1999-2021." />
+      <meta name="Copyright" content="All contents Copyright © August Black 1999-2026." />
       <meta name="Distribution" content="global" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta property="og:title" content="August Black" />

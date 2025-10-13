@@ -1,6 +1,6 @@
 import "./tailwind.css";
 import type { JSX } from "solid-js";
-import { Component, Show, createSignal, createEffect, onMount, onCleanup } from "solid-js";
+import { Show, createSignal, createEffect } from "solid-js";
 import Critical from "../components/critical";
 import Nav from "../components/nav";
 import { createZzz } from "../components/zzz";
@@ -77,7 +77,7 @@ function drawCamo(ctx: CanvasRenderingContext2D, width: number, height: number, 
 }
 // Draw MARPAT-like digital camo
 function drawCamoIter(ctx: CanvasRenderingContext2D, width: number, height: number, x: number, y: number) {
-  const rectSize = 20 // Size of each "pixel" in the pattern
+  const rectSize = 12 // Size of each "pixel" in the pattern
   const density = Math.min(1, 0.2) // Percentage of rectangles to draw
   if (x > width) {
     //console.log('new line')
@@ -104,12 +104,6 @@ function drawCamoIter(ctx: CanvasRenderingContext2D, width: number, height: numb
 }
 
 
-const Page: Component<{ children?: JSX.Element; showNav: boolean }> = (props) => (
-  <Show when={props.showNav}>
-    {props.children}
-  </Show>
-)
-
 export default function LayoutDefault(props: { children?: JSX.Element }) {
   const [showNav, setShowNav] = createSignal(true)
   const [fps, setFps] = createSignal(9)
@@ -135,7 +129,7 @@ export default function LayoutDefault(props: { children?: JSX.Element }) {
     let then: number
     const fpsInterval = 1000 / fps()
     //console.log('fpsInterval', fpsInterval)
-    drawCamo(context, canvas.width, canvas.height, 0, 20)
+    drawCamo(context, canvas.width, canvas.height, 0, 12)
 
     function onAnimate(timestamp: number) {
       if (start === undefined) {
@@ -216,11 +210,11 @@ export default function LayoutDefault(props: { children?: JSX.Element }) {
           <Critical pos={pos() * 0.7} />
         </div>
       </Show>
-      <div class="p0 lg:p-10 xl:p-12 flex flex-col">
+      <div class="p0 lg:p-10 xl:p-12 flex flex-col text-sm sm:text-md md:text-lg lg:text-xl   ">
         <Nav toggle={toggle} show={showNav()} canPlayAudio={audioState() === 'running'} />
-        <Page showNav={showNav()}>
+        <Show when={showNav()}>
           {props.children}
-        </Page>
+        </Show>
       </div>
     </>
   )
