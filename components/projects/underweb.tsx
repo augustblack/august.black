@@ -2,6 +2,7 @@ import { Component, JSX } from "solid-js"
 import Image from '../image'
 import { Project } from './types'
 import { MediaProps } from '../media'
+import { Link, LinkPlain } from '../link'
 
 const media: MediaProps[] = [
   {
@@ -100,7 +101,7 @@ const media: MediaProps[] = [
 const Pdf = () => (
   <div class="flex max-w-md pt-4" >
     <div class='flex-none mr-4'>
-      <a target="_blank" href="https://assets.august.black/media/underweb/underweb.pdf">
+      <LinkPlain external href="https://assets.august.black/media/underweb/underweb.pdf">
         <Image
           class="w-32 h-48 p-0 m-0"
           width={644}
@@ -110,9 +111,9 @@ const Pdf = () => (
           blurDataURL="data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADQAQCdASoKAA0AAUAmJaQAAtz/vN3wAAD+/srQa7WBDlzb1RaL6DtM2INsC4YGA4EE+lts948BBf6H1AKAAA=="
         />
 
-      </a>
+      </LinkPlain>
     </div>
-    <div class="text-xs pl-4">August Black, Marko Peljhan. 2011. <a target="_blank" href="/media/underweb/underweb.pdf">Underweb.</a> Submitted to ACM WWW &lsquo;12, but rejected</div>
+    <div class="text-xs pl-4">August Black, Marko Peljhan. 2011. <Link external href="/media/underweb/underweb.pdf">Underweb.</Link> Submitted to ACM WWW &lsquo;12, but rejected</div>
   </div>
 )
 

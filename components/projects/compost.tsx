@@ -48,6 +48,7 @@ const media: MediaProps[] = [
     width: 2400,
     height: 1080,
     bg: 'bg-black',
+    imgClass: 'object-contain w-full h-full',
     blurDataURL: "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAACwAQCdASoKAAUAAUAmJYwCdAEOI+oAAP7+eaNxaIMd7+N/G+O/UigiqD5TAlQBhX/ePE8AEvte4ovIg7FCAAXz4/5t6f/Vh+gAAA==",
     caption: () => (<div>mobile interface with button to record, 2024.</div>)
   },
@@ -59,6 +60,7 @@ const media: MediaProps[] = [
     width: 2400,
     height: 1080,
     bg: 'bg-black',
+    imgClass: 'object-contain w-full h-full',
     blurDataURL: "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAADwAQCdASoKAAUAAUAmJQBOhlQAMCG79AAA/vx28xml4b/M502nH+P8a0jCgr7yFdjsvjlm+iruRG33x4jYDEaxVUn/x/Mmri4mzJaffyH9xm/8fwf3OcPyiGfzQoA4BKWgAA==",
     caption: () => (<div>mobile interface with button to record, 2024.</div>)
   },

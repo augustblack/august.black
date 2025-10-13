@@ -1,6 +1,7 @@
 import { Component, For, JSX } from "solid-js"
 import { Project } from './types'
 import { MediaProps, Audio } from '../media'
+import { Link, LinkPlain } from '../link'
 import { Logos } from './logos'
 
 const BetaGroup = {
@@ -22,7 +23,7 @@ const InfraGroup = {
 }
 
 const Alon = () => (
-  <span class='ml-2 sm:ml-4 md:ml-8 whitespace-nowrap' style="font-size:0.57rem; line-height:1rem" ><a target="_blank" href="https://alonkoppel.com/">&copy;Alon Koppel</a></span>
+  <span class='ml-2 sm:ml-4 md:ml-8 whitespace-nowrap' style="font-size:0.57rem; line-height:1rem" ><LinkPlain external href="https://alonkoppel.com/">&copy;Alon Koppel</LinkPlain></span>
 )
 
 const Hethre = () => (
@@ -60,7 +61,7 @@ const media: MediaProps[] = [
     blurDataURL: "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAADwAQCdASoKAAcAAUAmJQBOgNMpfsxRGggA+WIbPw9UBrUTYH525aM48fC0c+vOm+lIqMQZfFICpL82Nv8FSYMecw7m2nKUjiPZsKyfSnYBnwUIBRX/Zbsajdf9PWzF7/JPlijf4mqKbbrRYAAAAA==",
     alt: 'Two pictures. On the left, a white woman with shoulder length brown hair shows mezcal on a laptop with a projection of the screen above. Four women look at her and the screen. On the right,  a white man with short balding hair looks at mezcal on his laptop with a man to his right and the other five women on the long end of a table.',
     caption: () => (<div class='flex flex-row'>
-      <div class='flex-grow'>Mezcal workshop led by Florencia Curci at <a target="_blank" href="https://todalateoriadeluniverso.org/">Todo la Teor&iacute;a del Universo</a>.
+      <div class='flex-grow'>Mezcal workshop led by Florencia Curci at <LinkPlain external href="https://todalateoriadeluniverso.org/">Todo la Teor&iacute;a del Universo</LinkPlain>.
       </div>
     </div>
     )
@@ -73,7 +74,7 @@ const media: MediaProps[] = [
     blurDataURL: "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAADwAQCdASoKAAcAAUAmJaACdAEf2jz7eAAA/vuJK7DOUxslqIDPi0bXxaVur1pB9FMtBMjSXv/6WRPyrXUnfiVvuPyqGU1nzVkdbyQm7av8wq61NEqhNfiE/sWiVQAA",
     alt: 'mezcal in use on laptops sitting on table in the hull of a large boat',
     caption: () => (<div class='flex flex-row'>
-      <div class='flex-grow'>Mezcal at work for the <a target="_blank" href="https://acousticommons.net/~/#">Spree Channelsea Radio Group</a>.
+      <div class='flex-grow'>Mezcal at work for the <LinkPlain external href="https://acousticommons.net/~/#">Spree Channelsea Radio Group</LinkPlain>.
       </div>
     </div>
     )
@@ -131,7 +132,7 @@ const media: MediaProps[] = [
           { type: 'audio/mp3', src: 'https://assets.august.black/media/mezcal/wavefarm_workshop_edit.mp3' }
         ]}
       />
-      <div class='flex-grow'>Mezcal workshop at <a target="_blank" href="https://wavefarm.org">Wave Farm</a>.
+      <div class='flex-grow'>Mezcal workshop at <LinkPlain external href="https://wavefarm.org">Wave Farm</LinkPlain>.
         <Alon />
       </div>
     </div>
@@ -144,7 +145,7 @@ const media: MediaProps[] = [
     height: 720,
     blurDataURL: "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAABQAgCdASoKAAcAAUAmJaACdAYr7y2EUmp9KMAA/ub/V/9IQdlBPe1pKWZhGED+pe/+P7BpIa2196tnMVLlzdGrmLutUUG1lu5y+V38OfU8NHi1wSWTUF51ks1iP0CKEVt2YVrFoAA=",
     alt: 'mobile phone with audio mixer app, mezcal',
-    caption: () => (<div>Mezcal workshop at <a target="_blank" href="https://wavefarm.org">Wave Farm</a>, summer 2021.
+    caption: () => (<div>Mezcal workshop at <LinkPlain external href="https://wavefarm.org">Wave Farm</LinkPlain>, summer 2021.
       <Alon />
     </div>
     )
@@ -156,7 +157,7 @@ const media: MediaProps[] = [
     height: 720,
     blurDataURL: "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAAAQAgCdASoKAAcAAUAmJYgCdAEQFPtoD9ngAP5LssZ/J+jU4RaOFbO3Mf195pumbYvwEFblwx4j1MNeFgPlIznz1MF4C4T7QmhwU7M7Xyk2W50PExBsAFNdqg8jxbRxz0cNIlNwmGOzQ3dbdltmvzkE/j1jyJin/bfe78GtIAA=",
     alt: 'workshop participants with phones',
-    caption: () => (<div>Mezcal workshop at <a target="_blank" href="https://wavefarm.org">Wave Farm</a>, summer 2021.
+    caption: () => (<div>Mezcal workshop at <LinkPlain external href="https://wavefarm.org">Wave Farm</LinkPlain>, summer 2021.
       <Alon />
     </div>
     )
@@ -168,7 +169,7 @@ const media: MediaProps[] = [
     height: 720,
     blurDataURL: "data:image/webp;base64,UklGRowAAABXRUJQVlA4IIAAAADQAQCdASoKAAcAAUAmJYgCdAD0ux2QaAD+mn+31i/UjQvKH+fzBvIbD6rwE5Tp4VS/ZHSPnwS6zwNtMPUm7+YEd7Y59OJGHrWWoLrm124+gK69hv6YM8cREbP+C2ujF90vRayD/5HjIMqB1ewZ5gDH/xgW/7N/T9vx8f/sZ0gAAA==",
     alt: 'workshop participants with phones',
-    caption: () => (<div>Mezcal workshop at <a target="_blank" href="https://wavefarm.org">Wave Farm</a>, summer 2021.
+    caption: () => (<div>Mezcal workshop at <LinkPlain external href="https://wavefarm.org">Wave Farm</LinkPlain>, summer 2021.
       Participants: Alex, Adam, Kirsten Bates, Bianca Biberaj, August Black, Jeff Economy, Jimmy Garver, Galen Joseph-Hunter, Alon Koppel, Alanna Medlock, Jess Puglisi, Tom Roe, Becca Van K, and Bryan Zimmerman
       <Alon />
     </div>
@@ -189,7 +190,7 @@ const media: MediaProps[] = [
           { type: 'audio/mp3', src: 'https://assets.august.black/media/mezcal/wavefarm_footsteps.mp3' }
         ]}
         small={true} />
-      <div class='flex-grow'>&quot;Footsteps on Gravel&quot; <a target="_blank" href="https://wavefarm.org">&copy;Wave Farm</a>, summer 2021.
+      <div class='flex-grow'>&quot;Footsteps on Gravel&quot; <LinkPlain external href="https://wavefarm.org">&copy;Wave Farm</LinkPlain>, summer 2021.
       </div>
     </div>
     )
@@ -223,7 +224,7 @@ const media: MediaProps[] = [
         ]}
         small={true}
       />
-      <div class=''><a target="_blank" href='https://wavefarm.org/wf/archive/v93f5v'>Migrant Detention Radio</a> - live from the Aurora, CO and Otay Mesa, CA detention centers by <a target="_blank" href='http://eliseortiz.net/'>Eliseo Ortiz</a> and <a target="_blank" href='https://www.jessica-ordaz.com/'>Prof. Jessica Ordaz</a>.</div>
+      <div class=''><Link external href='https://wavefarm.org/wf/archive/v93f5v'>Migrant Detention Radio</Link> - live from the Aurora, CO and Otay Mesa, CA detention centers by <Link external href='http://eliseortiz.net/'>Eliseo Ortiz</Link> and <Link external href='https://www.jessica-ordaz.com/'>Prof. Jessica Ordaz</Link>.</div>
     </div>
     )
   },
@@ -248,8 +249,8 @@ const longy: Component<{ children?: JSX.Element }> = ({
     </div>
     <div class=""><b>Press, publications:</b>
       <div class="space-y-1 m-4">
-        <div ><a target="_blank" href='https://oe1.orf.at/programm/20210627/642046/Akustische-Live-Vernetzung-ueber-Grenzen-hinweg'>Akustische Live Vernetzung</a></div>
-        <div ><a target="_blank" href='https://www.newmediacaucus.org/migrant-detention-radio-on-wave-farm-wgxc-90-7-fm/'>New Media Caucus</a></div>
+        <div ><Link external href='https://oe1.orf.at/programm/20210627/642046/Akustische-Live-Vernetzung-ueber-Grenzen-hinweg'>Akustische Live Vernetzung</Link></div>
+        <div ><Link external href='https://www.newmediacaucus.org/migrant-detention-radio-on-wave-farm-wgxc-90-7-fm/'>New Media Caucus</Link></div>
       </div>
     </div>
     <Logos logos={['wavefarm', 'atlas', 'dcmp']} />
@@ -270,26 +271,26 @@ const page: Component<{ children?: JSX.Element }> = ({
     </div>
     <div class=""><b>Related events:</b>
       <div class="space-y-1 m-4">
-        <div><a target="_blank" href="https://www.nsota.org/">New School of the Anthropocene</a> collaborative radio show for <a target="_blank" href="https://www.mixcloud.com/Resonance/playlists/bad-punk/">‘Bad Punk’</a> on Resonance FM 2024</div>
-        <div><a target="_blank" href="https://www.kunstradio.at/PROJECTS/AB2024/">Art&lsquo;s Birthday 2024</a></div>
-        <div><a target="_blank" href="https://acousticommons.net/~/#">Spree Channelsea Radio Group 2023</a></div>
-        <div ><a target="_blank" href="https://centrodeartesonoro.cultura.gob.ar/actividad/terra-ignota/">Terra Ignota Radio Forum 2023</a></div>
-        <div ><a target="_blank" href="http://kunstradio.at/PROJECTS/AB2023/network-kunstradio-party.php">Art&lsquo;s Birthday 2023</a></div>
-        <div ><a target="_blank" href="https://wavefarm.org/radio/wgxc/audio-archive/jbrxxs">The Conduction Series, Nov. 2021 - ongoing</a></div>
-        <div ><a target="_blank" href="https://acousticommons.net/listen/land-to-return">Acoustic Commons - Земля повернення, земля турботи, 2022</a></div>
-        <div ><a target="_blank" href="https://wavefarm.org/ta/archive/works/b0eaj7">Radio Research Residency @ Wave Farm 2021</a></div>
-        <div ><a target="_blank" href="https://wavefarm.org/wf/archive/v93f5v">Migrant Detention Radio, 2021</a></div>
+        <div><Link external href="https://www.nsota.org/">New School of the Anthropocene</Link> collaborative radio show for <a external href="https://www.mixcloud.com/Resonance/playlists/bad-punk/">‘Bad Punk’</a> on Resonance FM 2024</div>
+        <div><Link external href="https://www.kunstradio.at/PROJECTS/AB2024/">Art&lsquo;s Birthday 2024</Link></div>
+        <div><Link external href="https://acousticommons.net/~/#">Spree Channelsea Radio Group 2023</Link></div>
+        <div ><Link external href="https://centrodeartesonoro.cultura.gob.ar/actividad/terra-ignota/">Terra Ignota Radio Forum 2023</Link></div>
+        <div ><Link external href="http://kunstradio.at/PROJECTS/AB2023/network-kunstradio-party.php">Art&lsquo;s Birthday 2023</Link></div>
+        <div ><Link external href="https://wavefarm.org/radio/wgxc/audio-archive/jbrxxs">The Conduction Series, Nov. 2021 - ongoing</Link></div>
+        <div ><Link external href="https://acousticommons.net/listen/land-to-return">Acoustic Commons - Земля повернення, земля турботи, 2022</Link></div>
+        <div ><Link external href="https://wavefarm.org/ta/archive/works/b0eaj7">Radio Research Residency @ Wave Farm 2021</Link></div>
+        <div ><Link external href="https://wavefarm.org/wf/archive/v93f5v">Migrant Detention Radio, 2021</Link></div>
       </div>
     </div>
     <div class=""><b>Workshops:</b>
       <div class="space-y-1 m-4">
-        <div><a target="_blank" href="https://todalateoriadeluniverso.org/">Todo la Teor&iacute;a del Universo</a> by Florencia Curci</div>
-        <div ><a target="_blank" href="https://radiopreservation.org/2023-conference/">Radio Preservation Task Force 2023, Library of Congress DC</a></div>
-        <div ><a target="_blank" href="https://piksel.no/2022/11/01/pikselxx-ai-ai-ai-workshops">Piksel 2022, Norway</a></div>
-        <div ><a target="_blank" href="https://pif.camp/piflog-day-4/">PIF Camp 2022, Slovenia</a></div>
-        <div ><a target="_blank" href="https://107.org.au/event/mezcal-radio-workshop/">Radio Workshops @ Project 107 Sydney, Australia 2023</a> by Jon Panther</div>
-        <div ><a target="_blank" href="https://107.org.au/event/mezcal-radio-transmission-and-sound-art-2/">Radio Workshops @ Project 107 Sydney, Australia 2022</a> by Jon Panther</div>
-        <div ><a target="_blank" href="https://wavefarm.org/ta/archive/works/b0eaj7">Wave Farm 2021</a></div>
+        <div><Link external href="https://todalateoriadeluniverso.org/">Todo la Teor&iacute;a del Universo</Link> by Florencia Curci</div>
+        <div ><Link external href="https://radiopreservation.org/2023-conference/">Radio Preservation Task Force 2023, Library of Congress DC</Link></div>
+        <div ><Link external href="https://piksel.no/2022/11/01/pikselxx-ai-ai-ai-workshops">Piksel 2022, Norway</Link></div>
+        <div ><Link external href="https://pif.camp/piflog-day-4/">PIF Camp 2022, Slovenia</Link></div>
+        <div ><Link external href="https://107.org.au/event/mezcal-radio-workshop/">Radio Workshops @ Project 107 Sydney, Australia 2023</Link> by Jon Panther</div>
+        <div ><Link external href="https://107.org.au/event/mezcal-radio-transmission-and-sound-art-2/">Radio Workshops @ Project 107 Sydney, Australia 2022</Link> by Jon Panther</div>
+        <div ><Link external href="https://wavefarm.org/ta/archive/works/b0eaj7">Wave Farm 2021</Link></div>
       </div>
     </div>
 
@@ -298,28 +299,28 @@ const page: Component<{ children?: JSX.Element }> = ({
         <div>software: August Black (lead), Henry Saver (intern)</div>
         <div>design: August Black (lead),
           <For each={Array.from(Object.entries(DesignGroup))}>
-            {([k, url], idx) => (<span>{idx() === 0 ? '' : ', '}<a target="_blank" href={url}>{k}</a></span>)}
+            {([k, url], idx) => (<span>{idx() === 0 ? '' : ', '}<LinkPlain external href={url}>{k}</LinkPlain></span>)}
           </For>
         </div>
         <div>beta group:
           <For each={Array.from(Object.entries(BetaGroup))}>
-            {([k, url], idx) => (<span>{idx() === 0 ? '' : ', '}<a target="_blank" href={url}>{k}</a></span>)}
+            {([k, url], idx) => (<span>{idx() === 0 ? '' : ', '}<LinkPlain external href={url}>{k}</LinkPlain></span>)}
           </For>
         </div>
         <div>documenation and grant writing:
           <For each={Array.from(Object.entries(InfraGroup))}>
-            {([k, url], idx) => (<span>{idx() === 0 ? '' : ', '}<a target="_blank" href={url}>{k}</a></span>)}
+            {([k, url], idx) => (<span>{idx() === 0 ? '' : ', '}<LinkPlain external href={url}>{k}</LinkPlain></span>)}
           </For>
         </div>
 
-        <div>logo: <a target="_blank" href="https://nimabahrehmand.com/">Nima Bahrehmand</a></div>
+        <div>logo: <LinkPlain external href="https://nimabahrehmand.com/">Nima Bahrehmand</LinkPlain></div>
       </div>
     </div>
     <div class=""><b>Press, publications:</b>
       <div class="space-y-1 m-4">
-        <div ><a target="_blank" href='https://oe1.orf.at/programm/20240229/750542/Kuenstliche-Intelligenz-feiert-den-Geburtstag-der-Kunst'>Künstliche Intelligenz feiert den Geburtstag der Kunst</a> on <a target="_blank" href='https://oe1.orf.at/soundart/kunstzumhoeren'>KUNST ZUM HÖREN</a> 2024 (at minute 11, I speak about m3zcal)</div>
-        <div ><a target="_blank" href='https://oe1.orf.at/programm/20210627/642046/Akustische-Live-Vernetzung-ueber-Grenzen-hinweg'>Akustische Live Vernetzung</a> 2023</div>
-        <div ><a target="_blank" href='https://www.newmediacaucus.org/migrant-detention-radio-on-wave-farm-wgxc-90-7-fm/'>New Media Caucus</a> 2021</div>
+        <div ><Link external href='https://oe1.orf.at/programm/20240229/750542/Kuenstliche-Intelligenz-feiert-den-Geburtstag-der-Kunst'>Künstliche Intelligenz feiert den Geburtstag der Kunst</Link> on <Link external href='https://oe1.orf.at/soundart/kunstzumhoeren'>KUNST ZUM HÖREN</Link> 2024 (at minute 11, I speak about mezcal)</div>
+        <div ><Link external href='https://oe1.orf.at/programm/20210627/642046/Akustische-Live-Vernetzung-ueber-Grenzen-hinweg'>Akustische Live Vernetzung</Link> 2023</div>
+        <div ><Link external href='https://www.newmediacaucus.org/migrant-detention-radio-on-wave-farm-wgxc-90-7-fm/'>New Media Caucus</Link> 2021</div>
       </div>
     </div>
     <Logos logos={['wavefarm', 'atlas', 'dcmp']} />

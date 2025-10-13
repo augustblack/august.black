@@ -1,6 +1,7 @@
 import type { JSX } from 'solid-js'
 import { Component } from 'solid-js'
 import { Project } from './types'
+import { Link } from '../link'
 import { MediaProps } from '../media'
 import { Logos } from './logos'
 
@@ -85,20 +86,20 @@ const media: MediaProps[] = [
 const page: Component<{ children?: JSX.Element }> = (props) => (
   <>
     <div class="">
-      <a target="_blank" href='http://conduction.wavefarm.org'>The Conduction Series</a> is a collaborative live radio broadcast produced by sound and transmission artists across the Americas on <a target="_blank" href="https://wavefarm.org">Wave Farm’s</a> WGXC 90.7-FM Radio for Open Ears in New York’s Upper Hudson Valley. The collective comes together on the first Friday of every month at 3:02pm ET using the web platform <a href="/mezcal" >Mezcal</a>. Emphasizing LIVE interactivity and media archaeological methods, the series explores themes of migration, feedback, user participation, low-key and on-site interaction with mobile devices, and remote collaboration at scale.
+      <Link external href='http://conduction.wavefarm.org'>The Conduction Series</Link> is a collaborative live radio broadcast produced by sound and transmission artists across the Americas on <Link external href="https://wavefarm.org">Wave Farm’s</Link> WGXC 90.7-FM Radio for Open Ears in New York’s Upper Hudson Valley. The collective comes together on the first Friday of every month at 3:02pm ET using the web platform <Link href="/mezcal" >Mezcal</Link>. Emphasizing LIVE interactivity and media archaeological methods, the series explores themes of migration, feedback, user participation, low-key and on-site interaction with mobile devices, and remote collaboration at scale.
     </div>
     <div>
-      <a target="_blank" href='http://conduction.wavefarm.org'>http://conduction.wavefarm.org</a>
+      <Link external href='http://conduction.wavefarm.org'>http://conduction.wavefarm.org</Link>
     </div>
 
     <Logos logos={['wavefarm']} />
 
     <div class="font-bold">Syndicated by:</div>
     <ul>
-      <li><a target="_blank" href="https://radiomonteaudio.org/">Radio MonteAudio</a> in Montevideo, Uruguay</li>
-      <li><a target="_blank" href="https://tsonami.cl/">Radio Tsonami</a> in Valpara&iacute;so, Chile</li>
-      <li><a target="_blank" href="https://www.citr.ca/">CITR FM</a> in Vancouver, Canada</li>
-      <li><a target="_blank" href="https://naisa.ca/">New Adventures in Sound Art</a> in Ontario, Canada.</li>
+      <li><Link external href="https://radiomonteaudio.org/">Radio MonteAudio</Link> in Montevideo, Uruguay</li>
+      <li><Link external href="https://tsonami.cl/">Radio Tsonami</Link> in Valpara&iacute;so, Chile</li>
+      <li><Link external href="https://www.citr.ca/">CITR FM</Link> in Vancouver, Canada</li>
+      <li><Link external href="https://naisa.ca/">New Adventures in Sound Art</Link> in Ontario, Canada.</li>
     </ul>
     {props.children}
   </>
@@ -107,9 +108,9 @@ const page: Component<{ children?: JSX.Element }> = (props) => (
 const longy: Component<{ children?: JSX.Element }> = (props) => (
   <>
     <div class="">
-      <a target="_blank" href='http://conduction.wavefarm.org'>The Conduction Series</a> is a monthly live collaborative radio series airing on Wave Farm’s WGXC 90.7-FM Radio for Open Ears in New York’s Upper Hudson Valley.  It consists of a core group of sound and transmission artists from various locations who come together with other remote participants to perform a kind of live media archeaology together.
+      <Link external href='http://conduction.wavefarm.org'>The Conduction Series</Link> is a monthly live collaborative radio series airing on Wave Farm’s WGXC 90.7-FM Radio for Open Ears in New York’s Upper Hudson Valley.  It consists of a core group of sound and transmission artists from various locations who come together with other remote participants to perform a kind of live media archeaology together.
     </div>
-    <div><a target="_blank" href='http://conduction.wavefarm.org'>http://conduction.wavefarm.org</a></div>
+    <div><Link external href='http://conduction.wavefarm.org'>http://conduction.wavefarm.org</Link></div>
     <Logos logos={['wavefarm']} />
     {props.children}
   </>
