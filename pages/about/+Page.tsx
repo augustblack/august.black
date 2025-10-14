@@ -51,6 +51,7 @@ const media: MediaProps[] = [
     src: "img/team_critical01.jpg",
     width: 4111,
     height: 3138,
+    imgClass: "object-cover object-top",
     blurDataURL: "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADwAQCdASoKAAgAAUAmJZwCw7Ddhzn3qWgA/q2aK/9fyNDl3Acp+bkTk/Liy3f/gEPDmMehg21frzOmlMKWnxIB8ysDUJWPaxHrvS00jp0azi1sWpEAAA==",
     caption: () => (
       <div>
@@ -101,7 +102,7 @@ const media: MediaProps[] = [
     width: 3240,
     height: 2160,
     blurDataURL: "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAAAQAgCdASoKAAcAAUAmJbACdLoAAv4pEYaAAP6JlDuiD9pacpuAwicLG/vQrmp52Q/U6z+Mkbpvqx78wdLAXEMiXbj+mFqYzDH1iOMn/8m3AS28G3bejNfJpTPfjgAA",
-    imgClass: 'object-contain',
+    imgClass: "object-contain bg-black",
     bg: 'bg-slate-800',
     alt: 'self-portraits in two separate fancy bathrooms',
     caption: () => (<div>I have a fondness for self-portraits in fancy bathrooms.</div>)
