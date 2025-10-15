@@ -14,7 +14,7 @@ type NoNavProps = NavProps & {
 }
 
 const FullNav: Component<NavProps> = (props) => (
-  <ul id="navigation" class="w-full top-0 right-0 flex bg-base-100 text-base-content">
+  <ul id="navigation" class="w-full top-0 right-0 flex bg-secondary text-secondary-content">
     <For each={links}>
       {(link) => (
         <li class="flex-none block-inline p-4 uppercase select-none">
@@ -60,11 +60,11 @@ const NoNav: Component<NoNavProps> = (props) => {
   })
 
   return (
-    <ul id="navigation" class="w-full top-0 right-0 flex text-slate-100">
+    <ul id="navigation" class="w-full top-0 right-0 flex text-secondary-content">
       <li class="flex-grow p-4 uppercase relative">
         <div
           ref={divRef}
-          class="absolute p-4 font-bold bg-slate-900 cursor-pointer"
+          class="absolute p-4 font-bold bg-secondary cursor-pointer"
           style={{
             top: (props.canPlayAudio ? '0' : state().top),
             right: (props.canPlayAudio ? '0' : state().right),
