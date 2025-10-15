@@ -7,4 +7,5 @@ export default {
   title: "august black",
   description: "the black august of time and space",
   extends: vikeSolid,
+  prerender: true
 } satisfies Config;

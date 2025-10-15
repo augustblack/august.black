@@ -1,4 +1,4 @@
-name = "my-app"
+name = "august-black"
 compatibility_date = "2024-09-29"
-pages_build_output_dir = "./dist/cloudflare"
+pages_build_output_dir = "dist/client"
 compatibility_flags = [ "nodejs_compat" ]
