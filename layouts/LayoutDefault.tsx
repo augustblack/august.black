@@ -47,13 +47,14 @@ function getCriticalColor(pos: number) {
 function drawCamo(ctx: CanvasRenderingContext2D, width: number, height: number, runlen: number, rsize: number) {
   const timeSeg = 180 * 1000
   const pos = 1 - (Math.cos(((runlen % timeSeg) / timeSeg) * Math.PI * 2) * 0.5 + 0.5)
+  const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
   // Clear canvas
   ctx.clearRect(0, 0, width, height)
   const tmp = Math.random()
   const bgcol = tmp + pos > 1.25
-    ? Red[2]
-    : Slate[2]
+    ? Red[isDarkMode ? 7 : 2]
+    : Slate[isDarkMode ? 7 : 2]
   ctx.fillStyle = bgcol
   ctx.fillRect(0, 0, width, height)
 

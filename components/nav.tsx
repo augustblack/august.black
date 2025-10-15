@@ -14,7 +14,7 @@ type NoNavProps = NavProps & {
 }
 
 const FullNav: Component<NavProps> = (props) => (
-  <ul id="navigation" class="w-full top-0 right-0 flex bg-slate-900 text-slate-200">
+  <ul id="navigation" class="w-full top-0 right-0 flex bg-base-100 text-base-content">
     <For each={links}>
       {(link) => (
         <li class="flex-none block-inline p-4 uppercase select-none">

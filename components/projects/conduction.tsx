@@ -24,7 +24,7 @@ const media: MediaProps[] = [
     width: 1200,
     height: 1200,
     blurDataURL: "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAADwAQCdASoKAAoAAUAmJagCdADchoB5yUAA/urxl371RsrijmKNS/EWRkxTPpHYs/MtirMQmM71OjnRqcybo1eh2tn3/xkGxMneP38Pprzrv5i7zKT41equ19gsrCQGewd0/ZwylNyPd/MfMQAAAA==",
-    caption: () => (<div class='text-xs'><span class='pr-2'>top:  Anna Friz, Florencia Curci, Virginia Mantinian</span>
+    caption: () => (<div class='text-xs hidden lg:block'><span class='pr-2'>top:  Anna Friz, Florencia Curci, Virginia Mantinian</span>
       <span class='pr-2'>middle: Jimmy Garver,  August Black, Maximilian Goldfarb</span>
       <span class=''>bottom: Peter Courtemanche, Jeff Economy, Betsey Biggs</span></div>)
   },

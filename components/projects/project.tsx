@@ -25,7 +25,7 @@ const ProjectRow: Component<ShortProps & { pid: string }> = (props) => (
           <div class="space-y-4">
             <props.project.info.long>
               <div class='pt-4 pb-4'>
-                <a class='btn btn-primary btn-md md:btn-lg' href={'/' + props.project.key}>more</a>
+                <a class='btn btn-md md:btn-lg' href={'/' + props.project.key}>more</a>
               </div>
             </props.project.info.long>
           </div>
