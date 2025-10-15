@@ -10,6 +10,7 @@ const media: MediaProps[] = [
     src: "media/underweb/un.png",
     width: 583,
     height: 458,
+    imgClass: 'object-contain dark:invert w-full h-full',
     blurDataURL: "data:image/webp;base64,UklGRsAAAABXRUJQVlA4WAoAAAAQAAAACQAABwAAQUxQSDsAAAABYFTbtpLzPzryGTXc2nhVKhDAQzgdImIC+JS8rSwMEC9/mkcbAZjHebYoIKjPc0AFBM1cIQEECr+CNwBWUDggXgAAAPABAJ0BKgoACAABQCYlpAAPgBF/Z/WLAAD9xp3u//W//4NWgNZVqrctbsXkx/GjP5O28fom2CqdcN8Jt1tvyXKq8P3MR7If/NNJkonmr8IAUo/rfD6Rio1BiKvAAAA=",
     alt: 'underweb logo, two letter in black and white spelling Un',
   },
