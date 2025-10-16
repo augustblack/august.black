@@ -1,4 +1,4 @@
-import { type Component } from "solid-js"
+import { onMount, type Component } from "solid-js"
 
 const getSrcSet = (src: string, width: number) => {
   const name = src.split('.').slice(0, -1).join(".")
@@ -35,12 +35,16 @@ const Img: Component<ImageProps> = (props) => {
   const src = props.src.slice(0, 4) === 'http'
     ? props.src
     : 'https://assets.august.black/' + props.src
-  let done = false
 
   const onLoad = () => {
+    console.log('on load', src)
     imgRef.classList.remove('blur')
     imgRef.style = ""
   }
+  onMount(() => {
+    imgRef.src = src
+    imgRef.srcset = props.srcset || getSrcSet(props.src, props.width)
+  })
 
   return (
     <img
@@ -49,9 +53,8 @@ const Img: Component<ImageProps> = (props) => {
       onload={onLoad}
       style={props.blurDataURL
         ? `background-image: url('${props.blurDataURL}'); background-repeat: no-repeat; background-size: cover; background-position: center center;`
-        : ""}
-      src={src}
-      srcset={props.srcset || getSrcSet(props.src, props.width)}
+        : ""
+      }
       draggable={props.draggable}
       alt={props.alt}
       width={props.width}
