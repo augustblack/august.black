@@ -1,4 +1,4 @@
-import { onMount, type Component } from "solid-js"
+import { type Component } from "solid-js"
 
 const getSrcSet = (src: string, width: number) => {
   const name = src.split('.').slice(0, -1).join(".")
@@ -35,22 +35,28 @@ const Img: Component<ImageProps> = (props) => {
   const src = props.src.slice(0, 4) === 'http'
     ? props.src
     : 'https://assets.august.black/' + props.src
+  let done = false
 
-  onMount(() => {
-    imgRef.loading = "lazy"
-    imgRef.src = src
-    imgRef.srcset = props.srcset || getSrcSet(props.src, props.width)
-  })
+  const onLoad = () => {
+    imgRef.classList.remove('blur')
+    imgRef.style = ""
+  }
 
   return (
     <img
+      loading="lazy"
       ref={imgRef}
-      src={props.blurDataURL || props.src}
+      onload={onLoad}
+      style={props.blurDataURL
+        ? `background-image: url('${props.blurDataURL}'); background-repeat: no-repeat; background-size: cover; background-position: center center;`
+        : ""}
+      src={src}
+      srcset={props.srcset || getSrcSet(props.src, props.width)}
       draggable={props.draggable}
       alt={props.alt}
       width={props.width}
       height={props.height}
-      class={props.class || ""}
+      class={props.class + " blur transition-filter"}
     />
   )
 }
