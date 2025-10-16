@@ -29,7 +29,7 @@ const Atlas = () => (
       src="img/atlas-logo.svg"
       width={172}
       height={37}
-      style={{ width: "172px" }} // needed for Firefox
+      // style={{ width: "172px" }} // needed for Firefox
       blurDataURL="data:image/webp;base64,UklGRlQAAABXRUJQVlA4WAoAAAAQAAAACQAAAQAAQUxQSBUAAAAADqNetIoAZVa5UG6maHKoVXuRk3wAVlA4IBgAAAAwAQCdASoKAAIAAUAmJaQAA3AA/v02aAA="
       srcset=""
     />

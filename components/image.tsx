@@ -25,7 +25,6 @@ type ImageProps = {
   alt: string
   draggable?: boolean
   class?: string
-  style?: Partial<CSSStyleDeclaration>
   width: number
   height: number
 }
@@ -41,6 +40,7 @@ const Img: Component<ImageProps> = (props) => {
     imgRef.classList.remove('blur')
     imgRef.style = ""
   }
+
   onMount(() => {
     imgRef.src = src
     imgRef.srcset = props.srcset || getSrcSet(props.src, props.width)
