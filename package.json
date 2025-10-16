@@ -9,14 +9,16 @@
     "deploy": "run-s build deploy:wrangler"
   },
   "dependencies": {
-    "vike": "^0.4.242",
     "@hono/node-server": "^1.19.5",
+    "@types/sharp": "^0.32.0",
+    "@universal-middleware/core": "^0.4.11",
     "@universal-middleware/hono": "^0.4.17",
     "hono": "^4.9.12",
-    "@universal-middleware/core": "^0.4.11",
+    "sharp": "^0.34.4",
     "solid-js": "^1.9.9",
-    "vike-solid": "^0.7.13",
-    "vike-cloudflare": "^0.1.7"
+    "vike": "^0.4.242",
+    "vike-cloudflare": "^0.1.7",
+    "vike-solid": "^0.7.13"
   },
   "devDependencies": {
     "typescript": "^5.9.3",
