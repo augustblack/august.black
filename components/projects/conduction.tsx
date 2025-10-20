@@ -9,19 +9,18 @@ import { Logos } from './logos'
 const Paper = () => (
   <div class="pt-4 flex max-w-md">
     <div class='flex-none'>
-      <LinkPlain external href="https://dl.acm.org/doi/pdf/10.1145/3680530.3695450">
-        <Image
-          class="w-32 h-48"
-          width={306}
-          height={400}
-          draggable={false}
-          alt="pdf icon"
-          src="media/pulse/pulse_paper.jpg"
-          blurDataURL="data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAADwAQCdASoKAA0AAUAmJaQAAu0eDyOO8AAA/v6dQNYQU9gbivmr63N3bmhhnrOcPUyqoZZWrPMdYxHfofU+AAAA"
-        />
-      </LinkPlain>
+      <Image
+        class="w-32 h-48"
+        width={500}
+        height={646}
+        draggable={false}
+        alt="pdf icon"
+        src="media/conduction_series/conduction_paper.jpg"
+        blurDataURL="data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAADQAQCdASoKAA0AAUAmJaQAAxf/BGBuQAD+/sfcrwBNubLhdhfu8BDvyqltWSWhwY+lwxLWIyccuvJtjQ+LmY6X7xlAAA=="
+      />
     </div>
-    <div class="text-xs pl-4">Brook Vann, J Molina-Garcia, August Black. 2024. <Link external href="https://dl.acm.org/doi/pdf/10.1145/3680530.3695450">Pulse Memorial. SA &apos;24: SIGGRAPH Asia 2024 Art Papers Article No.: 27, Pages 1 - 6</Link>, DOI: 10.1145/3680530.3695450</div>
+    <div class="text-xs pl-4">Black, A. et al, The Conduction Series: Live Collaborative Transmission Art
+      across Borders, 20th International Audio Mostly Conference - June 30-July 04, 2025 - Coimbra, Portugal. DOI: 10.1145/3771594.3771612, ISBN:979-8-4007-2065-9/25/06 (Forthcoming Dec. 2025)</div>
   </div>
 )
 
