@@ -36,7 +36,6 @@ const Img: Component<ImageProps> = (props) => {
     : 'https://assets.august.black/' + props.src
 
   const onLoad = () => {
-    console.log('on load', src)
     imgRef.classList.remove('blur')
     imgRef.style = ""
   }
