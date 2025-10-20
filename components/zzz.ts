@@ -1,6 +1,6 @@
 import { createSignal, onMount, onCleanup } from 'solid-js'
 
-type AudioState = 'suspended' | 'running' | 'closed'
+type AudioState = 'suspended' | 'running' | 'closed' | 'interrupted'
 
 type ZzzStore = {
   setVol: (vol: number) => void,
@@ -14,7 +14,7 @@ export const createZzz = (): ZzzStore => {
   const [audioState, setAudioState] = createSignal<AudioState>('suspended')
   const [audioCtx, setAudioCtx] = createSignal<AudioContext | null>(null)
   const [leftOsc, setLeftOsc] = createSignal<OscillatorNode | null>(null)
-  
+
   let refs = {
     ctx: null as AudioContext | null,
     gain: null as GainNode | null,
@@ -93,10 +93,10 @@ export const createZzz = (): ZzzStore => {
   const resume = (): Promise<AudioState> => {
     return refs.ctx
       ? refs.ctx.resume().then(() => {
-          const state = refs.ctx!.state
-          setAudioState(state)
-          return state
-        })
+        const state = refs.ctx!.state
+        setAudioState(state)
+        return state
+      })
       : Promise.resolve('suspended')
   }
 
