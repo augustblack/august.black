@@ -247,11 +247,10 @@ const longy: Component<{ children?: JSX.Element }> = ({
     <div class="">
       Mezcal is a browser app and telematic service that currently works similar to the audio rooms of Slack or Discord, but with broadcast scalability and audio-specific features. The design and development of the software is ongoing and made in close collaboration with radio activists, artists and researchers from the USA, UK, Netherlands, Italy, Colombia, and Australia.
     </div>
-    <div class=""><b>Press, publications:</b>
-      <div class="space-y-1 m-4">
-        <div ><Link external href='https://oe1.orf.at/programm/20210627/642046/Akustische-Live-Vernetzung-ueber-Grenzen-hinweg'>Akustische Live Vernetzung</Link></div>
-        <div ><Link external href='https://www.newmediacaucus.org/migrant-detention-radio-on-wave-farm-wgxc-90-7-fm/'>New Media Caucus</Link></div>
-      </div>
+    <div class="space-y-2">
+      <div class="font-medium">Press, publications:</div>
+      <div ><Link external href='https://oe1.orf.at/programm/20210627/642046/Akustische-Live-Vernetzung-ueber-Grenzen-hinweg'>Akustische Live Vernetzung</Link></div>
+      <div ><Link external href='https://www.newmediacaucus.org/migrant-detention-radio-on-wave-farm-wgxc-90-7-fm/'>New Media Caucus</Link></div>
     </div>
     <Logos logos={['wavefarm', 'atlas', 'dcmp']} />
     {children}
@@ -261,17 +260,19 @@ const page: Component<{ children?: JSX.Element }> = ({
   children
 }) => (
   <>
-    <div class="">
-      Mezcal is a telematic service that allows multiple constituents to fluidly participate in broadcast-like scenarios through their mobile devices at the flick of their thumbs. It is a new kind of radio that is cheap and quick and easy. Listeners get an immediate way to call in and contribute.  Producers can make shows by themselves, in collaboration with others, at remote locations or on site, and/or in synchronous or asynchronous modes. Both listeners and producers can hop-on or off the stream at will. It all works in a browser, outside of app stores, and is a different kind of networked radio where the boundary between listener and producer can be strict or blurred.
-    </div>
-    <div class="">
-      Mezcal currently works similar to the audio rooms of Slack or Discord, but with broadcast scalability and audio-specific features such as mixing of multiple audio sources, re-streaming to icecast, fingertip access to various online media archives, etc. The project is at a working beta status and in constant development in collaboration with activists, artists and researchers from the USA, UK, Netherlands, Italy, Colombia, and Australia.
-    </div>
-    <div>Not unlike how a piano provides its “users” with a vast set of possible acoustic outcomes - everything from classical to jazz and noise - I see Mezcal as an instrument for diverse practices in transmission and sound art, for providing alternative modes of point to point communication for social movements, and as a new technological form of environmental and journalistic reporting.
+    <div class="flex flex-col lg:flex-row gap-4">
+      <div class="flex-1">
+        Mezcal is a telematic service that allows multiple constituents to fluidly participate in broadcast-like scenarios through their mobile devices at the flick of their thumbs. It is a new kind of radio that is cheap and quick and easy. Listeners get an immediate way to call in and contribute.  Producers can make shows by themselves, in collaboration with others, at remote locations or on site, and/or in synchronous or asynchronous modes. Both listeners and producers can hop-on or off the stream at will. It all works in a browser, outside of app stores, and is a different kind of networked radio where the boundary between listener and producer can be strict or blurred.
+      </div>
+      <div class="flex-1">
+        Mezcal currently works similar to the audio rooms of Slack or Discord, but with broadcast scalability and audio-specific features such as mixing of multiple audio sources, re-streaming to icecast, fingertip access to various online media archives, etc. The project is at a working beta status and in constant development in collaboration with activists, artists and researchers from the USA, UK, Netherlands, Italy, Colombia, and Australia.
+      </div>
+      <div class="flex-1">Not unlike how a piano provides its “users” with a vast set of possible acoustic outcomes - everything from classical to jazz and noise - I see Mezcal as an instrument for diverse practices in transmission and sound art, for providing alternative modes of point to point communication for social movements, and as a new technological form of environmental and journalistic reporting.
+      </div>
     </div>
     <div class=""><b>Related events:</b>
       <div class="space-y-1 m-4">
-        <div><Link external href="https://www.nsota.org/">New School of the Anthropocene</Link> collaborative radio show for <a external href="https://www.mixcloud.com/Resonance/playlists/bad-punk/">‘Bad Punk’</a> on Resonance FM 2024</div>
+        <div><Link external href="https://www.nsota.org/">New School of the Anthropocene</Link> collaborative radio show for <LinkPlain external href="https://www.mixcloud.com/Resonance/playlists/bad-punk/">‘Bad Punk’</LinkPlain> on Resonance FM 2024</div>
         <div><Link external href="https://www.kunstradio.at/PROJECTS/AB2024/">Art&lsquo;s Birthday 2024</Link></div>
         <div><Link external href="https://acousticommons.net/~/#">Spree Channelsea Radio Group 2023</Link></div>
         <div ><Link external href="https://centrodeartesonoro.cultura.gob.ar/actividad/terra-ignota/">Terra Ignota Radio Forum 2023</Link></div>

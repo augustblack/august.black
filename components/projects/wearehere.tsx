@@ -100,21 +100,21 @@ const media: ImageProps[] = [
 
 const page: Component<{ children?: JSX.Element }> = (props) => (
   <>
-    <div class="">
-      <LinkPlain external href='https://wearehere.fm'>We Are Here FM</LinkPlain> is an ongoing project by artists <LinkPlain external href="https://www.betseybiggs.org/">Betsey Biggs</LinkPlain>
-      and
-      <LinkPlain external href="/" >August Black</LinkPlain>
-      that navigates our conceptions of place through images and sounds that are geographically, but not necessarily chronologically or aesthetically, coordinated. Consisting of an ongoing stream of images and generative music in the web, the real-time audiovisual broadcast creates an ever-shifting hyperreal landscape of imaginary situations. Sometimes displayed as an on-site multi-channel installation, these experiences are at times magically experimental, at times hauntingly disturbing, and at times utterly mundane. All listeners, on-site or online, experience the same sound and image at the same time.
-    </div>
-    <div class="">Currently using google maps for images and Freesound.org for audio, the audio-visual pairing comes from a random dart throw on the global map.  If there are images and sounds in that area, we show them and include them in the ongoing broadcast. No place names or context are offered, and geographical locations are randomly chosen every five minutes. As such, the project immerses visitors - both sonically and visually - in a realistic yet artificially created landscape and they must locate themselves — physically, emotionally, socially and politically — within this space. </div>
-    <div class="">We hope you enjoy getting lost with us.</div>
-    <div class=""><Link external href="https://wearehere.fm">https://wearehere.fm</Link></div>
-    <div class=""><b>Betsey Biggs and August Black</b> collaborate on projects bringing together transmission practice, generative systems, community and place.  Their web-based installation, We Are Here FM creates haunting hyperreal audiovisual landscapes from geo-tagged audio and panoramic images, and their <b>Front Yard Radio</b> project (in progress), will create a network of hyper-local, user-friendly public radio stations in and around Boulder County, Colorado.</div>
-    <div class=""><b>Press, publications:</b>
-      <div class="space-y-1 m-4">
-        <div ><Link external href="https://blackflash.ca/shifting-and-transitory-soundscapes-we-are-here-fm/">Blackflash Magazine article</Link> by Cléo Sallis-Parchet</div>
-        <div ><Link external href="https://thedigitalreview.com/issue02/biggs_weareherefm/index.html">The Digital Review</Link></div>
+    <div class="flex flex-col lg:flex-row gap-4">
+      <div class="flex-1">
+        <Link external href='https://wearehere.fm'>We Are Here FM</Link> is an ongoing project by artists <Link external href="https://www.betseybiggs.org/">Betsey Biggs</Link> and <Link href="/" >August Black</Link> that navigates our conceptions of place through images and sounds that are geographically, but not necessarily chronologically or aesthetically, coordinated. Consisting of an ongoing stream of images and generative music in the web, the real-time audiovisual broadcast creates an ever-shifting hyperreal landscape of imaginary situations. Sometimes displayed as an on-site multi-channel installation, these experiences are at times magically experimental, at times hauntingly disturbing, and at times utterly mundane. All listeners, on-site or online, experience the same sound and image at the same time.
       </div>
+      <div class="flex-1">Currently using google maps for images and Freesound.org for audio, the audio-visual pairing comes from a random dart throw on the global map.  If there are images and sounds in that area, we show them and include them in the ongoing broadcast. No place names or context are offered, and geographical locations are randomly chosen every five minutes. As such, the project immerses visitors - both sonically and visually - in a realistic yet artificially created landscape and they must locate themselves — physically, emotionally, socially and politically — within this space. </div>
+      <div class="flex-1">
+        We hope you enjoy getting lost with us.
+        <div><Link external href="https://wearehere.fm">https://wearehere.fm</Link></div>
+      </div>
+    </div>
+    <div class=""><b>Betsey Biggs and August Black</b> collaborate on projects bringing together transmission practice, generative systems, community and place.  Their web-based installation, We Are Here FM creates haunting hyperreal audiovisual landscapes from geo-tagged audio and panoramic images, and their <b>Front Yard Radio</b> project (in progress), will create a network of hyper-local, user-friendly public radio stations in and around Boulder County, Colorado.</div>
+    <div class="space-y-2">
+      <div class="font-medium">Press, publications:</div>
+      <div ><Link external href='https://blackflash.ca/shifting-and-transitory-soundscapes-we-are-here-fm/'>Blackflash Magazine article</Link> by Cléo Sallis-Parchet</div>
+      <div ><Link external href='https://thedigitalreview.com/issue02/biggs_weareherefm/index.html'>The Digital Review</Link></div>
     </div>
     {props.children}
   </>
@@ -129,11 +129,10 @@ const longy: Component<{ children?: JSX.Element }> = (props) => (
       that navigates our conceptions of place through images and sounds that are geographically, but not necessarily chronologically or aesthetically, coordinated. Consisting of an ongoing stream of images and generative music in the web, the real-time audiovisual broadcast creates an ever-shifting hyperreal landscape of imaginary situations. Sometimes displayed as an on-site multi-channel installation, these experiences are at times magically experimental, at times hauntingly disturbing, and at times utterly mundane. All listeners, on-site or online, experience the same sound and image at the same time. We hope you enjoy getting lost with us.
     </div>
     <div class=""><Link external href='https://wearehere.fm'>https://wearehere.fm</Link></div>
-    <div class=""><b>Press, publications:</b>
-      <div class="space-y-1 m-4">
-        <div ><Link external href='https://blackflash.ca/shifting-and-transitory-soundscapes-we-are-here-fm/'>Blackflash Magazine article</Link> by Cléo Sallis-Parchet</div>
-        <div ><Link external href='https://thedigitalreview.com/issue02/biggs_weareherefm/index.html'>The Digital Review</Link></div>
-      </div>
+    <div class="space-y-2">
+      <div class="font-medium">Press, publications:</div>
+      <div ><Link external href='https://blackflash.ca/shifting-and-transitory-soundscapes-we-are-here-fm/'>Blackflash Magazine article</Link> by Cléo Sallis-Parchet</div>
+      <div ><Link external href='https://thedigitalreview.com/issue02/biggs_weareherefm/index.html'>The Digital Review</Link></div>
     </div>
     {props.children}
   </>

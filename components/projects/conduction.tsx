@@ -1,9 +1,29 @@
 import type { JSX } from 'solid-js'
 import { Component } from 'solid-js'
 import { Project } from './types'
-import { Link } from '../link'
+import { Link, LinkPlain } from '../link'
 import { MediaProps } from '../media'
+import Image from '../image'
 import { Logos } from './logos'
+
+const Paper = () => (
+  <div class="pt-4 flex max-w-md">
+    <div class='flex-none'>
+      <LinkPlain external href="https://dl.acm.org/doi/pdf/10.1145/3680530.3695450">
+        <Image
+          class="w-32 h-48"
+          width={306}
+          height={400}
+          draggable={false}
+          alt="pdf icon"
+          src="media/pulse/pulse_paper.jpg"
+          blurDataURL="data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAADwAQCdASoKAA0AAUAmJaQAAu0eDyOO8AAA/v6dQNYQU9gbivmr63N3bmhhnrOcPUyqoZZWrPMdYxHfofU+AAAA"
+        />
+      </LinkPlain>
+    </div>
+    <div class="text-xs pl-4">Brook Vann, J Molina-Garcia, August Black. 2024. <Link external href="https://dl.acm.org/doi/pdf/10.1145/3680530.3695450">Pulse Memorial. SA &apos;24: SIGGRAPH Asia 2024 Art Papers Article No.: 27, Pages 1 - 6</Link>, DOI: 10.1145/3680530.3695450</div>
+  </div>
+)
 
 const media: MediaProps[] = [
   /*
@@ -123,7 +143,7 @@ const media: MediaProps[] = [
     height: 942,
     blurDataURL: "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADwAQCdASoKAAgAAUAmJZQCdAEQ/SwO0QAA/ug/Rdm8lvQE6qB15cVQt638eX7bXFdIBz4DO/jrXuZfVBMDHoUjoRyJFJXdFdOsBGllsAA=",
     bg: 'bg-black',
-    imgClass: 'object-contain w-full h-full',
+    imgClass: 'object-cover object-top-left w-full h-full',
     alt: 'mezcal interface',
     caption: () => (<div>The mezcal interface as shown during the TSONAMI festival in Valparaiso, Chile 2022.</div>)
   },
@@ -154,23 +174,23 @@ const media: MediaProps[] = [
 
 const page: Component<{ children?: JSX.Element }> = (props) => (
   <>
-    <div class="">
-      <Link external href='http://conduction.wavefarm.org'>The Conduction Series</Link> is a collaborative live radio broadcast produced by sound and transmission artists across the Americas on <Link external href="https://wavefarm.org">Wave Farm’s</Link> WGXC 90.7-FM Radio for Open Ears in New York’s Upper Hudson Valley. The collective comes together on the first Friday of every month at 3:02pm ET using the web platform <Link href="/mezcal" >Mezcal</Link>. Emphasizing LIVE interactivity and media archaeological methods, the series explores themes of migration, feedback, user participation, low-key and on-site interaction with mobile devices, and remote collaboration at scale.
+    <div class="flex flex-col gap-4">
+      <div class="flex-1">
+        <span class="font-stretch-expanded">The Conduction Series</span> is a collaborative live radio broadcast produced by sound and transmission artists across the Americas on <Link external href="https://wavefarm.org">Wave Farm’s</Link> WGXC 90.7-FM Radio for Open Ears in New York’s Upper Hudson Valley. The collective comes together on the first Friday of every month at 3:02pm ET using the web platform <Link href="/mezcal" >Mezcal</Link>. Emphasizing live radio, interactivity, and media archaeological methods, the series explores themes of migration, noise, feedback, speculative fiction, transmissive theatrics, and recreational aesthetics.
+      </div>
+      <div class="flex-1">
+        <span class="font-stretch-expanded">The Conduction Series</span> <span class=""> is syndicated on <Link href="https://radiomonteaudio.org/" external>Radio MonteAudio</Link> in Montevideo, Uruguay, <Link href="https://tsonami.cl/" external >Radio Tsonami</Link> in Valpara&iacute;so, Chile,  <Link href="https://centrodeartesonoro.cultura.gob.ar/info/radio-caso/" external >Radio CASo</Link> in Buenos Aires, Argentina, <Link href="https://www.citr.ca/" external >CITR FM</Link> in Vancouver, Canada, <Link href="https://naisa.ca/naisa-radio/#conduction" external>New Adventures in Sound Art</Link> in Ontario, Canada, and on <Link href="https://1190.radio/" external >Radio 1190</Link> in Boulder/Denver, Colorado.</span>
+      </div>
+      <div class="flex-1">
+        <span class="font-stretch-expanded">The Conduction Series</span> members are Betsey Biggs (US), August Black (US), Peter Courtemanche (CA), Florencia Curci (AR), Jeff Economy (USA), Anna Friz (CA/DK), Jimmy Garver (US), Maximilian Goldfarb (US), Virginia Mantinian(AR), and Rodrigo R\u00edos Zunino (CL).
+      </div>
     </div>
     <div>
       <Link external href='http://conduction.wavefarm.org'>http://conduction.wavefarm.org</Link>
     </div>
-
     <Logos logos={['wavefarm']} />
-
-    <div class="font-bold">Syndicated by:</div>
-    <ul>
-      <li><Link external href="https://radiomonteaudio.org/">Radio MonteAudio</Link> in Montevideo, Uruguay</li>
-      <li><Link external href="https://tsonami.cl/">Radio Tsonami</Link> in Valpara&iacute;so, Chile</li>
-      <li><Link external href="https://www.citr.ca/">CITR FM</Link> in Vancouver, Canada</li>
-      <li><Link external href="https://naisa.ca/">New Adventures in Sound Art</Link> in Ontario, Canada.</li>
-    </ul>
     {props.children}
+    <Paper />
   </>
 )
 

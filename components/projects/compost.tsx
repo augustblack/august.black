@@ -93,14 +93,17 @@ const media: MediaProps[] = [
 ]
 const page: Component<{ children?: JSX.Element }> = (props) => (
   <>
-    <div class="">
-      One of the most disruptive technological developments of our time is also, now, one of the most diverse and overlooked.  While mobile smart phones come packed with computational capabilities (such as lidar, multiple cameras, and hi resolution displays) a very under-appreciated feature is the lowly wireless microphone built into each device.  While people tend to be attentive and accepting to their own photographic image, often smitten by their own appearance, the recorded voice  holds a parallax tension that is simultaneously  too personal and too foreign for many to accept as easily as a photograph. Like a camera, we carry a mic with us at all times, but don&apos;t use it in the same capacity despite (or because) it is so electric and cutting.
-    </div>
-    <div>
-      Audio Compost is a performance instrument and radiophonic installation whereby visitors can use their mobile phones to capture their voice and send it into a live  <Link external href="https://happymag.tv/frippertronics/">frippertronic loop</Link> that mixes their voices with others in an ever evolving and undetermined sonic event. For the performance part, the mobile phones of all participants act as both the microphone and the audio output.  Given 20-100 participants, each opens a simple web url in their mobile phone’s browser and clicks a button to record their voice.  The recording of any participant is sent to all others in real-time. Each user sees the audio waveforms of the other participants as well as a line going across their screen to mark the current play/record head. In bidirectional mode, each participant’s phone plays the entire loop in sync with all of the other participants as one big multi-channel wall of sound. In unidirectional mode, the sound is played for everyone over a PA.
-    </div>
-    <div>
-      The software is adaptable for various installations and venues, and is part of ongoing research in how to use global networking for hyper-local connectivity - how to create, mark, or display a sense of &ldquo;togetherness&rdquo;.
+    <div class="flex flex-col lg:flex-row gap-4">
+      <div class="flex-1">
+        One of the most disruptive technological developments of our time is also, now, one of the most diverse and overlooked.  While mobile smart phones come packed with computational capabilities (such as lidar, multiple cameras, and hi resolution displays) a very under-appreciated feature is the lowly wireless microphone built into each device.  While people tend to be attentive and accepting to their own photographic image, often smitten by their own appearance, the recorded voice  holds a parallax tension that is simultaneously  too personal and too foreign for many to digest as easily as a photograph. Like a camera, we carry a mic with us at all times, but don&apos;t use it in the same capacity despite (or because) it is so electric and cutting.
+      </div>
+      <div class="flex-1">
+        Audio Compost is a performance instrument and radiophonic installation whereby visitors can use their mobile phones to capture their voice and send it into a live  <Link external href="https://happymag.tv/frippertronics/">frippertronic loop</Link> that mixes their voices with others in an ever evolving and undetermined sonic event. For the performance part, the mobile phones of all participants act as both the microphone and audio output.  Given 20-100 participants, each opens a simple web url in their mobile phone’s browser and clicks a button to record their voice. The recording of any participant is sent to all others in real-time. Each user sees the audio waveforms of the other participants as well as a line going across their screen to mark the current play/record head.
+      </div>
+      <div class="flex-1">
+        It has two modes. In bidirectional mode, each participant’s phone plays the entire loop in sync with all of the other participants as one big multi-channel wall of sound. In unidirectional mode, the sound is played for everyone over a PA.
+        The software is adaptable for various installations and venues, and is part of ongoing research in how to use global networking for hyper-local connectivity - how to create, mark, or display a sense of &ldquo;togetherness&rdquo;.
+      </div>
     </div>
     {props.children}
   </>

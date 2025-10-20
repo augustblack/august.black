@@ -1,60 +1,71 @@
-import "./tailwind.css";
-import type { JSX } from "solid-js";
-import { Show, createSignal, createEffect } from "solid-js";
-import Critical from "../components/critical";
-import Nav from "../components/nav";
-import { createZzz } from "../components/zzz";
+import "./tailwind.css"
+import type { JSX } from "solid-js"
+import { onMount, Show, createSignal, createEffect } from "solid-js"
+import Critical from "../components/critical"
+import { createZzz } from "../components/zzz"
 
-const Slate = [
+let isDarkMode = false
+
+const Normal = [
+  "#ffffff", // 100
   "#f1f5f9", // 100
   "#e2e8f0", // 200
   "#cbd5e1", // 300
-  "#94a3b8", // 400
-  "#64748b", // 500
-  "#475569", // 600
-  "#334155", // 700
-  "#1e293b", // 800
-  "#0f172a", // 900
-  "#020617", // 950
 ]
 
-const Red = [
+const Crit = [
   "#fee2e2", // 100
   "#fecaca", // 200
   "#fca5a5", // 300
   "#f87171", // 400
-  "#ef4444", // 500
-  "#dc2626", // 600
-  "#b91c1c", // 700
-  "#991b1b", // 800
-  "#7f1d1d", // 900
-  "#450a0a", // 950
 ]
+
+const setCols = (dm: boolean) => {
+  let styles = getComputedStyle(document.documentElement)
+  if (dm) {
+    Crit[0] = styles.getPropertyValue("--color-yellow-700")
+    Crit[1] = styles.getPropertyValue("--color-yellow-800")
+    Crit[2] = styles.getPropertyValue("--color-yellow-900")
+    Crit[3] = styles.getPropertyValue("--color-yellow-950")
+    Normal[0] = styles.getPropertyValue("--color-sky-950")
+    Normal[1] = styles.getPropertyValue("--color-red-950")
+    Normal[2] = styles.getPropertyValue("--color-slate-950")
+    Normal[3] = styles.getPropertyValue("--color-orange-950")
+  } else {
+    Crit[0] = styles.getPropertyValue("--color-yellow-50")
+    Crit[1] = styles.getPropertyValue("--color-yellow-100")
+    Crit[2] = styles.getPropertyValue("--color-yellow-200")
+    Crit[3] = styles.getPropertyValue("--color-yellow-300")
+    Normal[0] = styles.getPropertyValue("--color-slate-100")
+    Normal[1] = styles.getPropertyValue("--color-red-100")
+    Normal[2] = styles.getPropertyValue("--color-slate-200")
+    Normal[3] = styles.getPropertyValue("--color-orange-50")
+  }
+}
 
 function getRandomColor(pos: number) {
   return Math.random() + pos > 1.25
-    ? Red[Math.floor(Math.random() * Red.length)]
-    : Slate[Math.floor(Math.random() * Slate.length)]
+    ? Crit[Math.floor(Math.random() * Crit.length)]
+    : Normal[Math.floor(Math.random() * Normal.length)]
 }
 
 function getCriticalColor(pos: number) {
   return pos > 0.5
-    ? Red[Math.floor(Red.length - 3 + Math.random() * 3)]
-    : Slate[Math.floor(Slate.length - 3 + Math.random() * 3)]
+    ? Crit[Math.floor(Crit.length + Math.random() * 3)]
+    : Normal[Math.floor(Normal.length + Math.random() * 3)]
 }
 
 // Draw MARPAT-like digital camo
 function drawCamo(ctx: CanvasRenderingContext2D, width: number, height: number, runlen: number, rsize: number) {
   const timeSeg = 180 * 1000
   const pos = 1 - (Math.cos(((runlen % timeSeg) / timeSeg) * Math.PI * 2) * 0.5 + 0.5)
-  const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
   // Clear canvas
   ctx.clearRect(0, 0, width, height)
   const tmp = Math.random()
   const bgcol = tmp + pos > 1.25
-    ? Red[isDarkMode ? 7 : 2]
-    : Slate[isDarkMode ? 7 : 2]
+    ? Crit[2]
+    : Normal[2]
   ctx.fillStyle = bgcol
   ctx.fillRect(0, 0, width, height)
 
@@ -78,7 +89,7 @@ function drawCamo(ctx: CanvasRenderingContext2D, width: number, height: number, 
 }
 // Draw MARPAT-like digital camo
 function drawCamoIter(ctx: CanvasRenderingContext2D, width: number, height: number, x: number, y: number) {
-  const rectSize = 12 // Size of each "pixel" in the pattern
+  const rectSize = 50 // Size of each "pixel" in the pattern
   const density = Math.min(1, 0.2) // Percentage of rectangles to draw
   if (x > width) {
     //console.log('new line')
@@ -114,6 +125,25 @@ export default function LayoutDefault(props: { children?: JSX.Element }) {
   let af = 0
   let x = 0, y = 0
 
+  onMount(() => {
+    const darkModeQuery = window.matchMedia("(prefers-color-scheme: dark)")
+    isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+    setCols(isDarkMode)
+
+    const handleDarkChange = (event: MediaQueryListEvent) => {
+      isDarkMode = event.matches
+      setCols(isDarkMode)
+
+      const context = canvRef?.getContext('2d', { alpha: false })
+      if (context && canvRef) {
+        console.log('change', isDarkMode)
+        drawCamo(context, canvRef.width, canvRef.height, 0, 50)
+      }
+    }
+    darkModeQuery.addEventListener('change', handleDarkChange)
+
+  })
+
   createEffect(() => {
     if (!canvRef) return
     if (af) {
@@ -130,7 +160,7 @@ export default function LayoutDefault(props: { children?: JSX.Element }) {
     let then: number
     const fpsInterval = 1000 / fps()
     //console.log('fpsInterval', fpsInterval)
-    drawCamo(context, canvas.width, canvas.height, 0, 12)
+    drawCamo(context, canvas.width, canvas.height, 0, 50)
 
     function onAnimate(timestamp: number) {
       if (start === undefined) {
@@ -165,7 +195,6 @@ export default function LayoutDefault(props: { children?: JSX.Element }) {
       .then((astate) => setShowNav(sn => {
         const play = sn && astate === 'running'
         if (play) {
-          console.log('fast')
           setFps(15)
           const leftNode = left()
           const ctxNode = ctx()
@@ -186,7 +215,6 @@ export default function LayoutDefault(props: { children?: JSX.Element }) {
             document.body.requestFullscreen().catch(console.log)
           }
         } else {
-          console.log('slow')
           setFps(5)
           setPos(0)
           setVol(0.0)
@@ -202,7 +230,12 @@ export default function LayoutDefault(props: { children?: JSX.Element }) {
 
   return (
     <>
-      <canvas ref={canvRef} class="fixed left-0 top-0 -z-10 w-screen h-screen object-cover" width="800" height="800" />
+      <canvas
+        ref={canvRef}
+        class={"fixed left-0 top-0 -z-10 object-fill w-screen h-screen transition-filter ease-in-out duration-500 " + (showNav() ? " blur-xl" : "")}
+        width="800"
+        height="800"
+      />
       <Show when={pos() > 0.0001} >
         <div
           class="fixed top-0 left-0 w-screen h-screen p-4 -rotate-12 scale-90"
@@ -211,11 +244,19 @@ export default function LayoutDefault(props: { children?: JSX.Element }) {
           <Critical pos={pos() * 0.7} />
         </div>
       </Show>
-      <div class="p0 lg:p-10 xl:p-12 flex flex-col text-sm sm:text-md md:text-lg lg:text-xl   ">
-        <Nav toggle={toggle} show={showNav()} canPlayAudio={audioState() === 'running'} />
+      <div class="flex flex-col text-sm sm:text-md md:text-lg lg:text-xl items-center justify-items-center-safe ">
         <Show when={showNav()}>
           {props.children}
         </Show>
+        <button class="fixed right-0 top-0 text-primary-content p-4 cursor-pointer select-none z-10 " onclick={toggle}  >
+          <Show
+            when={fps() < 10}
+            fallback={<span >&#x78;</span>}
+          >
+            <span >&#9776;</span>
+          </Show>
+        </button>
+
       </div>
     </>
   )
