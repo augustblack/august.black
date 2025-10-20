@@ -237,11 +237,11 @@ export const MediaGroup: Component<MediaGroupProps> = (props) => {
 }
 
 export const MediaGrid: Component<MediaGridProps> = (props) => (
-  <div class="min-w-1/2 mx-auto flex-1">
-    <div class="grid grid-flow-row gap-2 md:gap4 lg:gap-8 grid-cols-1 md:grid-cols-2 2xl:grid-cols-3">
+  <div class="flex-1 w-full">
+    <div class="grid grid-flow-row gap-0 grid-cols-1 md:grid-cols-2 2xl:grid-cols-3">
       <For each={props.media}>
         {(m, _idx) => (
-          <div class={"relative w-full " + (props.aspect)}>
+          <div class={"relative w-full overflow-hidden " + (props.aspect)}>
             <Media {...m} />
           </div>
         )}
