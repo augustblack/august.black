@@ -30,7 +30,7 @@ const ProjectRow: Component<ShortProps & { pid: string }> = (props) => {
       </div>
       <div class="collapse-content overflow-hidden bg-linear-to-b from-primary/100 via-30% via-base-100/50 to-base-100/10 text-base-content p-0 m-0 pb-0 " >
         <Show when={open()} >
-          <div class="flex flex-col sm:flex-row gap-4 md:gap-6 lg:gap-8">
+          <div class="flex flex-col sm:flex-row gap-4 md:gap-6 lg:gap-8 pb-4">
             <div class={"w-full sm:w-1/2 flex-none "}>
               <MediaGroup media={props.project.media} aspect={props.project.aspect || "aspect-video"} />
             </div>
