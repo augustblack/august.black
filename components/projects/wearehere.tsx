@@ -70,6 +70,24 @@ const media: ImageProps[] = [
   },
   {
     kind: 'image',
+    alt: 'installation view at SMC, Graz, Austria 2025',
+    src: "media/wearehere/wah_graz_2025_01.jpg",
+    width: 4080,
+    height: 3072,
+    blurDataURL: "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAAAQAgCdASoKAAgAAUAmJaACdGuAAkLb0r9AAPzmGrtse4IQS+PWDYJcM1r1eMi+q7/y+ouVIO3BVyu/X3+NDi6rpr8Wk51PjlfEODGhLGP65q3+Degu0INapjx/wJJHJyAAAA==",
+    caption: () => (<div>Installation view @ SMC 2025 in Graz, Austria.</div>)
+  },
+  {
+    kind: 'image',
+    alt: 'installation view at SMC, Graz, Austria 2025',
+    src: "media/wearehere/wah_graz_2025_02.jpg",
+    width: 4080,
+    height: 3072,
+    blurDataURL: "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADwAQCdASoKAAgAAUAmJZACdAEDfr4xucAA/uCsPtCM21OBd+7VUWbwX93e8uo/ygweSiUmr08atc9t1PZkH+H4AvST1Wb8S723wfJVw6gSpMP4ueAAAA==",
+    caption: () => (<div>Installation view @ SMC 2025 in Graz, Austria.</div>)
+  },
+  {
+    kind: 'image',
     alt: 'installation view at Piksel 2022',
     src: "media/wearehere/piksel_2022.jpg",
     width: 3840,
@@ -102,38 +120,40 @@ const page: Component<{ children?: JSX.Element }> = (props) => (
   <>
     <div class="flex flex-col lg:flex-row gap-4">
       <div class="flex-1">
-        <Link external href='https://wearehere.fm'>We Are Here FM</Link> is an ongoing project by artists <Link external href="https://www.betseybiggs.org/">Betsey Biggs</Link> and <Link href="/" >August Black</Link> that navigates our conceptions of place through images and sounds that are geographically, but not necessarily chronologically or aesthetically, coordinated. Consisting of an ongoing stream of images and generative music in the web, the real-time audiovisual broadcast creates an ever-shifting hyperreal landscape of imaginary situations. Sometimes displayed as an on-site multi-channel installation, these experiences are at times magically experimental, at times hauntingly disturbing, and at times utterly mundane. All listeners, on-site or online, experience the same sound and image at the same time.
+        <Link external href='https://wearehere.fm'>We Are Here FM</Link> is an ongoing project by artists <Link external href="https://www.betseybiggs.org/">Betsey Biggs</Link> and <Link href="/">August Black</Link> that navigates our conceptions of place through images and sounds that are geographically, but not necessarily chronologically or aesthetically, coordinated. Consisting of an ongoing stream of images and generative music in the web, the real-time audiovisual broadcast creates an ever-shifting hyperreal landscape of imaginary situations. Sometimes displayed as an on-site multi-channel installation, these experiences are at times magically experimental, at times hauntingly disturbing, and at times utterly mundane.       </div>
+      <div class="flex-1">Currently using google maps for images and Freesound.org for audio, the audio-visual pairing comes from a random dart throw on the global map.  If there are images and sounds in that area, we show them and include them in the ongoing broadcast. No place names or context are offered, and geographical locations are randomly chosen every five minutes. As such, the project immerses visitors - both sonically and visually - in a realistic yet artificially created landscape and they must locate themselves — physically, emotionally, socially and politically — within this space.
       </div>
-      <div class="flex-1">Currently using google maps for images and Freesound.org for audio, the audio-visual pairing comes from a random dart throw on the global map.  If there are images and sounds in that area, we show them and include them in the ongoing broadcast. No place names or context are offered, and geographical locations are randomly chosen every five minutes. As such, the project immerses visitors - both sonically and visually - in a realistic yet artificially created landscape and they must locate themselves — physically, emotionally, socially and politically — within this space. </div>
-      <div class="flex-1">
-        We hope you enjoy getting lost with us.
+      <div class="flex-1 space-y-4">
+        <div>As all listeners, on-site or online, experience the same sound and image at the same time, there is a synchronicity to the experience as well. All listeners and watchers are getting lost together, at the same time, but in different ways.</div>
+        <div>We hope you enjoy getting lost with us.</div>
         <div><Link external href="https://wearehere.fm">https://wearehere.fm</Link></div>
       </div>
     </div>
     <div class=""><b>Betsey Biggs and August Black</b> collaborate on projects bringing together transmission practice, generative systems, community and place.  Their web-based installation, We Are Here FM creates haunting hyperreal audiovisual landscapes from geo-tagged audio and panoramic images, and their <b>Front Yard Radio</b> project (in progress), will create a network of hyper-local, user-friendly public radio stations in and around Boulder County, Colorado.</div>
+
     <div class="space-y-2">
-      <div class="font-medium">Press, publications:</div>
+      <div class="font-medium">Press:</div>
       <div ><Link external href='https://blackflash.ca/shifting-and-transitory-soundscapes-we-are-here-fm/'>Blackflash Magazine article</Link> by Cléo Sallis-Parchet</div>
-      <div ><Link external href='https://thedigitalreview.com/issue02/biggs_weareherefm/index.html'>The Digital Review</Link></div>
     </div>
+
+    <div class="space-y-2">
+      <div class="font-medium">Publications:</div>
+      <div ><Link external href='https://thedigitalreview.com/issue02/biggs_weareherefm/index.html'>The Digital Review</Link></div>
+      <div ><Link external href='https://smc25.iem.at/'>Sound and Music Computing, Graz 2025</Link></div>
+    </div>
+
     {props.children}
+
   </>
 )
 
 const longy: Component<{ children?: JSX.Element }> = (props) => (
   <>
     <div class="">
-      <LinkPlain external href='https://wearehere.fm'>We Are Here FM</LinkPlain> is an ongoing project by artists <LinkPlain external href="https://www.betseybiggs.org/">Betsey Biggs</LinkPlain>
-      and
-      <LinkPlain external href="/" >August Black</LinkPlain>
+      <LinkPlain external href='https://wearehere.fm'>We Are Here FM</LinkPlain> is an ongoing project by artists <Link external href="https://www.betseybiggs.org/">Betsey Biggs</Link> and <Link external href="/" >August Black</Link>
       that navigates our conceptions of place through images and sounds that are geographically, but not necessarily chronologically or aesthetically, coordinated. Consisting of an ongoing stream of images and generative music in the web, the real-time audiovisual broadcast creates an ever-shifting hyperreal landscape of imaginary situations. Sometimes displayed as an on-site multi-channel installation, these experiences are at times magically experimental, at times hauntingly disturbing, and at times utterly mundane. All listeners, on-site or online, experience the same sound and image at the same time. We hope you enjoy getting lost with us.
     </div>
     <div class=""><Link external href='https://wearehere.fm'>https://wearehere.fm</Link></div>
-    <div class="space-y-2">
-      <div class="font-medium">Press, publications:</div>
-      <div ><Link external href='https://blackflash.ca/shifting-and-transitory-soundscapes-we-are-here-fm/'>Blackflash Magazine article</Link> by Cléo Sallis-Parchet</div>
-      <div ><Link external href='https://thedigitalreview.com/issue02/biggs_weareherefm/index.html'>The Digital Review</Link></div>
-    </div>
     {props.children}
   </>
 )
