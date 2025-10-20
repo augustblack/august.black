@@ -52,8 +52,24 @@ const DCMP = () => (
 
   </div>
 )
+const CKWeb = () => (
+  <div class="w-28 h-16 sm:h-14 sm:w-42 flex-none flex place-items-center">
+    <a target="_blank" href="https://ckweb.gov.co/">
+      <Image
+        class="w-full relative invert dark:invert-0 "
+        draggable={false}
+        alt='DCMP logo'
+        src="img/logo-ckweb.png"
+        width={307}
+        height={57}
+        blurDataURL="data:image/webp;base64,UklGRlQAAABXRUJQVlA4WAoAAAAQAAAACQAAAQAAQUxQSBUAAAAAaUZ3UYhgdH1ngl8/ZzhgoGRdWXYAVlA4IBgAAAAwAQCdASoKAAIAAUAmJaQAA3AA/vz0AAA="
+      />
+    </a>
 
-type LogoNames = 'atlas' | 'dcmp' | 'wavefarm'
+  </div>
+)
+
+type LogoNames = 'atlas' | 'dcmp' | 'wavefarm' | 'ckweb'
 
 export const Logos: Component<{ logos: Array<LogoNames> }> = (props) => (
   <>
@@ -66,7 +82,9 @@ export const Logos: Component<{ logos: Array<LogoNames> }> = (props) => (
             ? <DCMP />
             : l === 'wavefarm'
               ? <Wavefarm />
-              : null
+              : l === 'ckweb'
+                ? <CKWeb />
+                : null
         }
       </For>
     </div>
