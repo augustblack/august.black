@@ -2,6 +2,7 @@ import { Component, JSX } from 'solid-js'
 import { Project } from './types'
 import { MediaProps } from '../media'
 import { Link } from '../link'
+import { Logos } from './logos'
 
 
 const media: MediaProps[] = [
@@ -105,6 +106,7 @@ const page: Component<{ children?: JSX.Element }> = (props) => (
         The software is adaptable for various installations and venues, and is part of ongoing research in how to use global networking for hyper-local connectivity - how to create, mark, or display a sense of &ldquo;togetherness&rdquo;.
       </div>
     </div>
+    <Logos logos={['ckweb']} />
     {props.children}
   </>
 )
