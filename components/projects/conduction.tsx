@@ -42,9 +42,9 @@ const media: MediaProps[] = [
     kind: 'image',
     alt: 'conduction series logo',
     src: "media/conduction_series/conduction_web_2025.jpg",
-    width: 2000,
-    height: 1600,
-    blurDataURL: "data:image/webp;base64,UklGRjIAAABXRUJQVlA4ICYAAABQAQCdASoKAAgAAUAmJaQABAAAAP78PAEm/2u/S8Dhb1zw8gAAAA=="
+    width: 2125,
+    height: 1773,
+    blurDataURL: "data:image/webp;base64,UklGRjQAAABXRUJQVlA4ICgAAAAwAQCdASoKAAgAAUAmJaQAA3AA/vwfOPcl2H7gHODDkXwwu84gHgAA"
   },
   {
     kind: 'image',
