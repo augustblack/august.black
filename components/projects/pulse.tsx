@@ -81,6 +81,15 @@ const media: MediaProps[] = [
     src: 'https://assets.august.black/media/pulse/pulse_nov_2024.mp4',
     poster: 'https://assets.august.black/media/pulse/pm_02.jpg'
   },
+  {
+    kind: 'image',
+    alt: 'picture of pink painting with round red dot in middle and qr code at the bottom.',
+    src: "media/pulse/pulse_painting_recess.jpg",
+    width: 3200,
+    height: 2400,
+    caption: () => (<div>Pulse Memorial painting with QR code to launch the project, as exhibited at the <Link external href="https://leafcolorado.org/leaf2025-recess-exhibit/">LEAF Recess exhibit 2025</Link></div>),
+    blurDataURL: "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAAAQAgCdASoKAAgAAUAmJYgCw7EfUlwB2HAAAP64Rg+B3uwdSEbPenV3dj5Db0iu0pXRP6hg/romRYBWh8RpkiJ/edjCVc0wEsAPVeMz+psfpP/K7wX2VFcu2TAAAA=="
+  }
   /*
   {
     kind: 'image',
