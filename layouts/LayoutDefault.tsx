@@ -232,7 +232,7 @@ export default function LayoutDefault(props: { children?: JSX.Element }) {
     <>
       <canvas
         ref={canvRef}
-        class={"fixed left-0 top-0 -z-10 object-fill w-screen h-screen transition-filter ease-in-out duration-500 " + (showNav() ? " blur-xl" : "")}
+        class={"fixed left-0 top-0 -z-10 object-fill w-screen h-screen transition-filter ease-in-out duration-500 " + (showNav() ? " blur-3xl" : "")}
         width="800"
         height="800"
       />
@@ -248,7 +248,7 @@ export default function LayoutDefault(props: { children?: JSX.Element }) {
         <Show when={showNav()}>
           {props.children}
         </Show>
-        <label class="btn btn-circle p-4 btn-primary swap swap-rotate fixed right-0 top-0 text-primary-content " >
+        <label class="btn btn-circle btn-md md:btn-lg btn-primary swap swap-rotate fixed right-1 top-1 text-primary-content " >
           <input type="checkbox" onchange={toggle} />
 
           <svg
