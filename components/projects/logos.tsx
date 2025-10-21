@@ -73,7 +73,7 @@ type LogoNames = 'atlas' | 'dcmp' | 'wavefarm' | 'ckweb'
 
 export const Logos: Component<{ logos: Array<LogoNames> }> = (props) => (
   <>
-    <div class="font-bold">Supported by:</div>
+    <div class="">Supported by:</div>
     <div class="flex flex-wrap gap-2 sm:gap-4 md:gap-6 justify-start">
       <For each={props.logos}>
         {(l) => l === 'atlas'
