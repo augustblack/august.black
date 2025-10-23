@@ -1,4 +1,4 @@
-import { createSignal, onMount, onCleanup } from 'solid-js'
+import { createSignal, createContext, onMount, onCleanup } from 'solid-js'
 
 type AudioState = 'suspended' | 'running' | 'closed' | 'interrupted'
 
@@ -9,6 +9,8 @@ type ZzzStore = {
   left: () => OscillatorNode | null
   ctx: () => AudioContext | null
 }
+
+export const MainContext = createContext()
 
 export const createZzz = (): ZzzStore => {
   const [audioState, setAudioState] = createSignal<AudioState>('suspended')

@@ -1,10 +1,9 @@
 import "./tailwind.css"
 import type { JSX } from "solid-js"
-import { onMount, Show, createSignal, createEffect } from "solid-js"
+import { onMount, Show, createEffect } from "solid-js"
+import { createStore } from "solid-js/store"
 import Critical from "../components/critical"
-import { createZzz } from "../components/zzz"
-
-let isDarkMode = false
+import { createZzz, MainContext } from "../components/zzz"
 
 const Normal = [
   "#ffffff", // 100
@@ -92,12 +91,10 @@ function drawCamoIter(ctx: CanvasRenderingContext2D, width: number, height: numb
   const rectSize = 50 // Size of each "pixel" in the pattern
   const density = Math.min(1, 0.2) // Percentage of rectangles to draw
   if (x > width) {
-    //console.log('new line')
     x = 0
     y += rectSize
   }
   if (y > height) {
-    //console.log('back to top')
     x = 0
     y = 0
   }
@@ -115,33 +112,57 @@ function drawCamoIter(ctx: CanvasRenderingContext2D, width: number, height: numb
   return [x, y]
 }
 
+const getTheme = () => {
+  if (typeof window === 'undefined') return "light"
+  const theme = localStorage.getItem("theme")
+  if (theme) {
+    return theme
+  }
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light"
+}
 
 export default function LayoutDefault(props: { children?: JSX.Element }) {
-  const [showNav, setShowNav] = createSignal(true)
-  const [fps, setFps] = createSignal(9)
-  const [pos, setPos] = createSignal(0)
-  const { setVol, resume, audioState, left, ctx } = createZzz()
-  let canvRef: HTMLCanvasElement | undefined
+  const [state, setState] = createStore({
+    nav: true,
+    fps: 9,
+    pos: 0,
+    theme: getTheme()
+  })
+  const { setVol, resume, left, ctx } = createZzz()
+  let canvRef !: HTMLCanvasElement
+  let inputRef !: HTMLInputElement
   let af = 0
   let x = 0, y = 0
 
+  const onDarkChange = (doDark: boolean) => {
+    setCols(doDark)
+    inputRef.checked = doDark
+    const context = canvRef?.getContext('2d', { alpha: false })
+    if (context && canvRef) {
+      drawCamo(context, canvRef.width, canvRef.height, 0, 50)
+    }
+  }
+
   onMount(() => {
     const darkModeQuery = window.matchMedia("(prefers-color-scheme: dark)")
-    isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
-    setCols(isDarkMode)
 
     const handleDarkChange = (event: MediaQueryListEvent) => {
-      isDarkMode = event.matches
-      setCols(isDarkMode)
-
-      const context = canvRef?.getContext('2d', { alpha: false })
-      if (context && canvRef) {
-        console.log('change', isDarkMode)
-        drawCamo(context, canvRef.width, canvRef.height, 0, 50)
-      }
+      const theme = localStorage.getItem("theme")
+      const isDarkMode = theme === "dark"
+        ? true
+        : event.matches
+      setState("theme", isDarkMode ? "dark" : "light")
     }
     darkModeQuery.addEventListener('change', handleDarkChange)
+  })
 
+  createEffect(() => {
+    const theme = state.theme
+    localStorage.setItem("theme", theme)
+    const isDarkMode = theme === "dark"
+    onDarkChange(isDarkMode)
   })
 
   createEffect(() => {
@@ -158,8 +179,7 @@ export default function LayoutDefault(props: { children?: JSX.Element }) {
     let max: number
     let elapsed: number
     let then: number
-    const fpsInterval = 1000 / fps()
-    //console.log('fpsInterval', fpsInterval)
+    const fpsInterval = 1000 / state.fps
     drawCamo(context, canvas.width, canvas.height, 0, 50)
 
     function onAnimate(timestamp: number) {
@@ -171,18 +191,16 @@ export default function LayoutDefault(props: { children?: JSX.Element }) {
       const len = 180 * 1000
       const runlen = timestamp - start
       elapsed = timestamp - then
-      //console.log('start', start, "fpsInterval", fpsInterval, "elapsed", elapsed)
       if (max === 0 || elapsed > fpsInterval) {
         then = timestamp - (elapsed % fpsInterval);
         // runlen comes in as millisecons
         const mul = 1 - (Math.cos(((runlen % len) / len) * Math.PI * 2) * 0.5 + 0.5)
         max = Math.max(mul, max)
-        if (fps() > 10 && context) {
+        if (state.fps > 10 && context) {
           const posValue = drawCamo(context, canvas.width, canvas.height, (timestamp - start), 6)
-          setPos(posValue)
+          setState("pos", posValue)
         } else if (context) {
           [x, y] = drawCamoIter(context, canvas.width, canvas.height, x, y)
-          //console.log(x, y)
         }
       }
       af = window.requestAnimationFrame(onAnimate)
@@ -192,10 +210,10 @@ export default function LayoutDefault(props: { children?: JSX.Element }) {
 
   const toggle = (e: Event) => {
     resume()
-      .then((astate) => setShowNav(sn => {
-        const play = sn && astate === 'running'
+      .then((astate) => {
+        const play = state.nav && astate === 'running'
         if (play && e.target?.checked) {
-          setFps(15)
+          setState("fps", 15)
           const leftNode = left()
           const ctxNode = ctx()
           if (leftNode && ctxNode) {
@@ -215,42 +233,42 @@ export default function LayoutDefault(props: { children?: JSX.Element }) {
             document.body.requestFullscreen().catch(console.log)
           }
         } else {
-          setFps(5)
-          setPos(0)
+          setState("fps", 5)
+          setState("pos", 0)
           setVol(0.0)
           if (document.fullscreenElement) {
             document.exitFullscreen()
           }
         }
 
-        return !sn
-      }))
+        return setState("nav", (sn) => !sn)
+      })
       .catch(console.error)
   }
 
   return (
-    <>
+    <MainContext.Provider value={{ state, setState }}>
+      <input ref={inputRef} type="checkbox" class="theme-controller hidden" value="dark" />
       <canvas
         ref={canvRef}
-        class={"fixed left-0 top-0 -z-10 object-fill w-screen h-screen transition-filter ease-in-out duration-500 " + (showNav() ? " blur-3xl" : "")}
+        class={"fixed left-0 top-0 -z-1 object-fill w-screen h-screen transition-filter ease-in-out duration-500 " + (state.nav ? " blur-3xl" : "")}
         width="800"
         height="800"
       />
-      <Show when={pos() > 0.0001} >
+      <Show when={state.pos > 0.0001} >
         <div
-          class="fixed top-0 left-0 w-screen h-screen p-4 -rotate-12 scale-90"
-          style={{ color: getCriticalColor(pos()) }}
+          class="fixed top-0 left-0 w-screen h-screen p-4 -rotate-12 scale-90 z-1"
+          style={{ color: getCriticalColor(state.pos) }}
         >
-          <Critical pos={pos() * 0.7} />
+          <Critical pos={state.pos * 0.7} />
         </div>
       </Show>
-      <div class="flex flex-col text-sm sm:text-md md:text-lg lg:text-xl items-center justify-items-center-safe ">
-        <Show when={showNav()}>
+      <div class="z-1 flex flex-col text-sm sm:text-md md:text-lg lg:text-xl items-center justify-items-center-safe ">
+        <Show when={state.nav}>
           {props.children}
         </Show>
         <label class="btn btn-circle btn-md md:btn-lg btn-primary swap swap-rotate fixed right-1 top-1 text-primary-content " >
           <input type="checkbox" onchange={toggle} />
-
           <svg
             class="swap-off fill-current"
             xmlns="http://www.w3.org/2000/svg"
@@ -272,6 +290,6 @@ export default function LayoutDefault(props: { children?: JSX.Element }) {
         </label>
 
       </div>
-    </>
+    </MainContext.Provider>
   )
 }
