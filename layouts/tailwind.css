@@ -1,4 +1,8 @@
 @import "tailwindcss";
+
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
 @plugin "daisyui" {
   themes: light --default, dark;
 }
@@ -30,6 +34,7 @@
   --color-error: oklch(65% 0.3 30);
   --color-error-content: oklch(98% 0.01 30);
 }
+
 @plugin "daisyui/theme" {
   name: "dark";
   default: false; /* set as default */
@@ -60,9 +65,8 @@
 
 html {
     font-family: aktiv-grotesk,Helvetica,sans-serif;
-    --tw-text-opacity: 1;
-    color: rgb(0 0 0/var(--tw-text-opacity))
 }
+
 html, body {
   overscroll-behavior-x: none;
   overscroll-behavior-y: none;

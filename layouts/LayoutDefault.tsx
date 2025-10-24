@@ -132,13 +132,12 @@ export default function LayoutDefault(props: { children?: JSX.Element }) {
   })
   const { setVol, resume, left, ctx } = createZzz()
   let canvRef !: HTMLCanvasElement
-  let inputRef !: HTMLInputElement
   let af = 0
   let x = 0, y = 0
 
   const onDarkChange = (doDark: boolean) => {
     setCols(doDark)
-    inputRef.checked = doDark
+    document.documentElement.setAttribute("data-theme", doDark ? "dark" : "light")
     const context = canvRef?.getContext('2d', { alpha: false })
     if (context && canvRef) {
       drawCamo(context, canvRef.width, canvRef.height, 0, 50)
@@ -248,7 +247,6 @@ export default function LayoutDefault(props: { children?: JSX.Element }) {
 
   return (
     <MainContext.Provider value={{ state, setState }}>
-      <input ref={inputRef} type="checkbox" class="theme-controller hidden" value="dark" />
       <canvas
         ref={canvRef}
         class={"fixed left-0 top-0 -z-1 object-fill w-screen h-screen transition-filter ease-in-out duration-500 " + (state.nav ? " blur-3xl" : "")}

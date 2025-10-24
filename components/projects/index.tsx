@@ -68,10 +68,12 @@ const Proyectos: Component<{ pid: string }> = (props) => {
   const toggleDark = () => setState("theme", (st: string) => st === "dark" ? "light" : "dark")
 
   createEffect(() => {
-    if (state.theme === "light") {
-      labelRef.classList.add("swap-active")
-    } else {
-      labelRef.classList.remove("swap-active")
+    if (labelRef) {
+      if (state.theme === "light") {
+        labelRef.classList.add("swap-active")
+      } else {
+        labelRef.classList.remove("swap-active")
+      }
     }
   })
 
