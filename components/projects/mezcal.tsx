@@ -42,17 +42,40 @@ const media: MediaProps[] = [
     alt: 'mezcal logo'
   },
   {
-    kind: 'image',
-    src: "media/mezcal/wavefarm_workshop_mobile.jpg",
-    width: 1080,
-    height: 720,
-    blurDataURL: "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAADwAQCdASoKAAcAAUAmJaQCw7DdK//JSoAA/voP1ry7hHefgcbSLFH6KrF1yZsLfOO/mDxBifYfz3/+lZGnu0PSco6fD9MX+wv3ba9iBXuJcAW8QRE0FGAAAAA=",
-    alt: 'mobile phone with audio mixer app, mezcal',
-    caption: () => (<div>The mezcal interface.
-      <Alon />
-    </div>
+    kind: "image",
+    src: "media/mezcal/mezcal_ttu_2024_devices.jpg",
+    width: 6000,
+    height: 4000,
+    alt: 'three mobile devices of different sizes outside on an overcast day near the shore.',
+    blurDataURL: "data:image/webp;base64,uklgrniaaabxrujqvla4igyaaaaqagcdasokaacaauamjqbogcnczfhjs2gaap78cfve0j3far4+itgdcqre1vx0/bpi4srmup4iydbmrvka8jki3vufs+7ywqmhcjxcauqmk/qliyjrqffuc8byjh7takmwsxuaaaa=",
+    caption: () => (
+      <div class='flex-grow'>Mezcal is built with a mobile-first design methodology. </div>
     )
   },
+  {
+    kind: "image",
+    src: "media/mezcal/mezcal_ttu_2024_grupo.jpg",
+    alt: 'three people with mobile devices and radios outside by the seaside',
+    width: 6000,
+    height: 4000,
+    blurDataURL: "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAADwAQCdASoKAAcAAUAmJZQCdAD7D6F//AAA/iefRQPYX4BpRlGD+EC0i2Tc8i1Z6Y5hfz70/56dsl3/J1i7oXh3v/gL/q7xeeg9IQlNm+u3OGdFK3cggZwBB6R9FUCT10AAAA==",
+    caption: () => (
+      <div class='flex-grow'>Mezcal works well in outdoor low-bandwidth situations </div>
+    )
+  },
+  {
+    kind: "image",
+    src: "media/mezcal/mezcal_ttu_2024_flor.jpg",
+    alt: 'White woman with fair hair holding a moblie phone with attached microphone and Mezcal displayed.',
+    width: 5108,
+    height: 3405,
+    blurDataURL: "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAADwAQCdASoKAAcAAUAmJbACdAEXZm1UomwA4n+qs+NweRDkzEqR1EFiEeeQDz31Pqak5cawJSN1+IY5Db1OTdftOIULci7sMbAeEj+RtSrtoqunsjRYjd2q1UEAAA==",
+    caption: () => (
+      <div class='flex-grow'>Florencia Curci with mobile mezcal setup.</div>
+    )
+  },
+
+
   {
     kind: 'image',
     src: "media/mezcal/mezcal-todo_la_teoria-2024-01-06.jpg",
@@ -115,6 +138,15 @@ const media: MediaProps[] = [
     blurDataURL: "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAAAQAgCdASoKAAcAAUAmJZQCdAYrxaXUEAAAAP6JOMc/REPF8MGnPKM6ulcZDCbTgqT7BG1Vh/EjRfiiG1/v53y3zEOssGyFWY1OKvyYKJgJO54wiyorqwAA",
     alt: 'Photo collage of two men experimenting with mezcal.',
     caption: () => (<div>Mezcal workshops @ Piksel 2022 in Bergen, Norway</div>)
+  },
+  {
+    kind: 'image',
+    src: "media/mezcal/wavefarm_workshop_mobile.jpg",
+    width: 1080,
+    height: 720,
+    blurDataURL: "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAADwAQCdASoKAAcAAUAmJaQCw7DdK//JSoAA/voP1ry7hHefgcbSLFH6KrF1yZsLfOO/mDxBifYfz3/+lZGnu0PSco6fD9MX+wv3ba9iBXuJcAW8QRE0FGAAAAA=",
+    alt: 'mobile phone with audio mixer app, mezcal',
+    caption: () => (<div>Early mezcal interface on a mobile phone. <Alon /> </div>)
   },
   {
     kind: 'image',
@@ -236,8 +268,8 @@ const media: MediaProps[] = [
     blurDataURL: "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADwAQCdASoKAAgAAUAmJZQCdAEQ/SwO0QAA/ug/Rdm8lvQE6qB15cVQt638eX7bXFdIBz4DO/jrXuZfVBMDHoUjoRyJFJXdFdOsBGllsAA=",
     bg: 'bg-black',
     alt: 'mezcal interface',
-    caption: () => (<div>The mezcal interface.</div>)
-  },
+    caption: () => (<div>An early version 1 mezcal interface.</div>)
+  }
 ]
 
 const longy: Component<{ children?: JSX.Element }> = ({
