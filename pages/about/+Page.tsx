@@ -3,8 +3,22 @@ import Socials from '../../components/socials'
 import { Link } from '../../components/link'
 
 const media: MediaProps[] = [
-
   {
+    kind: 'image',
+    src: "img/whitebox_ai_mcluhan.jpg",
+    width: 4200,
+    height: 3569,
+    blurDataURL: "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAAAwAgCdASoKAAgAAUAmJQBOgMVG7YOomfigAAD+sgeyyK3HSof+AGPyTOjfIT0f4nCWkXJ5v5GBdTA0CsJej1qUxeFxMCayJZd8vW8rQJH7tMWxSomIvnx4X/Bu/KAAAAA=",
+    alt: 'August Black presenting art papers at SIGGRPAH 2024 in Denver, Colorado.',
+    bg: 'bg-slate-800',
+    caption: () => (
+      <div>
+        August Black presenting a talk on "AI and Acoustic Space" at the <Link href="https://ima.or.at/de/projekt/reenacting_dartmouth/" external>Prolog Re-Enacting Dartmouth</Link> conference in St.Poelten, Austria. September 2025. <span class='text-xs'>photo by <Link href="https://www.avitalmeshi.com/" external>Avital Meshi</Link></span>
+      </div>
+    ),
+  },
+  {
+
     kind: 'image',
     src: "img/AugustBlack_Siggraph2024.jpg",
     width: 6143,
