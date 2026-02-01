@@ -5,6 +5,20 @@ import { Link } from '../../components/link'
 const media: MediaProps[] = [
   {
     kind: 'image',
+    alt: 'August Black headshot in stereo-ish',
+    src: "img/august_stereo_2024.jpg",
+    width: 4007,
+    height: 3098,
+    blurDataURL: "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAADwAQCdASoKAAgAAUAmJQBOgCLQM8yrv/QA/vb/38KDYH8f/KEg6/R8v5Z147/Pb4S10FCvw9x5P+dni58px6P8vQii2q/WCudOsg4/07nP41Y6CIbxtdmlA9ArTSU5zxkFkt4/0HjKqN/k7686zC+W/1AAAA==",
+    caption: () => (
+      <div>
+        Office portrait in stereo, summer 2024. <small>Squint and concentrate your vision on the center to see a 3D image pop-out.</small>
+      </div>
+    )
+  },
+
+  {
+    kind: 'image',
     src: "img/whitebox_ai_mcluhan.jpg",
     width: 4200,
     height: 3569,
@@ -17,6 +31,21 @@ const media: MediaProps[] = [
       </div>
     ),
   },
+  {
+    kind: 'image',
+    src: "img/conduction_portugal.jpg",
+    width: 1920,
+    height: 1080,
+    blurDataURL: "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAADwAQCdASoKAAYAAUAmJYwCdAEfaX6nIQAA4n/BzE9guGVSwzsxVBsT5OLWQAwgxEnbPG7sNbPd8htJP8womxGGNYQQP0If63Kocoa5HXHW57wd87DVl8bnr5ZAAA==",
+    alt: 'August Black presenting The Conduction Series in Coimbra, Portugal.',
+    bg: 'bg-slate-800',
+    caption: () => (
+      <div>
+        August Black presenting "The Conduction Series" at the <Link href="https://audiomostly.com/" external>Audio Mostly 2025</Link> conference in Coimbra, Portugal. July 2025. <span class='text-xs'>photo by <Link href="https://jwirfs-brock.github.io/JWB_website/" external>Jordan Wirfs-Brock</Link></span>
+      </div>
+    ),
+  },
+
   {
 
     kind: 'image',
@@ -48,33 +77,22 @@ const media: MediaProps[] = [
     ),
 
   },
-  {
-    kind: 'image',
-    alt: 'August Black headshot in stereo-ish',
-    src: "img/august_stereo_2024.jpg",
-    width: 4007,
-    height: 3098,
-    blurDataURL: "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAADwAQCdASoKAAgAAUAmJQBOgCLQM8yrv/QA/vb/38KDYH8f/KEg6/R8v5Z147/Pb4S10FCvw9x5P+dni58px6P8vQii2q/WCudOsg4/07nP41Y6CIbxtdmlA9ArTSU5zxkFkt4/0HjKqN/k7686zC+W/1AAAA==",
-    caption: () => (
-      <div>
-        Office portrait in stereo, summer 2024. <small>Squint and concentrate your vision on the center to see a 3D image pop-out.</small>
-      </div>
-    )
-  },
-  {
-    kind: "image",
-    alt: 'August Black and Nima Bahrehmand in "team critcal" custom made athletic jerseys with camo print.',
-    src: "img/team_critical01.jpg",
-    width: 4111,
-    height: 3138,
-    imgClass: "object-cover object-top",
-    blurDataURL: "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADwAQCdASoKAAgAAUAmJZwCw7Ddhzn3qWgA/q2aK/9fyNDl3Acp+bkTk/Liy3f/gEPDmMehg21frzOmlMKWnxIB8ysDUJWPaxHrvS00jp0azi1sWpEAAA==",
-    caption: () => (
-      <div>
-        August Black and his first PhD advisee, <Link external href="https://nimabahrehmand.com/">Nima Bahrehmand</Link>,on &quot;team critical&quot; outside the offices of DCMP (and the ROTC), under the football stadium bleachers (July 5, 2023).
-      </div>
-    )
-  },
+  /*
+{
+  kind: "image",
+  alt: 'August Black and Nima Bahrehmand in "team critcal" custom made athletic jerseys with camo print.',
+  src: "img/team_critical01.jpg",
+  width: 4111,
+  height: 3138,
+  imgClass: "object-cover object-top",
+  blurDataURL: "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADwAQCdASoKAAgAAUAmJZwCw7Ddhzn3qWgA/q2aK/9fyNDl3Acp+bkTk/Liy3f/gEPDmMehg21frzOmlMKWnxIB8ysDUJWPaxHrvS00jp0azi1sWpEAAA==",
+  caption: () => (
+    <div>
+      August Black and his first PhD advisee, <Link external href="https://nimabahrehmand.com/">Nima Bahrehmand</Link>,on &quot;team critical&quot; outside the offices of DCMP (and the ROTC), under the football stadium bleachers (July 5, 2023).
+    </div>
+  )
+},
+*/
 
   {
     kind: 'image',
@@ -91,6 +109,7 @@ const media: MediaProps[] = [
       </div>
     ),
   },
+  /*
   {
     kind: 'image',
     src: "img/august_2022.jpg",
@@ -134,6 +153,7 @@ const media: MediaProps[] = [
     alt: 'Three photos of August Black, one in an art museaum dressing black, another portrait with fava beans in mouth looking like a smile, a third with his face showing through an elephant stick mask.',
     caption: () => (<div>Left: lookin&apos; at aaaaaart, 2017.  Middle: Our Fava Who Art in Heaven, 2015. Right: Let&apos;s talk about this elephant in the room, 2017.</div>)
   }
+  */
 ]
 const About = () => (
   <>
