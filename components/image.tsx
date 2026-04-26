@@ -11,7 +11,7 @@ const getSrcSet = (src: string, width: number) => {
         : w === width
           ? acc.concat(`https://assets.august.black/${src} ${w}w`)
           : acc
-        , [])
+        , [] as Array<string>)
     return srcset.join(',')
   }
   return ""
@@ -31,13 +31,16 @@ type ImageProps = {
 
 const Img: Component<ImageProps> = (props) => {
   let imgRef !: HTMLImageElement
+  // NOTE: we need this for Firefox. It won't display SVGs inside an image tag
+  // without a width in the style
+  const wcss = `width:${props.width}px;`
   const src = props.src.slice(0, 4) === 'http'
     ? props.src
     : 'https://assets.august.black/' + props.src
 
   const onLoad = () => {
     imgRef.classList.remove('blur')
-    imgRef.style = ""
+    imgRef.style = wcss
   }
 
   onMount(() => {
@@ -51,8 +54,8 @@ const Img: Component<ImageProps> = (props) => {
       ref={imgRef}
       onload={onLoad}
       style={props.blurDataURL
-        ? `background-image: url('${props.blurDataURL}'); background-repeat: no-repeat; background-size: cover; background-position: center center;`
-        : ""
+        ? `background-image: url('${props.blurDataURL}'); background-repeat: no-repeat; background-size: cover; background-position: center center;${wcss}`
+        : wcss
       }
       draggable={props.draggable}
       alt={props.alt}
