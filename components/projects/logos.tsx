@@ -1,4 +1,4 @@
-import { Component, For } from 'solid-js'
+import { Component, For, Match, Switch } from "solid-js"
 import Image from "../image"
 
 const Wavefarm = () => (
@@ -68,24 +68,27 @@ const CKWeb = () => (
   </div>
 )
 
-type LogoNames = 'atlas' | 'dcmp' | 'wavefarm' | 'ckweb'
+export type LogoNames = 'atlas' | 'dcmp' | 'wavefarm' | 'ckweb'
 
 export const Logos: Component<{ logos: Array<LogoNames> }> = (props) => (
-  <>
-    <div class="">Supported by:</div>
-    <div class="flex flex-wrap gap-2 sm:gap-4 md:gap-6 justify-start">
-      <For each={props.logos}>
-        {(l) => l === 'atlas'
-          ? <Atlas />
-          : l === 'dcmp'
-            ? <DCMP />
-            : l === 'wavefarm'
-              ? <Wavefarm />
-              : l === 'ckweb'
-                ? <CKWeb />
-                : null
-        }
-      </For>
-    </div>
-  </>
+  <div class="flex flex-wrap gap-10 justify-center">
+    <For each={props.logos}>
+      {(l) => (
+        <Switch fallback={null}>
+          <Match when={l === "atlas"}>
+            <Atlas />
+          </Match>
+          <Match when={l === "dcmp"}>
+            <DCMP />
+          </Match>
+          <Match when={l === "wavefarm"}>
+            <Wavefarm />
+          </Match>
+          <Match when={l === "ckweb"}>
+            <CKWeb />
+          </Match>
+        </Switch>
+      )}
+    </For>
+  </div>
 )

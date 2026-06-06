@@ -1,8 +1,7 @@
-import { Component, JSX } from "solid-js";
-import Image from '../image'
+import { JSX } from "solid-js";
 import { Project } from './types'
 import { MediaProps } from '../media'
-import { Link, LinkPlain } from '../link'
+// import { Link, LinkPlain } from '../link'
 
 const media: MediaProps[] = [
   {
@@ -42,35 +41,35 @@ const media: MediaProps[] = [
   }
 
 ]
-const longy: Component<{ children?: JSX.Element }> = (props) => (
-  <div class="space-y-4  mx-auto">
-    <div>
-      Userradio mixes the new technologies of personal communication with &ldquo;old&rdquo; broadcast radio technology to create an instrument for collaborative networked audio production, where an unlimited number of individuals can mix multiple channels of audio simultaneously and together from anywhere on-line using a  standard (for the time) flash-capable browser.
+/*
+  <div class="pt-4 flex max-w-xl">
+    <div class='flex-none'>
+      <LinkPlain external href="https://assets.august.black/media/userradio/userradio.pdf">
+        <Image
+          class="w-32 h-48"
+          width={300}
+          height={386}
+          src="media/userradio/userradio_pdf.jpg"
+          blurDataURL="data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADwAQCdASoKAA0AAUAmJaQAAudjJ+eBtgAA/v7dZWcp9/6+SMVvEwsgIYThRigxalIoF4C1W2L7jF7OKuHvX+oAAAA="
+          alt="pdf icon"
+        />
+      </LinkPlain>
     </div>
-    <div>
-      I initially built UserRadio in 2000-2002 for the fundamental radio show where Markus Seidl and I would stream and play sounds directly from our own server that was connected to the radio transmitter on Radio FRO. Since then, I have also used this interface at various festivals and happenings.
-    </div>
-    {props.children}
-    <div class="pt-4 flex max-w-xl">
-      <div class='flex-none'>
-        <LinkPlain external href="https://assets.august.black/media/userradio/userradio.pdf">
-          <Image
-            class="w-32 h-48"
-            width={300}
-            height={386}
-            src="media/userradio/userradio_pdf.jpg"
-            blurDataURL="data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADwAQCdASoKAA0AAUAmJaQAAudjJ+eBtgAA/v7dZWcp9/6+SMVvEwsgIYThRigxalIoF4C1W2L7jF7OKuHvX+oAAAA="
-            alt="pdf icon"
-          />
-        </LinkPlain>
-      </div>
-      <div class="text-xs pl-4">August Black. 2004. <Link external href="https://assets.august.black/media/userradio/userradio.pdf">Userradio. In Proceedings of ACM Multimedia</Link>, New York, NY, USA , October 10 - 16, 2004. ISBN:ISBN:1-58113-893-8 DOI: 10.1145/1027527.1027570</div>
-    </div>
+    <div class="text-xs pl-4">August Black. 2004. <Link external href="https://assets.august.black/media/userradio/userradio.pdf">Userradio. In Proceedings of ACM Multimedia</Link>, New York, NY, USA , October 10 - 16, 2004. ISBN:ISBN:1-58113-893-8 DOI: 10.1145/1027527.1027570</div>
   </div>
-)
+*/
+
+const text: Array<() => JSX.Element> = [
+  () => <div>
+    Userradio mixes the new technologies of personal communication with &ldquo;old&rdquo; broadcast radio technology to create an instrument for collaborative networked audio production, where an unlimited number of individuals can mix multiple channels of audio simultaneously and together from anywhere on-line using a  standard (for the time) flash-capable browser.
+  </div>,
+  () => <div>
+    I initially built UserRadio in 2000-2002 for the fundamental radio show where Markus Seidl and I would stream and play sounds directly from our own server that was connected to the radio transmitter on Radio FRO. Since then, I have also used this interface at various festivals and happenings.
+  </div>
+]
 
 
-const Standup: Project = {
+const Userradio: Project = {
   kind: ['radio', 'performance', 'software'],
   key: 'userradio',
   aspect: "aspect-880/736",
@@ -78,11 +77,8 @@ const Standup: Project = {
   title: 'UserRadio',
   shortDesc: "collaborative remote audio mixer",
   place: 'Linz, Austria',
-  info: {
-    long: longy,
-    page: longy
-  },
+  text,
   media
 }
 
-export default Standup
+export default Userradio

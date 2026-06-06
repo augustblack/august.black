@@ -14,20 +14,20 @@ const BetaGroup = {
   'Tom Roe': 'https://wavefarm.org',
   'Mort Drew': 'https://www.mortimerdrew.co.uk/'
 }
-const DesignGroup = {
-  'Alejo Duque': 'http://red.radiolibre.cc',
-  'Namita Pasupuleti ': 'https://namitapasu.wordpress.com/about-me/'
+const InternGroup = {
+  'Henry Saver': 'https://www.linkedin.com/in/henry-saver-6b07701b5',
+  'Namita Pasupuleti': 'https://namitapasu.wordpress.com/about-me/'
 }
 const InfraGroup = {
   'Kimberley Bianca': 'https://www.kimberleybianca.com/',
 }
 
 const Alon = () => (
-  <span class='ml-2 sm:ml-4 md:ml-8 whitespace-nowrap' style="font-size:0.57rem; line-height:1rem" ><LinkPlain external href="https://alonkoppel.com/">&copy;Alon Koppel</LinkPlain></span>
+  <span class='ml-2 whitespace-nowrap' style="font-size:0.57rem; line-height:1rem" ><LinkPlain external href="https://alonkoppel.com/">&copy;Alon Koppel</LinkPlain></span>
 )
 
 const Hethre = () => (
-  <span class='ml-2 sm:ml-4 md:ml-8 whitespace-nowrap' style="font-size:0.57rem; line-height:1rem">&copy;Hethre Contant</span>
+  <span class='ml-2 whitespace-nowrap' style="font-size:0.57rem; line-height:1rem">&copy;Hethre Contant</span>
 )
 
 const media: MediaProps[] = [
@@ -74,7 +74,6 @@ const media: MediaProps[] = [
       <div class='flex-grow'>Florencia Curci with mobile mezcal setup.</div>
     )
   },
-
 
   {
     kind: 'image',
@@ -155,7 +154,7 @@ const media: MediaProps[] = [
     height: 720,
     blurDataURL: "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAABwAgCdASoKAAcAAUAmJaACdEf/2SIC/nTzsKQAAP7SOHIryPSVBnINmnt3tkmuybXv27XBi7cujcd2N0o+Lp2URVWPibxVfO/x3AgWPP6KcYI08wbhe/7Dfw3aqIPM7T2Yd9X/dfz7jvx2y64LuAAA",
     alt: '14 people looking at speaker on large porch',
-    caption: () => (<div class='flex flex-row'>
+    caption: () => (<div class='flex flex-wrap'>
       <Audio
         class='mt-1 flex-shrink mr-2'
         small={true}
@@ -214,7 +213,7 @@ const media: MediaProps[] = [
     height: 720,
     blurDataURL: "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAAAQAgCdASoKAAcAAUAmJZwC7AEXfrFy3jkAAP7rxpD2eNB/6td11OqhRtf8dZ//Rw8/1JdIAyXLEw4tcEfJIfv74v/Kvr6sosanCBGALK1yXfMkbadSRQMCvvKOAAAA",
     alt: 'trashcans taped to the leg, cell phones inside',
-    caption: () => (<div class='flex flex-row'>
+    caption: () => (<div class='flex flex-wrap'>
       <Audio
         class='mt-1 flex-shrink mr-2'
         id='wavefarm_footsteps'
@@ -247,16 +246,15 @@ const media: MediaProps[] = [
     height: 720,
     blurDataURL: "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAADwAQCdASoKAAcAAUAmJQBOgCfQbo67bIAA/v3HPyAahtrlePueenC9NY08vpRiHUY4yrthFqIYVSFexDeCVGWSICLNUzavDbdmKj0D9r9TyLKKBLIzVqDKAAA=",
     alt: 'collage of man and women outside detention centers',
-    caption: () => (<div class=''>
+    caption: () => (<div class='flex flex-wrap gap-2 items-center'>
       <Audio
-        class='mb-1 mr-2 h-6 inline-block float-left'
+        class='flex-1'
         id='wavefarm_migrant_detention_radio'
         sources={[
           { type: 'audio/mp3', src: 'https://assets.august.black/media/mezcal/wavefarm_migrant_detention_radio.mp3' }
         ]}
-        small={true}
       />
-      <div class=''><Link external href='https://wavefarm.org/wf/archive/v93f5v'>Migrant Detention Radio</Link> - live from the Aurora, CO and Otay Mesa, CA detention centers by <Link external href='http://eliseortiz.net/'>Eliseo Ortiz</Link> and <Link external href='https://www.jessica-ordaz.com/'>Prof. Jessica Ordaz</Link>.</div>
+      <div class='flex-grow'><Link external href='https://wavefarm.org/wf/archive/v93f5v'>Migrant Detention Radio</Link> - live from the Aurora, CO and Otay Mesa, CA detention centers by <Link external href='http://eliseortiz.net/'>Eliseo Ortiz</Link> and <Link external href='https://www.jessica-ordaz.com/'>Prof. Jessica Ordaz</Link>.</div>
     </div>
     )
   },
@@ -272,49 +270,44 @@ const media: MediaProps[] = [
   }
 ]
 
-const longy: Component<{ children?: JSX.Element }> = ({
-  children
-}) => (
-  <>
-    <div class="">
-      Mezcal is a browser app and telematic service that currently works similar to the audio rooms of Slack or Discord, but with broadcast scalability and audio-specific features. The design and development of the software is ongoing and made in close collaboration with radio activists, artists and researchers from the USA, UK, Netherlands, Italy, Colombia, and Australia.
-    </div>
-    <div class="space-y-2">
-      <div class="font-medium">Press, publications:</div>
-      <div ><Link external href='https://oe1.orf.at/programm/20210627/642046/Akustische-Live-Vernetzung-ueber-Grenzen-hinweg'>Akustische Live Vernetzung</Link></div>
-      <div ><Link external href='https://www.newmediacaucus.org/migrant-detention-radio-on-wave-farm-wgxc-90-7-fm/'>New Media Caucus</Link></div>
-    </div>
-    <Logos logos={['wavefarm', 'atlas', 'dcmp']} />
-    {children}
+const text: Array<() => JSX.Element> = [
+  () => <>
+    Mezcal is a browser - based instrument that I made for the purpose of re - wilding(or simply wilding) radio space beyond the standard forms of talk and music playback.It allows for real - time acoustic interchange that is mobile, accessible, and lives on the web as a 24 / 7 WebRTC service.End - users need not deal with app - stores or long - term maintenance of software.Each participant that visits the URL for the server is automatically connected together in a horizontal improvisational audio context; no one controls the mix.</>
+  ,
+  () => <>
+    The interface presents each participant with an uncluttered audio mixing interface that allows one to play sound from various sources (archives, files, streams) along with input from multiple virtual and connected sound devices (mic, external devices, Jack/Blackhole, etc.). Altogether, when combined with broadcasting strategies, Mezcal allows multiple remote participants to collaborate with sub-second latency and affords a more ambulant and discursive style of radio that is often cross-border, archive-driven, and environmentally engaged.</>,
+  () => <>
+    As a telematic service that allows multiple constituents to fluidly participate in broadcast-like scenarios through their mobile devices at the flick of their thumbs and the swipe of their trackpads, it affords a new kind of radio-making that is built for live scenarios, where your hand is on the dial. It is cheap and quick and easy and more akin to live sports broadcast, but for art and activism. I see it as a compliment to the canned podcast radio magazine format.
+  </>,
+  () => <>
+    Listeners get an immediate way to call in and contribute.  Producers can make shows by themselves, in collaboration with others, at remote locations or on site, and/or in synchronous or asynchronous modes. Both listeners and producers can hop-on or off the stream at will. It all works in a browser, outside of app stores, and is a different kind of networked radio where the boundary between listener and producer can be strict or blurred.
+  </>,
+  () => <>
+    The underlying transport of Mezcal is similar to other teleconferencing software. What sets it apart is that the network configuration is centralized within a Multi-point Control Unit (MCU) that minimizes bandwidth at scale. Furthermore, the Mezcal interface provides audio-specific features such as mixing of multiple audio sources, re-streaming to Icecast, fingertip access to various online media archives, etc. The project is at a working beta status and in constant development in collaboration with activists, artists and researchers from the USA, UK, Netherlands, Italy, Colombia, and Australia.
+  </>,
+  () => <>
+    Not unlike how a piano provides its “users” with a vast set of possible acoustic outcomes - everything from classical to jazz and noise - I see Mezcal as an instrument for diverse practices in transmission and sound art, for providing alternative modes of point to point communication for social movements, and as a new technological form of environmental and journalistic reporting.
+  </>,
+  () => <>
+    The biggest difference between Mezcal and other telematic software is in its vision. I don't see this research as a tool for industry or even for band practice (not that these things are bad); I see Mezcal as an expressive instrument for diverse sound, music, and transmission practices, for participatory and open-ended artistic performance, for growing social movements, and for live environmental reporting, all under expanded musical pretexts.
   </>
-)
-const page: Component<{ children?: JSX.Element }> = ({
-  children
-}) => (
-  <>
-    <div class="flex flex-col lg:flex-row gap-4">
-      <div class="flex-1">
-        Mezcal is a telematic service that allows multiple constituents to fluidly participate in broadcast-like scenarios through their mobile devices at the flick of their thumbs. It is a new kind of radio that is cheap and quick and easy. Listeners get an immediate way to call in and contribute.  Producers can make shows by themselves, in collaboration with others, at remote locations or on site, and/or in synchronous or asynchronous modes. Both listeners and producers can hop-on or off the stream at will. It all works in a browser, outside of app stores, and is a different kind of networked radio where the boundary between listener and producer can be strict or blurred.
-      </div>
-      <div class="flex-1">
-        Mezcal currently works similar to the audio rooms of Slack or Discord, but with broadcast scalability and audio-specific features such as mixing of multiple audio sources, re-streaming to icecast, fingertip access to various online media archives, etc. The project is at a working beta status and in constant development in collaboration with activists, artists and researchers from the USA, UK, Netherlands, Italy, Colombia, and Australia.
-      </div>
-      <div class="flex-1">Not unlike how a piano provides its “users” with a vast set of possible acoustic outcomes - everything from classical to jazz and noise - I see Mezcal as an instrument for diverse practices in transmission and sound art, for providing alternative modes of point to point communication for social movements, and as a new technological form of environmental and journalistic reporting.
-      </div>
+]
+
+const extra: Array<() => JSX.Element> = [
+  () => <div class=""><b>Related events:</b>
+    <div class="space-y-1 m-4">
+      <div><Link external href="https://www.nsota.org/">New School of the Anthropocene</Link> collaborative radio show for <LinkPlain external href="https://www.mixcloud.com/Resonance/playlists/bad-punk/">‘Bad Punk’</LinkPlain> on Resonance FM 2024</div>
+      <div><Link external href="https://www.kunstradio.at/PROJECTS/AB2024/">Art&lsquo;s Birthday 2024</Link></div>
+      <div><Link external href="https://acousticommons.net/~/#">Spree Channelsea Radio Group 2023</Link></div>
+      <div ><Link external href="https://centrodeartesonoro.cultura.gob.ar/actividad/terra-ignota/">Terra Ignota Radio Forum 2023</Link></div>
+      <div ><Link external href="http://kunstradio.at/PROJECTS/AB2023/network-kunstradio-party.php">Art&lsquo;s Birthday 2023</Link></div>
+      <div ><Link external href="https://wavefarm.org/radio/wgxc/audio-archive/jbrxxs">The Conduction Series, Nov. 2021 - ongoing</Link></div>
+      <div ><Link external href="https://acousticommons.net/listen/land-to-return">Acoustic Commons - Земля повернення, земля турботи, 2022</Link></div>
+      <div ><Link external href="https://wavefarm.org/ta/archive/works/b0eaj7">Radio Research Residency @ Wave Farm 2021</Link></div>
+      <div ><Link external href="https://wavefarm.org/wf/archive/v93f5v">Migrant Detention Radio, 2021</Link></div>
     </div>
-    <div class=""><b>Related events:</b>
-      <div class="space-y-1 m-4">
-        <div><Link external href="https://www.nsota.org/">New School of the Anthropocene</Link> collaborative radio show for <LinkPlain external href="https://www.mixcloud.com/Resonance/playlists/bad-punk/">‘Bad Punk’</LinkPlain> on Resonance FM 2024</div>
-        <div><Link external href="https://www.kunstradio.at/PROJECTS/AB2024/">Art&lsquo;s Birthday 2024</Link></div>
-        <div><Link external href="https://acousticommons.net/~/#">Spree Channelsea Radio Group 2023</Link></div>
-        <div ><Link external href="https://centrodeartesonoro.cultura.gob.ar/actividad/terra-ignota/">Terra Ignota Radio Forum 2023</Link></div>
-        <div ><Link external href="http://kunstradio.at/PROJECTS/AB2023/network-kunstradio-party.php">Art&lsquo;s Birthday 2023</Link></div>
-        <div ><Link external href="https://wavefarm.org/radio/wgxc/audio-archive/jbrxxs">The Conduction Series, Nov. 2021 - ongoing</Link></div>
-        <div ><Link external href="https://acousticommons.net/listen/land-to-return">Acoustic Commons - Земля повернення, земля турботи, 2022</Link></div>
-        <div ><Link external href="https://wavefarm.org/ta/archive/works/b0eaj7">Radio Research Residency @ Wave Farm 2021</Link></div>
-        <div ><Link external href="https://wavefarm.org/wf/archive/v93f5v">Migrant Detention Radio, 2021</Link></div>
-      </div>
-    </div>
+  </div>,
+  () =>
     <div class=""><b>Workshops:</b>
       <div class="space-y-1 m-4">
         <div><Link external href="https://todalateoriadeluniverso.org/">Todo la Teor&iacute;a del Universo</Link> by Florencia Curci</div>
@@ -326,22 +319,23 @@ const page: Component<{ children?: JSX.Element }> = ({
         <div ><Link external href="https://wavefarm.org/ta/archive/works/b0eaj7">Wave Farm 2021</Link></div>
       </div>
     </div>
-
+  ,
+  () =>
     <div class=""><b>Credits:</b>
       <div class="space-y-1 m-4">
-        <div>software: August Black (lead), Henry Saver (intern)</div>
-        <div>design: August Black (lead),
-          <For each={Array.from(Object.entries(DesignGroup))}>
-            {([k, url], idx) => (<span>{idx() === 0 ? '' : ', '}<LinkPlain external href={url}>{k}</LinkPlain></span>)}
-          </For>
-        </div>
-        <div>beta group:
+        <div>concept, design, software: August Black</div>
+        <div><span>beta group: </span>
           <For each={Array.from(Object.entries(BetaGroup))}>
             {([k, url], idx) => (<span>{idx() === 0 ? '' : ', '}<LinkPlain external href={url}>{k}</LinkPlain></span>)}
           </For>
         </div>
-        <div>documenation and grant writing:
+        <div><span>documenation and grant writing: </span>
           <For each={Array.from(Object.entries(InfraGroup))}>
+            {([k, url], idx) => (<span>{idx() === 0 ? '' : ', '}<LinkPlain external href={url}>{k}</LinkPlain></span>)}
+          </For>
+        </div>
+        <div><span>interns:  </span>
+          <For each={Array.from(Object.entries(InternGroup))}>
             {([k, url], idx) => (<span>{idx() === 0 ? '' : ', '}<LinkPlain external href={url}>{k}</LinkPlain></span>)}
           </For>
         </div>
@@ -349,6 +343,8 @@ const page: Component<{ children?: JSX.Element }> = ({
         <div>logo: <LinkPlain external href="https://nimabahrehmand.com/">Nima Bahrehmand</LinkPlain></div>
       </div>
     </div>
+  ,
+  () =>
     <div class=""><b>Press, publications:</b>
       <div class="space-y-1 m-4">
         <div ><Link external href='https://oe1.orf.at/programm/20240229/750542/Kuenstliche-Intelligenz-feiert-den-Geburtstag-der-Kunst'>Künstliche Intelligenz feiert den Geburtstag der Kunst</Link> on <Link external href='https://oe1.orf.at/soundart/kunstzumhoeren'>KUNST ZUM HÖREN</Link> 2024 (at minute 11, I speak about mezcal)</div>
@@ -356,10 +352,8 @@ const page: Component<{ children?: JSX.Element }> = ({
         <div ><Link external href='https://www.newmediacaucus.org/migrant-detention-radio-on-wave-farm-wgxc-90-7-fm/'>New Media Caucus</Link> 2021</div>
       </div>
     </div>
-    <Logos logos={['wavefarm', 'atlas', 'dcmp']} />
-    {children}
-  </>
-)
+
+]
 
 const Mezcal: Project = {
   kind: ['radio', 'performance', 'software'],
@@ -369,11 +363,10 @@ const Mezcal: Project = {
   title: 'Mezcal',
   shortDesc: "transmission and sound art instrument",
   place: 'Boulder, CO',
-  info: {
-    long: longy,
-    page
-  },
-  media
+  media,
+  text,
+  extra,
+  logos: ['wavefarm', 'atlas', 'dcmp']
 }
 
 export default Mezcal

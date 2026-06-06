@@ -14,8 +14,8 @@ export const MainContext = createContext()
 
 export const createZzz = (): ZzzStore => {
   const [audioState, setAudioState] = createSignal<AudioState>('suspended')
-  const [audioCtx, setAudioCtx] = createSignal<AudioContext | null>(null)
-  const [leftOsc, setLeftOsc] = createSignal<OscillatorNode | null>(null)
+  const [, setAudioCtx] = createSignal<AudioContext | null>(null)
+  const [, setLeftOsc] = createSignal<OscillatorNode | null>(null)
 
   let refs = {
     ctx: null as AudioContext | null,

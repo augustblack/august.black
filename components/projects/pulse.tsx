@@ -1,8 +1,7 @@
-import { Component, type JSX } from "solid-js"
-import Image from '../image'
+import { type JSX } from "solid-js"
 import { Project } from './types'
 import { MediaProps } from '../media'
-import { Link, LinkPlain } from '../link'
+import { Link } from '../link'
 
 const media: MediaProps[] = [
   {
@@ -103,12 +102,12 @@ const media: MediaProps[] = [
   },
   */
 ]
-const Paper = () => (
+/*
+const PaperWTF = () => (
   <div class="pt-4 flex max-w-md">
-    <div class='flex-none'>
+    <div class='flex-none w-24 h-48'>
       <LinkPlain external href="https://dl.acm.org/doi/pdf/10.1145/3680530.3695450">
         <Image
-          class="w-32 h-48"
           width={306}
           height={400}
           draggable={false}
@@ -121,40 +120,54 @@ const Paper = () => (
     <div class="text-xs pl-4">Brook Vann, J Molina-Garcia, August Black. 2024. <Link external href="https://dl.acm.org/doi/pdf/10.1145/3680530.3695450">Pulse Memorial. SA &apos;24: SIGGRAPH Asia 2024 Art Papers Article No.: 27, Pages 1 - 6</Link>, DOI: 10.1145/3680530.3695450</div>
   </div>
 )
+    <Paper
+      link="https://dl.acm.org/doi/pdf/10.1145/3680530.3695450"
+      width={306}
+      height={400}
+      src="media/pulse/pulse_paper.jpg"
+      blurDataURL="data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAADwAQCdASoKAA0AAUAmJaQAAu0eDyOO8AAA/v6dQNYQU9gbivmr63N3bmhhnrOcPUyqoZZWrPMdYxHfofU+AAAA"
+      author="Brook Vann, J Molina-Garcia, August Black"
+      year="2024"
+      linkText="Pulse Memorial. SA &apos;24: SIGGRAPH Asia 2024 Art Papers Article No.: 27, Pages 1 - 6"
+      extra="DOI: 10.1145/3680530.3695450"
+    />
 
-const page: Component<{ children?: JSX.Element }> = (props) => (
-  <>
-    <div class="flex flex-col lg:flex-row gap-4">
-      <div class="">
-        The Pulse Memorial is a web-streamed sound installation that commemorates the lives lost in the mass shooting at the Pulse Bar in Orlando, Florida, where a gunman killed forty-nine Latine, Black, and queer patrons. This tragedy happened in June 2016 during a period of heightened fear among immigrant and marginalized communities anticipating the Trump election victory in November. Inspired by Toni Morrison&apos;s concept of &ldquo;disremembrance,&rdquo; which denotes an emotional experience of erasure due to a lack of acknowledgment, this web sculpture disrupts disremembrance by using sound to evoke presence. The installation commemorates victims that continue to be erased out of broader histories of domestic terrorism and gun violence. The broadcasted sound plays an 8-channel score, then transmitted via WebRTC to participants — one channel per device — for a multi-channel sonic event. This project transforms memorials from passive, site-specific events to community-driven experiences. It provokes curiosity about digital media&apos;s role in preserving cultural memory and amplifying marginalized voices.
-      </div>
-      <div class="">
-        Currently, the eight-channel sound is composed of field recordings, audio abstractions, and data sonification using the numerical data associated with each victim (their birthday and victim number, listed alphabetically). The sound is meant to function as a narrative and virtual monument to commemorate the victims. The sound streams live in the network and only exist when the machines are on and people are listening together. They do not only exist on fixed spaces, but are grafted temporarily onto already existing architecture. Moreover, this project reimagines the potential of vibrational sonic experiences: the basis for many esoteric healing practices, such as those found in sound baths and tantric chanting, for example, where vibrations at particular frequencies cause calming, soothing, and meditative states of rest. The final output will be through web streaming, particularly through mobile browsers, of audience members to create a digital caphony memorial.
-      </div>
-      <div class="">
-        This project is a collaboration between <Link external href="https://brookportfolio.com/">Brook Vann</Link>,  <Link external href="https://https://www.betseybiggs.org/">Betsey Biggs</Link>, and August Black. We are currently in the process of adapting the concept for 49 channels over 49 minutes. The new adaptation draws inspiration from the existing graffiti-like memorial panels that are currently positioned at the Pulse site. These panels, layered with handwritten notes left by the community, accumulate and fade over time, capturing the shifting yet enduring nature of remembrance. Similarly, as we solicit and collect new audio contributions, incoming audio will gradually replace older tracks, creating a constantly evolving broadcasted memorial.
-      </div>
-    </div>
-    {props.children}
-    <Paper />
-  </>
-)
+*/
 
-const longy: Component<{ children?: JSX.Element }> = (props) => (
-  <>
-    <div>
-      The Pulse Memorial is a queer cyber memorial in commemoration of the 49 lives lost in the 2016 Pulse nightclub shooting in Orlando, Florida. Unlike traditional memorials that focus on geolocal specifics and monumentality, our project explores the potential of migratory digital memorials that foster a sense of the ephemeral and develop new conditions of listening and togetherness.
+const text: Array<() => JSX.Element> = [
+  () => <div>
+    The Pulse Memorial is a queer cyber memorial in commemoration of the 49 lives lost in the 2016 Pulse nightclub shooting in Orlando, Florida. Unlike traditional memorials that focus on geolocal specifics and monumentality, our project explores the potential of migratory digital memorials that foster a sense of the ephemeral and develop new conditions of listening and togetherness.
+  </div>,
+  () => <div>
+    On June 12, 2016, an active shooter walked into the Pulse nightclub in Orlando, Florida at 2:02am with a SIG Sauer MCX semi-automatic rifle and a 9mm Glock 17 pistol and killed 49 LGBTQ+ individuals, mostly of Latinx descent, that were at the gay club celebrating “Latin Night” . The shooter fired over 200 rounds in the first five minutes, killing many on the dance floor, and then stood off with
+    the police over the following three hours as patrons were barricaded in the back bathroom.
+  </div>,
+  () => <div>
+    As a living queer cyber memorial honoring the 49 lives lost, our Pulse Memorial project reimagines remembrance as radical inclusion and global solidarity, providing a platform for storytelling, reflection, and empowerment. Designed as an online, participatory sound installation, the virtual memorial can currently only be fully experienced when eight or more people listen together in the same setting. The project consists of a 24/7 web broadcast that distributes eight individual real-time audio channels to participants who visit https://pulse.memorial with their mobile devices. When participants listen together in one location, they create a dynamic, moving multichannel soundscape.
+  </div>,
+  () => <div>
+    This project is a collaboration between <Link external href="https://brookportfolio.com/">Brook Vann</Link>,  August Black, and <Link external href="https://https://www.betseybiggs.org/">Betsey Biggs</Link>. We are currently in the process of adapting the concept for 49 channels over 49 minutes. The new adaptation draws inspiration from the existing graffiti-like memorial panels that are currently positioned at the Pulse site. These panels, layered with handwritten notes left by the community, accumulate and fade over time, capturing the shifting yet enduring nature of remembrance. Similarly, as we solicit and collect new audio contributions, incoming audio will gradually replace older tracks, creating a constantly evolving broadcasted memorial.
+  </div>
+]
+
+const extra: Array<() => JSX.Element> = [
+  () =>
+    <div class=""><b class="uppercase">Credits:</b>
+      <div class="space-y-1 m-4">
+        <div><b>concept and production:</b> Brook Vann & August Black</div>
+        <div><b>software and design:</b> August Black</div>
+        <div><b>data sonifications:</b> Brook Vann</div>
+        <div><b>sound and composition:</b> Brook Vann & Betsey Biggs</div>
+      </div>
     </div>
-    <div>
-      Currently, the project consists of a 24/7 broadcast system using a server and low-latency webrtc.  The server continuously simulcasts eight individual streams of synchronized webrtc audio consisting of abstractions, field recordings, and data sonification of victim demographics. To hear the memorial, participants must come together in a group, point their mobile devices at https://pulse.memorial and listen together in one setting. Each connecting participant receives a different track from the 8-channel simulcast broadcast (selected in sequence) forming an independently moving 8-channel swarm of audio - a low-fi, untethered sonic environment where sound emerges dynamically from multiple sources. The piece uses global networking to form local togetherness and when done in low-light resembles a candle-light vigil.
+  ,
+  () =>
+    <div class=""><b class="uppercase">Related Publications:</b>
+      <div class="space-y-1 m-4">
+        <div class="pl-4">Brook Vann, J Molina-Garcia, August Black. 2024. <Link external href="https://dl.acm.org/doi/pdf/10.1145/3680530.3695450">Pulse Memorial. SA &apos;24: SIGGRAPH Asia 2024 Art Papers Article No.: 27, Pages 1 - 6</Link>, DOI: 10.1145/3680530.3695450</div>
+      </div>
     </div>
-    <div>
-      This project is a collaboration between <Link external href="https://brookportfolio.com/">Brook Vann</Link>,  <Link external href="https://https://www.betseybiggs.org/">Betsey Biggs</Link>, and August Black.
-    </div>
-    {props.children}
-    <Paper />
-  </>
-)
+]
 
 
 const Pulse: Project = {
@@ -165,10 +178,8 @@ const Pulse: Project = {
   title: 'Pulse Memorial',
   shortDesc: "mobile multichannel memorial",
   place: 'various',
-  info: {
-    long: longy,
-    page
-  },
+  text,
+  extra,
   media
 }
 

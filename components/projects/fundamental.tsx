@@ -1,4 +1,4 @@
-import { Component, type JSX } from "solid-js"
+import { type JSX } from "solid-js"
 import { Project } from './types'
 import { MediaProps, Audio } from '../media'
 import { Link } from '../link'
@@ -187,25 +187,22 @@ const media: MediaProps[] = [
   }
 
 ]
-const longy: Component<{ children?: JSX.Element }> = (props) => (
-  <>
-    <div class="">
-      Fundamental radio was the network-audio playground of Markus Seidl and August Black on <Link external href="https://www.fro.at/">Radio FRO</Link>,
-      FM 105mhz in Linz, Austria from 1998-2004.
-    </div>
-    <div class="">
-      For more than 5 years, we produced a weekly live radio art show every Thursday night from 8-9pm.
-      We focused on radio as a genre, sculpture, and as political and social space.
-      We had a number of running themes: silence, feedback, live cooking, improvised talk shows, doom poetry, audio concrete recordings.
-      We often tried to connect broadcast space with network space by using then-current transport technology for text/audio (IRC, streaming media, etc) in innovative ways.
-      We were interested in radio not only as an interface for listening, but also interaction.
-    </div>
-    <div class="">
-      While radio was our central practice, we also produced installations, audio works, as well as works for the web and television. In many ways, we became a concept band.  For me, personally, it occupied that vast majority of my creative energies during this very active time at the cusp of the millennium changeover.
-    </div>
-    {props.children}
-  </>
-)
+const text: Array<() => JSX.Element> = [
+  () => <div>
+    Fundamental radio was the network-audio playground of Markus Seidl and August Black on <Link external href="https://www.fro.at/">Radio FRO</Link>,
+    FM 105mhz in Linz, Austria from 1998-2004.
+  </div>,
+  () => <div>
+    For more than 5 years, we produced a weekly live radio art show every Thursday night from 8-9pm.
+    We focused on radio as a genre, sculpture, and as political and social space.
+    We had a number of running themes: silence, feedback, live cooking, improvised talk shows, doom poetry, audio concrete recordings.
+    We often tried to connect broadcast space with network space by using then-current transport technology for text/audio (IRC, streaming media, etc) in innovative ways.
+    We were interested in radio not only as an interface for listening, but also interaction.
+  </div>,
+  () => <div>
+    While radio was our central practice, we also produced installations, audio works, as well as works for the web and television. In many ways, we became a concept band.  For me, personally, it occupied that vast majority of my creative energies during this very active time at the cusp of the millennium changeover.
+  </div>
+]
 
 
 const Fundamental: Project = {
@@ -216,10 +213,7 @@ const Fundamental: Project = {
   title: 'Fundamental Radio',
   shortDesc: "Weekly 1-hour art-radio broadcast",
   place: 'Linz, Austria',
-  info: {
-    long: longy,
-    page: longy
-  },
+  text,
   media
 }
 

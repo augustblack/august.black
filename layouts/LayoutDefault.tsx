@@ -2,14 +2,14 @@ import "./tailwind.css"
 import type { JSX } from "solid-js"
 import { onMount, Show, createEffect } from "solid-js"
 import { createStore } from "solid-js/store"
-import Critical from "../components/critical"
+// import Critical from "../components/critical"
 import { createZzz, MainContext } from "../components/zzz"
 
 const Normal = [
-  "#ffffff", // 100
+  "#ffffff", // 50
   "#f1f5f9", // 100
   "#e2e8f0", // 200
-  "#cbd5e1", // 300
+  "#cbd5e2", // 300
 ]
 
 const Crit = [
@@ -26,19 +26,28 @@ const setCols = (dm: boolean) => {
     Crit[1] = styles.getPropertyValue("--color-yellow-800")
     Crit[2] = styles.getPropertyValue("--color-yellow-900")
     Crit[3] = styles.getPropertyValue("--color-yellow-950")
-    Normal[0] = styles.getPropertyValue("--color-sky-950")
-    Normal[1] = styles.getPropertyValue("--color-red-950")
-    Normal[2] = styles.getPropertyValue("--color-slate-950")
-    Normal[3] = styles.getPropertyValue("--color-orange-950")
+    // Normal[0] = styles.getPropertyValue("--color-sky-950")
+    // Normal[1] = styles.getPropertyValue("--color-red-950")
+    // Normal[2] = styles.getPropertyValue("--color-slate-950")
+    // Normal[3] = styles.getPropertyValue("--color-orange-950")
+    Normal[0] = styles.getPropertyValue("--color-slate-950")
+    Normal[1] = styles.getPropertyValue("--color-slate-900")
+    Normal[2] = styles.getPropertyValue("--color-slate-800")
+    Normal[3] = styles.getPropertyValue("--color-slate-700")
+
   } else {
     Crit[0] = styles.getPropertyValue("--color-yellow-50")
     Crit[1] = styles.getPropertyValue("--color-yellow-100")
     Crit[2] = styles.getPropertyValue("--color-yellow-200")
     Crit[3] = styles.getPropertyValue("--color-yellow-300")
-    Normal[0] = styles.getPropertyValue("--color-slate-100")
-    Normal[1] = styles.getPropertyValue("--color-red-100")
+    // Normal[0] = styles.getPropertyValue("--color-slate-100")
+    // Normal[1] = styles.getPropertyValue("--color-red-100")
+    // Normal[2] = styles.getPropertyValue("--color-slate-200")
+    // Normal[3] = styles.getPropertyValue("--color-orange-50")
+    Normal[0] = styles.getPropertyValue("--color-slate-50")
+    Normal[1] = styles.getPropertyValue("--color-slate-100")
     Normal[2] = styles.getPropertyValue("--color-slate-200")
-    Normal[3] = styles.getPropertyValue("--color-orange-50")
+    Normal[3] = styles.getPropertyValue("--color-slate-300")
   }
 }
 
@@ -249,10 +258,14 @@ export default function LayoutDefault(props: { children?: JSX.Element }) {
     <MainContext.Provider value={{ state, setState }}>
       <canvas
         ref={canvRef}
-        class={"fixed left-0 top-0 -z-1 object-fill w-screen h-screen transition-filter ease-in-out duration-500 " + (state.nav ? " blur-3xl" : "")}
+        class={
+          "fixed left-0 top-0 -z-1 object-fill w-screen h-screen transition-filter ease-in-out duration-500 " +
+          (state.nav ? " blur-xl lg:blur-2xl " : "")
+        }
         width="800"
         height="800"
       />
+      {/*
       <Show when={state.pos > 0.0001} >
         <div
           class="fixed top-0 left-0 w-screen h-screen p-4 -rotate-12 scale-90 z-1"
@@ -261,10 +274,12 @@ export default function LayoutDefault(props: { children?: JSX.Element }) {
           <Critical pos={state.pos * 0.7} />
         </div>
       </Show>
-      <div class="z-1 flex flex-col text-sm sm:text-md md:text-lg lg:text-xl items-center justify-items-center-safe ">
+      */}
+      <div class="z-1 flex flex-col text-sm sm:text-md md:text-lg lg:text-xl items-center justify-items-center-safe bg-blend-color ">
         <Show when={state.nav}>
           {props.children}
         </Show>
+        {/* 
         <label class="btn btn-circle btn-md md:btn-lg btn-primary swap swap-rotate fixed right-1 top-1 text-primary-content " >
           <input type="checkbox" onchange={toggle} />
           <svg
@@ -286,6 +301,7 @@ export default function LayoutDefault(props: { children?: JSX.Element }) {
               points="400 145.49 366.51 112 256 222.51 145.49 112 112 145.49 222.51 256 112 366.51 145.49 400 256 289.49 366.51 400 400 366.51 289.49 256 400 145.49" />
           </svg>
         </label>
+        */}
 
       </div>
     </MainContext.Provider>

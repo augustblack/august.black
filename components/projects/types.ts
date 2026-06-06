@@ -1,5 +1,6 @@
 import { JSX, Component } from 'solid-js'
 import { MediaProps } from '../media'
+import { LogoNames } from './logos'
 
 export type Kind = 'radio' | 'performance' | 'installation' | 'software' | 'systems' | 'highlight' | 'instrument' | 'hardware'
 
@@ -16,6 +17,9 @@ export interface Project {
   title: string
   shortDesc: string
   place: string
-  info: Info
+  info?: Info
   media: MediaProps[]
+  text?: Array<() => JSX.Element>
+  extra?: Array<() => JSX.Element>
+  logos?: Array<LogoNames>
 }

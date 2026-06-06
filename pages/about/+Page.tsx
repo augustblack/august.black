@@ -1,5 +1,9 @@
-import { MediaGroup, MediaGrid, MediaProps } from '../../components/media'
+import type { JSX } from 'solid-js'
+import { MediaProps } from '../../components/media'
+import type { Project } from '../../components/projects/types'
+import { ProjectPage } from '../../components/projects/page'
 import Socials from '../../components/socials'
+import Menu from '../../components/menu'
 import { Link } from '../../components/link'
 
 const media: MediaProps[] = [
@@ -155,80 +159,80 @@ const media: MediaProps[] = [
   }
   */
 ]
+
+const text: Array<() => JSX.Element> = [
+  () => <>
+    I'm August Black. I investigate mediated modes of collectivity and togetherness. My research is a mixture of applied conceptual art, critical design, community activism, and expanded engineering. I write software, organize collectives, build instrumentation, and construct new formats for real-time interactive performance.
+  </>
+  ,
+  () => <>
+    As a hybrid practitioner of art, design, and engineering, I conduct practial and theoretical research in the overlapping areas of new formats, network dynamics, and virtual architectures with a focus on audio and transmission. My activities tend to evoke themes of power, migration, play, noise, chance, and operate under methods of collaboration, commons-building, and communal interaction.
+  </>
+  ,
+  () => <>
+    My past work focused on live networked audio, mixing FM radio with user input through
+    online software. I&apos;m currently investigating novel ways to use global networking
+    for local and hyper-local real-time communication.
+  </>
+  ,
+  () => <>
+    I&lsquo;ve earned a living at various points in time as an artist, producer, graphic designer, software engineer, and educator. I&lsquo;ve had the pleasure of working at places like the{' '}
+    <Link external href="http://kunstradio.at">
+      ORF Kunstradio
+    </Link>
+    , the{' '}
+    <Link external href="http://aec.at/futurelab">
+      Ars Electronica Futurelab
+    </Link>
+    , the UCSB BioImaging Lab, and{' '}
+    <Link external href="https://cycling74.com">
+      Cycling &rsquo;74
+    </Link>{' '}
+    - the makers of Max / MSP. As an educator, I&lsquo;ve taught media art classes at University of California Santa Barbara, University of San Francisco, and Colorado University Boulder.
+  </>
+  ,
+  () =>
+    <div class="">
+      I hold a Phd in{' '}
+      <Link external href="http://mat.ucsb.edu">
+        Media, Arts, & Technology
+      </Link>{' '}
+      from the University of California, Santa Barbara, and am currently an
+      Assistant Professor at Colorado University Boulder in the department of{' '}
+      <Link external href="https://www.colorado.edu/cmci/dcmp">
+        Critical Media Practices
+      </Link>.
+    </div>
+  ,
+  () => <div class="text-xs">
+    I&apos;m a bit old-school and am just learning to participate in the instagoogle socials and whatnot (...I know, I know), so I offer here a few serious and semi-serious images as a consolation.
+  </div>
+  ,
+  () => <div class="flex flex-row gap-4">
+    <Socials />
+  </div>
+
+]
+
+const Me: Project = {
+  kind: ['radio', 'performance', 'software'],
+  aspect: "aspect-1080/720",
+  key: 'mezcal',
+  date: '2020 - ∞',
+  title: 'August Black',
+  shortDesc: "",
+  place: 'Boulder, CO',
+  media,
+  text
+}
+
 const About = () => (
   <>
-    <div class="font-medium w-full text-nowrap bg-primary text-primary-content flex flex-row uppercase">
-      <div class="w-32 hidden lg:block align-middle p-4 whitespace-no-wrap uppercase select-none">1975 - ∞</div>
-      <div class="w-74 whitespace-no-wrap align-middle p-4 tracking-wider uppercase select-none">ABOUT</div>
-      <div class="hidden md:inline  align-middle p-4 uppercase select-none">August Black</div>
-
-    </div>
-
-    <div class="p-4 flex-1 bg-linear-to-b from-primary/100 via-base-100/100 to-base-100/10 space-y-4 text-base-content">
-      <div class="flex flex-row gap-4 place-items-start">
-        <a href="/">
-          <svg class="w-10 md:w-12 lg:w-24" fill="currentcolor" viewBox="0 0 52 52" data-name="Layer 1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"><g><path d="M38,52a2,2,0,0,1-1.41-.59l-24-24a2,2,0,0,1,0-2.82l24-24a2,2,0,0,1,2.82,0,2,2,0,0,1,0,2.82L16.83,26,39.41,48.59A2,2,0,0,1,38,52Z" /></g></svg>
-        </a>
-        <div class="flex flex-col lg:flex-row gap-4">
-          <div class="flex-1 leading-relaxed sm:text-sm md:text-lg lg:text-xl space-y-4">
-            <div class="">
-              Hi, I&lsquo;m August Black. I&lsquo;m a hybrid practitioner of art, design, and
-              engineering that critically engages with techno-social systems in playful and evocative ways.
-              I create software, systems, and spaces through experimental
-              research in the overlapping areas of new formats, network dynamics, and virtual
-              architectures with a focus on audio and transmission. My activities tend to evoke
-              themes of power, migration, play, noise, chance, and operate under methods of collaboration,
-              commons-building, and communal interaction.
-            </div>
-            <div class="">
-              My past work focused on live networked audio, mixing FM radio with user input through
-              online software. I&apos;m currently investigating novel ways to use global networking
-              for local and hyper-local real-time communication.
-            </div>
-            <div class="">
-              I&lsquo;ve earned a living at various points in time as an artist, producer,
-              graphic designer, software engineer, and educator. I&lsquo;ve had the pleasure
-              of working at places like the{' '}
-              <Link external href="http://kunstradio.at">
-                ORF Kunstradio
-              </Link>
-              , the{' '}
-              <Link external href="http://aec.at/futurelab">
-                Ars Electronica Futurelab
-              </Link>
-              , the UCSB BioImaging Lab, and{' '}
-              <Link external href="https://cycling74.com">
-                Cycling &rsquo;74
-              </Link>{' '}
-              - the makers of Max/MSP. As an educator, I&lsquo;ve taught media-art classes
-              at University of California Santa Barbara, University of San Francisco, and Colorado University Boulder.
-            </div>
-            <div class="">
-              I hold a Phd in{' '}
-              <Link external href="http://mat.ucsb.edu">
-                Media, Arts, & Technology
-              </Link>{' '}
-              from the University of California, Santa Barbara, and am currently an
-              Assistant Professor at Colorado University Boulder in the department of{' '}
-              <Link external href="https://www.colorado.edu/cmci/dcmp">
-                Critical Media Practices
-              </Link>
-              .
-            </div>
-            <div class="text-xs">
-              I&apos;m a bit old-school and am just learning to participate in the instagoogle socials and whatnot (...I know, I know), so I offer here a few serious and semi-serious images as a consolation.
-            </div>
-            <div class="flex flex-row gap-4">
-              <Socials />
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </div>
-    <MediaGrid aspect="aspect-video" media={media} />
+    <Menu />
+    <ProjectPage project={Me} />
   </>
 )
+
+
 
 export default About

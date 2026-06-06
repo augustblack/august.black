@@ -1,4 +1,4 @@
-import { Component, JSX } from "solid-js";
+import { JSX } from "solid-js";
 import { Project } from './types'
 import { MediaProps } from '../media'
 
@@ -18,6 +18,7 @@ const media: MediaProps[] = [
     height: 526,
     blurDataURL: "data:image/webp;base64,UklGRnYAAABXRUJQVlA4WAoAAAAQAAAACQAABwAAQUxQSCQAAAABL0CYbfQa4fmrXDUiIvAFhWwkQfsRrMmanD/SEUT0P1LsXgBWUDggLAAAANABAJ0BKgoACAABQCYlpAADF/W19UYAAP7+w9yXQbZ4Cec2jFli/AFLAAAA",
     alt: 'pencil technical drawing of lechero',
+    bg: "bg-gray-50",
     caption: () => (<div>A pre-arduino, custom instrument in wood and electronics.</div>)
   },
   {
@@ -85,12 +86,12 @@ const media: MediaProps[] = [
     alt: 'lechero sitting on yellow table with blue USB cable'
   }
 ]
-const longy: Component<{ children?: JSX.Element }> = (props) => (
-  <>
-    <div class="pb-4"><em><i>El lechero</i></em> is a custom computer controler made of wood, metal, and electronics. Connected to a computer through a single USB cable, it is an instrument for music and real-time digital control of audio/video synthesis.</div>
-    {props.children}
-  </>
-)
+
+const text: Array<() => JSX.Element> = [
+  () => <div>
+    <em><i>El lechero</i></em> is a custom computer controler made of wood, metal, and electronics. Connected to a computer through a single USB cable, it is an instrument for music and real-time digital control of audio/video synthesis.
+  </div>
+]
 
 const Lechero: Project = {
   kind: ['performance', 'software', 'hardware'],
@@ -100,10 +101,7 @@ const Lechero: Project = {
   title: 'Lechero',
   shortDesc: "electro-mechanical audio instrument",
   place: 'various',
-  info: {
-    long: longy,
-    page: longy
-  },
+  text,
   media
 }
 

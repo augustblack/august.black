@@ -1,15 +1,16 @@
-import { Component, For, JSX, createSignal, onMount, onCleanup } from 'solid-js'
+import { Component, For, Show, Switch, Match, type JSX, onMount, onCleanup } from 'solid-js'
 import { fadeOutElement } from './utils'
 import Image from './image'
 
 type SubProps = { sub?: string; subLabel?: string }
 type SubsProps = { subs?: Array<SubProps>; src: string }
-type CaptionProps = { caption?: () => JSX.Element }
+type CaptionProps = { caption?: () => JSX.Element, class?: string }
 
 type VideoProps = {
   kind: "video"
   bg?: string
   imgClass?: string
+  capClass?: string
   src: string
   poster?: string
   caption?: () => JSX.Element
@@ -19,6 +20,7 @@ type VideoProps = {
 export type GenericProps = {
   kind: 'generic'
   src: string
+  capClass?: string
   content: () => JSX.Element
   caption?: () => JSX.Element
 }
@@ -32,6 +34,7 @@ export type ImageProps = {
   alt: string
   bg?: string
   imgClass?: string
+  capClass?: string
   caption?: () => JSX.Element
 }
 
@@ -47,26 +50,30 @@ type MediaGridProps = {
   aspect?: string
 }
 
-const Caption: Component<CaptionProps> = (props) =>
-  props.caption ? (
-    <div class="absolute bottom-0 text-xs lg:text-sm xl:text-sm p-2 bg-slate-900 text-slate-100 w-full opacity-75">
+const Caption: Component<CaptionProps> = (props) => {
+  if (!props.caption) return null
+  return (
+    < div class={
+      "absolute text-xs lg:text-sm xl:text-sm p-2 bg-slate-900 text-slate-100 w-full opacity-75 hidden md:block " +
+      (props.class || "")
+    }>
       {props.caption()}
-    </div>
-  ) : null
+    </div >
+  )
+}
 
 const SubTrack: Component<SubProps> = (props) =>
   props.sub && props.sub.trim() !== '' ? (
     <track label={props.subLabel} kind="subtitles" srclang="en" src={props.sub} default />
   ) : null
 
-const SubTracks: Component<SubsProps> = (props) =>
-  props.subs && props.subs.length ? (
-    <>
-      <For each={props.subs}>
-        {(s) => <SubTrack {...s} />}
-      </For>
-    </>
-  ) : null
+const SubTracks: Component<SubsProps> = (props) => (
+  <Show when={props.subs && props.subs.length}>
+    <For each={props.subs}>
+      {(s) => <SubTrack {...s} />}
+    </For>
+  </Show>
+)
 
 const stopEvent = (e: KeyboardEvent | MouseEvent) => {
   e.preventDefault()
@@ -98,7 +105,7 @@ const Video: Component<VideoProps> = (props) => {
     pausePlayingAudio(props.src)
     pausePlayingVideo(props.src)
   }
-
+  // NOTE: we put the video captions on TOP so that we can see the video controls
   return (
     <div class={"w-full h-full relative flex items-center " + (props.bg || '')} >
       <video
@@ -115,7 +122,7 @@ const Video: Component<VideoProps> = (props) => {
         <source src={props.src} />
         <SubTracks subs={props.subs} src={props.src} />
       </video>
-      <Caption caption={props.caption} />
+      <Caption caption={props.caption} class={" top-0 " + props.capClass} />
     </div>
   )
 }
@@ -131,25 +138,30 @@ const ImageLocal: Component<ImageProps> = (props) => (
       height={props.height}
       blurDataURL={props.blurDataURL}
     />
-    <Caption caption={props.caption} />
+    <Caption caption={props.caption} class={" bottom-0 " + props.capClass} />
   </div>
 )
 
 const GenericMedia: Component<GenericProps> = (props) => (
   <div class="w-full m-4 md:m-8">
     {props.content()}
-    <Caption caption={props.caption} />
+    <Caption caption={props.caption} class={" bottom-0 " + props.capClass} />
   </div>
 )
 
-export const Media: Component<MediaProps> = (props) =>
-  props.kind === 'generic' ? (
-    <GenericMedia {...props} />
-  ) : props.kind === 'image' ? (
-    <ImageLocal {...props} />
-  ) : props.kind === 'video' ? (
-    <Video {...props} />
-  ) : null
+export const Media: Component<MediaProps> = (props) => (
+  <Switch fallback={<p>Unknown status</p>}>
+    <Match when={props.kind === "image"}>
+      <ImageLocal {...props as ImageProps} />
+    </Match>
+    <Match when={props.kind === "video"}>
+      <Video {...props as VideoProps} />
+    </Match>
+    <Match when={props.kind === "generic"}>
+      <GenericMedia {...props as GenericProps} />
+    </Match>
+  </Switch>
+)
 
 export type MediaSources = Array<{
   type: string
@@ -166,8 +178,7 @@ export const Audio: Component<{
   return (
     <audio
       controls
-      class={'h-8 outline-none ' + props.class}
-      style={props.small ? { "max-width": '50%' } : {}}
+      class={'h-8 max-w-1/2 lg:max-w-none outline-none ' + props.class}
       onPlay={handlePlay}
       id={props.id}
     >
@@ -220,7 +231,7 @@ export const MediaGroup: Component<MediaGroupProps> = (props) => {
   })
 
   return (
-    <div ref={carouselRef} class={"carousel w-full " + (props.aspect || "aspect-video")}>
+    <div ref={carouselRef} class={"carousel carousel-horizontal w-full  " + (props.aspect || "aspect-video")}>
       <For each={props.media}>
         {(mediaItem, index) => (
           <div
@@ -238,7 +249,7 @@ export const MediaGroup: Component<MediaGroupProps> = (props) => {
 
 export const MediaGrid: Component<MediaGridProps> = (props) => (
   <div class="flex-1 w-full">
-    <div class="grid grid-flow-row gap-0 grid-cols-1 md:grid-cols-2 2xl:grid-cols-3">
+    <div class="grid grid-flow-row gap-4 grid-cols-2 sm:grid-cols-4 md:grid-cols-8 p-4 ">
       <For each={props.media}>
         {(m, _idx) => (
           <div class={"relative w-full overflow-hidden " + (props.aspect)}>

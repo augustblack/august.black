@@ -64,7 +64,7 @@
 }
 
 html {
-    font-family: aktiv-grotesk,Helvetica,sans-serif;
+    font-family: Monument Grotesk Variable, aktiv-grotesk,Helvetica,sans-serif;
 }
 
 html, body {
@@ -72,4 +72,27 @@ html, body {
   overscroll-behavior-y: none;
 }
 
+.embla {
+  max-width: 148rem;
 
+  --slide-height: 19rem;
+  --slide-spacing: 1rem;
+  --slide-size: 80%;
+}
+
+.embla__viewport {
+  overflow: hidden;
+}
+
+.embla__container {
+  display: flex;
+  touch-action: pan-y pinch-zoom;
+  margin-left: calc(var(--slide-spacing) * -1);
+}
+
+.embla__slide {
+  transform: translate3d(0, 0, 0);
+  flex: 0 0 var(--slide-size);
+  min-width: 0;
+  padding-left: var(--slide-spacing);
+}

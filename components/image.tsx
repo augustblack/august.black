@@ -40,7 +40,10 @@ const Img: Component<ImageProps> = (props) => {
 
   const onLoad = () => {
     imgRef.classList.remove('blur')
-    imgRef.style = wcss
+    imgRef.style = '' //wcss
+    //if (props.src.endsWith('svg')) {
+    //imgRef.style = wcss
+    //}
   }
 
   onMount(() => {

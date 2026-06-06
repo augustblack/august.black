@@ -1,7 +1,7 @@
 import { Component, For, createEffect, useContext } from 'solid-js'
 import { MainContext } from '../zzz'
 
-import ProjectRow from './project'
+import ProjectRow from './row'
 import ProjectPage from './page'
 import Socials from '../socials'
 
@@ -64,7 +64,10 @@ const Proyectos: Component<{ pid: string }> = (props) => {
   const { state, setState } = useContext(MainContext)
   let labelRef !: HTMLLabelElement
 
-  const project = () => projects.find(p => p.key === props.pid)
+  const projectIndex = projects.findIndex(p => p.key === props.pid)
+  const project = projectIndex !== -1 ? projects[projectIndex] : undefined
+  const prev = projectIndex > 0 ? projects[projectIndex - 1] : undefined
+  const next = projectIndex !== -1 && projectIndex < projects.length - 1 ? projects[projectIndex + 1] : undefined
   const toggleDark = () => setState("theme", (st: string) => st === "dark" ? "light" : "dark")
 
   createEffect(() => {
@@ -77,8 +80,8 @@ const Proyectos: Component<{ pid: string }> = (props) => {
     }
   })
 
-  return project() && project()!.key
-    ? (<ProjectPage project={project()!} />)
+  return project && project!.key
+    ? (<ProjectPage project={project} next={next} prev={prev} />)
     : (
       <>
         <div class="p-4 md:p-6 lg:p-10 uppercase leading-[1.6] text-lg sm:text-xl md:text-2xl lg:text-3xl font-light text-base-content text-shadow-lg ">I'm August Black. I investigate mediated modes of collectivity and togetherness. My research is a mixture of applied conceptual art, critical design, community activism, and expanded engineering. I write software, organize collectives, build instrumentation, and construct new formats for real-time interactive performance.

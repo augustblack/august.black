@@ -1,10 +1,8 @@
 import type { JSX } from 'solid-js'
-import { Component } from 'solid-js'
 import { Project } from './types'
-import { Link, LinkPlain } from '../link'
+import { Link } from '../link'
 import { MediaProps } from '../media'
 import Image from '../image'
-import { Logos } from './logos'
 
 const Paper = () => (
   <div class="pt-4 flex max-w-md">
@@ -170,39 +168,44 @@ const media: MediaProps[] = [
   */
 
 ]
+const text: Array<() => JSX.Element> = [
+  () => <div>
+    <span class="font-stretch-expanded">The Conduction Series</span> is a collaborative live radio broadcast produced by sound and transmission artists across the Americas on <Link external href="https://wavefarm.org">Wave Farm’s</Link> WGXC 90.7-FM Radio for Open Ears in New York’s Upper Hudson Valley. The collective comes together on the first Friday of every month at 3:02pm ET using the web platform <Link href="/mezcal" >Mezcal</Link>. Emphasizing live radio, interactivity, and media archaeological methods, the series explores themes of migration, noise, feedback, speculative fiction, transmissive theatrics, and recreational aesthetics.
+  </div>,
+  () => <div>
+    <span class="font-stretch-expanded">The Conduction Series</span> <span class=""> is syndicated on <Link href="https://radiomonteaudio.org/" external>Radio MonteAudio</Link> in Montevideo, Uruguay, <Link href="https://tsonami.cl/" external >Radio Tsonami</Link> in Valpara&iacute;so, Chile,  <Link href="https://centrodeartesonoro.cultura.gob.ar/info/radio-caso/" external >Radio CASo</Link> in Buenos Aires, Argentina, <Link href="https://www.citr.ca/" external >CITR FM</Link> in Vancouver, Canada, <Link href="https://naisa.ca/naisa-radio/#conduction" external>New Adventures in Sound Art</Link> in Ontario, Canada, and on <Link href="https://1190.radio/" external >Radio 1190</Link> in Boulder/Denver, Colorado.</span>
+  </div>,
+  () => <div>
+    <span class="font-stretch-expanded">The Conduction Series</span> members are Betsey Biggs (US), August Black (US), Peter Courtemanche (CA), Florencia Curci (AR), Jeff Economy (USA), Anna Friz (CA/DK), Jimmy Garver (US), Maximilian Goldfarb (US), Virginia Mantinian(AR), and Rodrigo R&iacute;os Zunino (CL).
+    <Link external href='http://conduction.wavefarm.org'>http://conduction.wavefarm.org</Link>
+  </div>
 
-const page: Component<{ children?: JSX.Element }> = (props) => (
-  <>
-    <div class="flex flex-col gap-4">
-      <div class="flex-1">
-        <span class="font-stretch-expanded">The Conduction Series</span> is a collaborative live radio broadcast produced by sound and transmission artists across the Americas on <Link external href="https://wavefarm.org">Wave Farm’s</Link> WGXC 90.7-FM Radio for Open Ears in New York’s Upper Hudson Valley. The collective comes together on the first Friday of every month at 3:02pm ET using the web platform <Link href="/mezcal" >Mezcal</Link>. Emphasizing live radio, interactivity, and media archaeological methods, the series explores themes of migration, noise, feedback, speculative fiction, transmissive theatrics, and recreational aesthetics.
-      </div>
-      <div class="flex-1">
-        <span class="font-stretch-expanded">The Conduction Series</span> <span class=""> is syndicated on <Link href="https://radiomonteaudio.org/" external>Radio MonteAudio</Link> in Montevideo, Uruguay, <Link href="https://tsonami.cl/" external >Radio Tsonami</Link> in Valpara&iacute;so, Chile,  <Link href="https://centrodeartesonoro.cultura.gob.ar/info/radio-caso/" external >Radio CASo</Link> in Buenos Aires, Argentina, <Link href="https://www.citr.ca/" external >CITR FM</Link> in Vancouver, Canada, <Link href="https://naisa.ca/naisa-radio/#conduction" external>New Adventures in Sound Art</Link> in Ontario, Canada, and on <Link href="https://1190.radio/" external >Radio 1190</Link> in Boulder/Denver, Colorado.</span>
-      </div>
-      <div class="flex-1">
-        <span class="font-stretch-expanded">The Conduction Series</span> members are Betsey Biggs (US), August Black (US), Peter Courtemanche (CA), Florencia Curci (AR), Jeff Economy (USA), Anna Friz (CA/DK), Jimmy Garver (US), Maximilian Goldfarb (US), Virginia Mantinian(AR), and Rodrigo R\u00edos Zunino (CL).
-      </div>
-    </div>
-    <div>
-      <Link external href='http://conduction.wavefarm.org'>http://conduction.wavefarm.org</Link>
-    </div>
-    <Logos logos={['wavefarm']} />
-    {props.children}
-    <Paper />
-  </>
-)
+]
 
-const longy: Component<{ children?: JSX.Element }> = (props) => (
-  <>
-    <div class="">
-      <Link external href='http://conduction.wavefarm.org'>The Conduction Series</Link> is a monthly live collaborative radio series airing on Wave Farm’s WGXC 90.7-FM Radio for Open Ears in New York’s Upper Hudson Valley.  It consists of a core group of sound and transmission artists from various locations who come together with other remote participants to perform a kind of live media archeaology together.
+const extra: Array<() => JSX.Element> = [
+  () =>
+    <div class=""><b class="uppercase">Credits:</b>
+      <div class="space-y-1 m-4">
+        <div><b>concept and production:</b> August Black</div>
+        <div><b>software:</b> August Black</div>
+        <div><b>graphics:</b> August Black</div>
+        <div><b>players:</b> August Black, Betsey Biggs,  Peter Courtemanche, Florencia Curci, Jeff Economy, Anna Friz, Jimmy Garver, Maximilian Goldfarb, Virginia Mantinian, and Rodrigo R&iacute;os Zunino.
+        </div>
+      </div>
     </div>
-    <div><Link external href='http://conduction.wavefarm.org'>http://conduction.wavefarm.org</Link></div>
-    <Logos logos={['wavefarm']} />
-    {props.children}
-  </>
-)
+  ,
+  () =>
+    <div class=""><b class="uppercase">Related Publications:</b>
+      <div class="space-y-1 m-4">
+        <div>
+          Black, August. et al. <Link external href="https://doi.org/10.1145/3771594.3771612">The Conduction Series: Live Collaborative Transmission Art Across Borders"</Link> <i>Proceedings of the 20th International Audio Mostly Conference on Interactive Audio.</i> July 3-7, 2025, Coimbra, Portugal.<br />DOI:10.1145/3771594.3771612
+        </div>
+      </div>
+    </div>
+  ,
+  () =>
+    <Link external href='http://conduction.wavefarm.org'>http://conduction.wavefarm.org</Link>
+]
 
 
 const ConductionSeries: Project = {
@@ -213,11 +216,10 @@ const ConductionSeries: Project = {
   title: 'The Conduction Series',
   shortDesc: "monthly collaborative radio",
   place: 'various',
-  info: {
-    long: longy,
-    page
-  },
-  media
+  logos: ['wavefarm'],
+  media,
+  extra,
+  text
 }
 
 export default ConductionSeries

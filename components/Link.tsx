@@ -1,4 +1,4 @@
-import { Component, JSX } from "solid-js";
+import { Component, JSX, Show } from "solid-js";
 
 export type LinkProps = {
   href: string
@@ -8,12 +8,11 @@ export type LinkProps = {
   children: JSX.Element
 }
 
-export const LinkPlain: Component<LinkProps> = (props) =>
-  props.external ? (
+export const LinkPlain: Component<LinkProps> = (props) => (
+  <Show when={props.external} fallback={<a class={props.class} href={props.href}>{props.children}</a>}>
     <a target="_blank" class={props.class} href={props.href} rel="noreferrer">{props.children}</a>
-  ) : (
-    <a href={props.href} class={props.class}>{props.children}</a>
-  )
+  </Show>
+)
 
 export const Link: Component<LinkProps> = (props) => (
   <LinkPlain

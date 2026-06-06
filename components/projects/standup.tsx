@@ -88,18 +88,16 @@ const media: MediaProps[] = [
   }
 ]
 
-const longy: Component<{ children?: JSX.Element }> = (props) => (
-  <>
-    <div class="">
-      Standup radio was the monthly radio and audio collaboration of <Link external href="http://ruperthuber.com/">Rupert Huber</Link> and August Black on <Link external href="https://www.o94.at/">Radio Orange</Link>,
-      FM 94mhz in Vienna, Austria from 2000-2003.
-    </div>
-    <div class="">
-      Most shows were made either by recording while traveling or by one of us phoning or streaming in live to the radio station.
-    </div>
-    {props.children}
-  </>
-)
+const text: Array<() => JSX.Element> = [
+  () => <div>
+    Standup radio was the monthly radio and audio collaboration of <Link external href="http://ruperthuber.com/">Rupert Huber</Link> and August Black on <Link external href="https://www.o94.at/">Radio Orange</Link>,
+    FM 94mhz in Vienna, Austria from 2000-2003.
+  </div>
+  ,
+  () => <div>
+    Most shows were made either by recording while traveling or by one of us phoning or streaming in live to the radio station.
+  </div>
+]
 
 
 const Standup: Project = {
@@ -110,10 +108,7 @@ const Standup: Project = {
   title: 'Standup Radio',
   shortDesc: "Monthly 1-hour art-radio broadcast",
   place: 'Linz, Austria',
-  info: {
-    long: longy,
-    page: longy
-  },
+  text,
   media
 }
 
