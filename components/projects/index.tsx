@@ -17,10 +17,14 @@ import Lechero from './lechero'
 import DataDada from './datadada'
 import Standup from './standup'
 import Funda from './fundamental'
+import Aquapella from './aquapella'
+import EndOfUs from './endofus'
 
 import { Project } from './types'
 
 export const projects: Project[] = [
+  EndOfUs,
+  Aquapella,
   Pulse,
   Compost,
   Conduction,
