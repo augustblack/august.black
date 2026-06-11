@@ -1,6 +1,6 @@
-import type { Config } from "vike/types";
-import vikeSolid from "vike-solid/config";
-import Layout from "../layouts/LayoutDefault.js";
+import type { Config } from "vike/types"
+import vikeSolid from "vike-solid/config"
+import Layout from "../layouts/LayoutDefault.js"
 
 export default {
   Layout,
