@@ -78,7 +78,7 @@ const media: MediaProps[] = [
     bg: 'bg-black',
     imgClass: 'object-contain',
     src: 'https://assets.august.black/media/pulse/pulse_nov_2024.mp4',
-    poster: 'https://assets.august.black/media/pulse/pm_02.jpg'
+    poster: 'https://assets.august.black/media/pulse/pulse_doc_poster.jpg'
   },
   {
     kind: 'image',
@@ -88,6 +88,15 @@ const media: MediaProps[] = [
     height: 2400,
     caption: () => (<div>Pulse Memorial painting with QR code to launch the project, as exhibited at the <Link external href="https://leafcolorado.org/leaf2025-recess-exhibit/">LEAF Recess exhibit 2025</Link></div>),
     blurDataURL: "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAAAQAgCdASoKAAgAAUAmJYgCw7EfUlwB2HAAAP64Rg+B3uwdSEbPenV3dj5Db0iu0pXRP6hg/romRYBWh8RpkiJ/edjCVc0wEsAPVeMz+psfpP/K7wX2VFcu2TAAAA=="
+  },
+  {
+    kind: "image",
+    src: "media/pulse/pulse_shirtsv1.jpg",
+    alt: "hand made pulse t-shirts in a stack",
+    width: 3135,
+    height: 2479,
+    blurDataURL: "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAADwAQCdASoKAAgAAUAmJaACdAEO55v0LNYA/mFv4nrZVv/tlEM4v+h3yD8hPQkZav1b3pojOw9NoR5DPO/fEkSYT7qkX+BH2Z79TqCPY0LnPqNuF8/xcX6HLfQ/9HJJlrA+dND/ydT/j2p8/Rmy3v/+bNr/Q3WHvAAAAA==",
+    caption: () => (<div>Pulse Memorial t-shirts with QR code to launch the project. We are exploring alternative modes of "radio" broadcast with the project.</div>),
   }
   /*
   {
@@ -150,23 +159,44 @@ const text: Array<() => JSX.Element> = [
   </div>
 ]
 
-const extra: Array<() => JSX.Element> = [
-  () =>
-    <div class=""><b class="uppercase">Credits:</b>
-      <div class="space-y-1 m-4">
-        <div><b>concept and production:</b> Brook Vann & August Black</div>
-        <div><b>software and design:</b> August Black</div>
-        <div><b>data sonifications:</b> Brook Vann</div>
-        <div><b>sound and composition:</b> Brook Vann & Betsey Biggs</div>
-      </div>
-    </div>
-  ,
-  () =>
-    <div class=""><b class="uppercase">Related Publications:</b>
-      <div class="space-y-1 m-4">
-        <div class="pl-4">Brook Vann, J Molina-Garcia, August Black. 2024. <Link external href="https://dl.acm.org/doi/pdf/10.1145/3680530.3695450">Pulse Memorial. SA &apos;24: SIGGRAPH Asia 2024 Art Papers Article No.: 27, Pages 1 - 6</Link>, DOI: 10.1145/3680530.3695450</div>
-      </div>
-    </div>
+const extras = [
+  {
+    title: "Credits",
+    list: [
+      {
+        label: "concept and production",
+        item: () => <>Brook Vann & August Black</>
+      },
+      {
+        label: "software and design",
+        item: () => <>August Black</>
+      },
+      {
+        label: "data sonifications",
+        item: () => <>Brook Vann</>
+      },
+      {
+        label: "sound and composition",
+        item: () => <>Brook Vann & Betsey Biggs</>
+      }
+    ]
+  },
+  {
+    title: "Exhibitions",
+    list: [
+      {
+        item: () => <><i>Pulse Memorial</i> - Lafayette, CO, <Link external href="https://leafcolorado.org/leaf2025-recess-exhibit/">RECESS</Link> exhibition. May - June 2025</>
+      }
+    ]
+  },
+  {
+    title: "Related Publications",
+    list: [
+      {
+        item: () => <>Brook Vann, J Molina-Garcia, August Black. 2024. <Link external href="https://dl.acm.org/doi/pdf/10.1145/3680530.3695450">Pulse Memorial. SA &apos;24: SIGGRAPH Asia 2024 Art Papers Article No.: 27, Pages 1 - 6</Link>, DOI: 10.1145/3680530.3695450</>
+      }
+    ]
+  }
 ]
 
 
@@ -179,7 +209,7 @@ const Pulse: Project = {
   shortDesc: "mobile multichannel memorial",
   place: 'various',
   text,
-  extra,
+  extras,
   media
 }
 
