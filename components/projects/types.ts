@@ -4,9 +4,15 @@ import { LogoNames } from './logos'
 
 export type Kind = 'radio' | 'performance' | 'installation' | 'software' | 'systems' | 'highlight' | 'instrument' | 'hardware'
 
-export interface Info {
-  long: Component<{ children?: JSX.Element }>
-  page: Component<{ children?: JSX.Element }>
+// Component<{ children?: JSX.Element }>
+type ExItem = {
+  label?: string
+  item: Component<{ children?: JSX.Element }>
+}
+
+type Extra = {
+  title: string
+  list: Array<ExItem>
 }
 
 export interface Project {
@@ -17,9 +23,8 @@ export interface Project {
   title: string
   shortDesc: string
   place: string
-  info?: Info
   media: MediaProps[]
-  text?: Array<() => JSX.Element>
-  extra?: Array<() => JSX.Element>
+  text: Array<() => JSX.Element>
+  extras?: Array<Extra>
   logos?: Array<LogoNames>
 }
