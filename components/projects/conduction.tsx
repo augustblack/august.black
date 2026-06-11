@@ -120,6 +120,19 @@ const media: MediaProps[] = [
     caption: () => (<div>Dec. 1st, 2023 - Live from the Bogot&aacute; Planetario as part of the Domo Lleno Festival 2023.</div>)
   },
 
+  /*
+  {
+    kind: 'image',
+    src: "media/mezcal/mezcal_screen_clipped.png",
+    width: 1158,
+    height: 942,
+    blurDataURL: "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADwAQCdASoKAAgAAUAmJZQCdAEQ/SwO0QAA/ug/Rdm8lvQE6qB15cVQt638eX7bXFdIBz4DO/jrXuZfVBMDHoUjoRyJFJXdFdOsBGllsAA=",
+    bg: 'bg-black',
+    imgClass: 'object-cover object-top-left w-full h-full',
+    alt: 'mezcal interface',
+    caption: () => (<div>The mezcal interface as shown during the TSONAMI festival in Valparaiso, Chile 2022.</div>)
+  },
+  */
   {
     kind: 'image',
     src: "media/conduction_series/conduction_series_photo.jpg",
@@ -132,18 +145,6 @@ const media: MediaProps[] = [
       <span class='pr-2'>middle: Jimmy Garver,  August Black, Maximilian Goldfarb</span>
       <span class=''>bottom: Peter Courtemanche, Jeff Economy, Betsey Biggs</span></div>)
   },
-
-  {
-    kind: 'image',
-    src: "media/mezcal/mezcal_screen_clipped.png",
-    width: 1158,
-    height: 942,
-    blurDataURL: "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADwAQCdASoKAAgAAUAmJZQCdAEQ/SwO0QAA/ug/Rdm8lvQE6qB15cVQt638eX7bXFdIBz4DO/jrXuZfVBMDHoUjoRyJFJXdFdOsBGllsAA=",
-    bg: 'bg-black',
-    imgClass: 'object-cover object-top-left w-full h-full',
-    alt: 'mezcal interface',
-    caption: () => (<div>The mezcal interface as shown during the TSONAMI festival in Valparaiso, Chile 2022.</div>)
-  },
   {
     kind: 'image',
     alt: 'block print of conduction series logo',
@@ -154,6 +155,16 @@ const media: MediaProps[] = [
     blurDataURL: "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAACwAQCdASoKAAUAAUAmJaQAAsZ5atcAAP7oqNc1jnnnL1o/nKqbURGNNWUm2V7+V/bYnwT2b/2gkeA5Hp6WWNczEJ+aZH+86E9iveSmt9PNBKAAAAA=",
     caption: () => (<div>Our logo speaks to our polar modes of breathful listening and outward propagation. We sometimes operate under the motto "There can be no conspiracy without shared breath".</div>)
   },
+  {
+    kind: "image",
+    src: "media/conduction_series/conduction_merch.jpg",
+    width: 5484,
+    height: 3072,
+    alt: "conduction t-shirts, handmade",
+    blurDataURL: "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAABQAgCdASoKAAYAAUAmJbACdDiAP1ABVE2om3QA/upW4VS7FMKV/w3p/erQ9j8Zexl8sw5RhpYYv1HFlZ9KBJAULjpGK7CxPzJj/+RXx5ml4YzIzX+2fwOFX//ybactUcGTzWEH/3a1KtOQAAA=",
+    caption: () => (<div>Conduction merchandise.</div>)
+  },
+
   /*
   {
     kind: 'image',
@@ -171,6 +182,7 @@ const media: MediaProps[] = [
 const text: Array<() => JSX.Element> = [
   () => <div>
     <span class="font-stretch-expanded">The Conduction Series</span> is a collaborative live radio broadcast produced by sound and transmission artists across the Americas on <Link external href="https://wavefarm.org">Wave Farm’s</Link> WGXC 90.7-FM Radio for Open Ears in New York’s Upper Hudson Valley. The collective comes together on the first Friday of every month at 3:02pm ET using the web platform <Link href="/mezcal" >Mezcal</Link>. Emphasizing live radio, interactivity, and media archaeological methods, the series explores themes of migration, noise, feedback, speculative fiction, transmissive theatrics, and recreational aesthetics.
+    <div><Link external href='http://conduction.wavefarm.org'>http://conduction.wavefarm.org</Link></div>
   </div>,
   () => <div>
     <span class="font-stretch-expanded">The Conduction Series</span> <span class=""> is syndicated on <Link href="https://radiomonteaudio.org/" external>Radio MonteAudio</Link> in Montevideo, Uruguay, <Link href="https://tsonami.cl/" external >Radio Tsonami</Link> in Valpara&iacute;so, Chile,  <Link href="https://centrodeartesonoro.cultura.gob.ar/info/radio-caso/" external >Radio CASo</Link> in Buenos Aires, Argentina, <Link href="https://www.citr.ca/" external >CITR FM</Link> in Vancouver, Canada, <Link href="https://naisa.ca/naisa-radio/#conduction" external>New Adventures in Sound Art</Link> in Ontario, Canada, and on <Link href="https://1190.radio/" external >Radio 1190</Link> in Boulder/Denver, Colorado.</span>
@@ -182,29 +194,36 @@ const text: Array<() => JSX.Element> = [
 
 ]
 
-const extra: Array<() => JSX.Element> = [
-  () =>
-    <div class=""><b class="uppercase">Credits:</b>
-      <div class="space-y-1 m-4">
-        <div><b>concept and production:</b> August Black</div>
-        <div><b>software:</b> August Black</div>
-        <div><b>graphics:</b> August Black</div>
-        <div><b>players:</b> August Black, Betsey Biggs,  Peter Courtemanche, Florencia Curci, Jeff Economy, Anna Friz, Jimmy Garver, Maximilian Goldfarb, Virginia Mantinian, and Rodrigo R&iacute;os Zunino.
-        </div>
-      </div>
-    </div>
-  ,
-  () =>
-    <div class=""><b class="uppercase">Related Publications:</b>
-      <div class="space-y-1 m-4">
-        <div>
-          Black, August. et al. <Link external href="https://doi.org/10.1145/3771594.3771612">The Conduction Series: Live Collaborative Transmission Art Across Borders"</Link> <i>Proceedings of the 20th International Audio Mostly Conference on Interactive Audio.</i> July 3-7, 2025, Coimbra, Portugal.<br />DOI:10.1145/3771594.3771612
-        </div>
-      </div>
-    </div>
-  ,
-  () =>
-    <Link external href='http://conduction.wavefarm.org'>http://conduction.wavefarm.org</Link>
+const extras = [
+  {
+    title: "Credits",
+    list: [
+      {
+        label: "concept and production",
+        item: () => <>August Black</>
+      },
+      {
+        label: "members",
+        item: () => <>August Black, Betsey Biggs, Peter Courtemanche, Florencia Curci, Jeff Economy, Anna Friz, Jimmy Garver, Maximilian Goldfarb, Virginia Mantinian, and Rodrigo R&iacute;os Zunino</>
+      }
+    ]
+  },
+  {
+    title: "Related Publications",
+    list: [
+      {
+        item: () => <>Black, August. et al. <Link external href="https://doi.org/10.1145/3771594.3771612">The Conduction Series: Live Collaborative Transmission Art Across Borders"</Link> <i>Proceedings of the 20th International Audio Mostly Conference on Interactive Audio.</i> July 3-7, 2025, Coimbra, Portugal.<br />DOI:10.1145/3771594.3771612</>
+      }
+    ]
+  },
+  {
+    title: "Project Website",
+    list: [
+      {
+        item: () => <><Link external href='http://conduction.wavefarm.org'>http://conduction.wavefarm.org</Link></>
+      }
+    ]
+  }
 ]
 
 
@@ -218,7 +237,7 @@ const ConductionSeries: Project = {
   place: 'various',
   logos: ['wavefarm'],
   media,
-  extra,
+  extras,
   text
 }
 
