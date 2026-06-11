@@ -154,13 +154,26 @@ export const ProjectPage: Component<{ project: Project }> = (props) => {
         )}
       </For>
 
-      <Show when={props.project.extra?.length} >
-        <For each={props.project.extra}>
-          {(item) => (
+      <Show when={props.project.extras} >
+        <For each={props.project.extras}>
+          {(ex) => (
             <div class="w-full flex flex-row gap-2">
               <div class="w-0 hidden lg:flex lg:w-1/6" />
               <div class="w-full lg:w-2/3 px-4 lg:px-0 prose prose-lg text-base-content font-light">
-                {item()}
+                <div><b class="font-medium uppercase">{ex.title}</b>
+                  <div class="m-4 flex flex-col gap-2">
+                    <For each={ex.list}>
+                      {(exlistItem) => (
+                        <div>
+                          <Show when={exlistItem.label} >
+                            <b class="font-medium">{exlistItem.label}: </b>
+                          </Show>
+                          <exlistItem.item />
+                        </div>
+                      )}
+                    </For>
+                  </div>
+                </div>
               </div>
               <div class="w-0 hidden lg:flex lg:w-1/6 " />
             </div>
