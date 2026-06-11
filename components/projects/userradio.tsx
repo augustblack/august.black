@@ -1,7 +1,7 @@
 import { JSX } from "solid-js";
 import { Project } from './types'
 import { MediaProps } from '../media'
-// import { Link, LinkPlain } from '../link'
+import { Link } from '../link'
 
 const media: MediaProps[] = [
   {
@@ -68,6 +68,25 @@ const text: Array<() => JSX.Element> = [
   </div>
 ]
 
+const extras = [
+  {
+    title: "Credits",
+    list: [
+      {
+        label: "concept and software",
+        item: () => <>August Black</>
+      }
+    ]
+  },
+  {
+    title: "Related Publications",
+    list: [
+      {
+        item: () => <>August Black. 2004. <Link external href="https://assets.august.black/media/userradio/userradio.pdf">Userradio. In Proceedings of ACM Multimedia</Link>, New York, NY, USA, October 10 - 16, 2004. ISBN:1-58113-893-8 DOI: 10.1145/1027527.1027570</>
+      }
+    ]
+  }
+]
 
 const Userradio: Project = {
   kind: ['radio', 'performance', 'software'],
@@ -78,6 +97,7 @@ const Userradio: Project = {
   shortDesc: "collaborative remote audio mixer",
   place: 'Linz, Austria',
   text,
+  extras,
   media
 }
 
