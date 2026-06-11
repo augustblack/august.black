@@ -48,8 +48,27 @@ const text: Array<() => JSX.Element> = [
   () => <div>
     <div><Link class="p-1" external href="https://wavefarm.org/ta/calendar/017hn5">https://wavefarm.org/ta/calendar/017hn5</Link></div>
     <div><Link class="p-1" external href="https://github.com/augustblack/hearhere">https://github.com/augustblack/hearhere</Link></div>
-  </div>,
-  () => <div>August Black. 2017. <Link external href="/media/hearhere/hear.pdf">Hear-Here. In Proceedings of ACM Audio Mostly conference</Link>, London, UK, August 2017 (Audio Mostly’17), 6 pages. DOI: 10.475/123_4</div>
+  </div>
+]
+
+const extras = [
+  {
+    title: "Credits",
+    list: [
+      {
+        label: "concept, software",
+        item: () => <>August Black</>
+      }
+    ]
+  },
+  {
+    title: "Related Publications",
+    list: [
+      {
+        item: () => <>August Black. 2017. <Link external href="/media/hearhere/hear.pdf">Hear-Here. In Proceedings of ACM Audio Mostly conference</Link>, London, UK, August 2017 (Audio Mostly'17), 6 pages. DOI: 10.475/123_4</>
+      }
+    ]
+  }
 ]
 
 const HearHear: Project = {
@@ -61,6 +80,7 @@ const HearHear: Project = {
   shortDesc: "web-to-FM in short overlapping intervals",
   place: 'Acra, NY',
   text,
+  extras,
   media
 }
 
