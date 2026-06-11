@@ -129,34 +129,69 @@ const text: Array<() => JSX.Element> = [
   </div>,
 ]
 
-const extra: Array<() => JSX.Element> = [
-
-  () => <div class="">
-    <div class="font-medium uppercase">Credits:</div>
-    <div class="m-4 space-y-1">
-      <div><b>concept:</b> Betsey Biggs and August Black</div>
-      <div><b>software:</b> August Black</div>
-      <div><b>graphics:</b> August Black</div>
-      <div><b>audio composition:</b> Betsey Biggs</div>
-    </div>
-  </div>,
-  () => <div class="">
-    <div class="font-medium uppercase">Press:</div>
-    <div class="m-4 space-y-1">
-      <Link external href='https://blackflash.ca/shifting-and-transitory-soundscapes-we-are-here-fm/'>Blackflash Magazine</Link> article on We Are Here by Cléo Sallis-Parchet
-    </div>
-  </div>,
-  () => <div class="">
-    <div class="font-medium uppercase">Related Publications:</div>
-    <div class="m-4 space-y-1">
-      <div>
-        Biggs, E., Black, A. <Link external href="https://doi.org/10.7273/fxjt-f515">We Are Here FM</Link> <i>The Digital Review</i>, September 01, 2022. <br />DOI:10.7273/fxjt-f515
-      </div>
-
-      <div>
-        <Link external href='https://smc25.iem.at/'>Sound and Music Computing, Graz 2025</Link></div>
-    </div>
-  </div>
+const extras = [
+  {
+    title: "Credits",
+    list: [
+      {
+        label: "concept",
+        item: () => <>Betsey Biggs and August Black</>
+      },
+      {
+        label: "software",
+        item: () => <>August Black</>
+      },
+      {
+        label: "graphics",
+        item: () => <>August Black</>
+      },
+      {
+        label: "audio composition",
+        item: () => <>Betsey Biggs</>
+      }
+    ]
+  },
+  {
+    title: "Press",
+    list: [
+      {
+        item: () => <><Link external href='https://blackflash.ca/shifting-and-transitory-soundscapes-we-are-here-fm/'>Blackflash Magazine</Link> article on We Are Here by Cléo Sallis-Parchet</>
+      }
+    ]
+  },
+  {
+    title: "Exhibitions",
+    list: [
+      {
+        item: () => <> <i>We Are Here FM</i> - weeklong walk-in installation at the <Link external href='https://smc25.iem.at/'>Sound and Music Computing</Link>, Graz, Austria - July 7-12, 2025</>
+      },
+      {
+        item: () => <><i>We Are Here FM</i> - Boulder, Colorado, USA, 2023. Single-channel installation on-site at the CU Art Museum.</>
+      },
+      {
+        item: () => <><i>We Are Here FM</i> - <Link external href="https://piksel.no/">Piksel Festival</Link> - Bergen, Norway, 2022. Single-channel room-sized installation on-site.</>
+      },
+      {
+        item: () => <><i>We Are Here FM</i> - <Link external href="https://piksel.no/">Piksel Festival</Link> - Bergen, Norway, 2021. Screen-saver installed on computer screen on-site.</>
+      }
+    ]
+  },
+  {
+    title: "Related Publications",
+    list: [
+      {
+        item: () => <>Biggs, E., Black, A. <Link external href="https://doi.org/10.7273/fxjt-f515">We Are Here FM</Link> <i>The Digital Review</i>, September 01, 2022. <br />DOI:10.7273/fxjt-f515</>
+      },
+    ]
+  },
+  {
+    title: "Project Website",
+    list: [
+      {
+        item: () => <Link external href="https://wearehere.fm">https://wearehere.fm</Link>
+      },
+    ]
+  }
 ]
 
 const Wearehere: Project = {
@@ -168,7 +203,7 @@ const Wearehere: Project = {
   shortDesc: "generative, geo-tagged audio-visuals",
   place: 'various',
   text,
-  extra,
+  extras,
   media
 }
 
