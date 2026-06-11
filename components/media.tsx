@@ -109,7 +109,7 @@ const Video: Component<VideoProps> = (props) => {
   return (
     <div class={"w-full h-full relative flex items-center " + (props.bg || '')} >
       <video
-        class={"w-full relative " + (props.imgClass || '')}
+        class={props.imgClass || "object-cover object-center  w-full h-full "}
         onPlay={handlePlay}
         poster={props.poster}
         controls
