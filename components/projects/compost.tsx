@@ -92,7 +92,7 @@ const media: MediaProps[] = [
 ]
 const text: Array<() => JSX.Element> = [
   () => <div>
-    Audio Compost is a performance instrument and radiophonic installation whereby visitors can use their mobile phones to capture their own voice and send it into a live <Link external href="https://happymag.tv/frippertronics/">frippertronic loop</Link> that mixes their voices with others in an ever evolving and undetermined sonic event.
+    Audio Compost is a performance instrument and radiophonic installation whereby the audience uses their mobile phones to capture their voice and send it into a live <Link external href="https://happymag.tv/frippertronics/">frippertronic loop</Link> that mixes their voices with others in an ever evolving and undetermined sonic event.
   </div>,
   () => <div>
     One of the most disruptive technological developments of our time is also, now, one of the most diverse and overlooked.  While mobile smart phones come packed with computational capabilities (such as lidar, multiple cameras, and hi resolution displays) a very under-appreciated feature is the lowly wireless microphone built into each device.  While people tend to be attentive and accepting to their own photographic image, often smitten by their own appearance, the recorded voice  holds a parallax tension that is simultaneously  too personal and too foreign for many to digest as easily as a photograph. Like a camera, we carry a mic with us at all times, but don&apos;t use it in the same capacity despite (or because) it is so electric and cutting.
@@ -109,20 +109,52 @@ const text: Array<() => JSX.Element> = [
   </div>
 ]
 
-const extra: Array<() => JSX.Element> = [
-  () =>
-    <div class=""><b class="uppercase">Credits:</b>
-      <div class="space-y-1 m-4">
-        <div><b>concept, software, design:</b> August Black</div>
-      </div>
-    </div>
-  ,
-  () =>
-    <div class=""><b class="uppercase">Related Publications:</b>
-      <div class="m-4">
-        Black, August. <Link external href="https://doi.org/10.5281/zenodo.17642103">Audio Compost: a collaborative virtual frippertronic loop</Link> <i>Proceedings of the ACM International Conference on Web Audio.</i> Nov 19-21, 2025, Paris, France. <Link external href="https://wac-2025.ircam.fr/award.html"><b>BEST PAPER AWARD</b></Link>. <br />DOI: 10.5281/zenodo.17642103
-      </div>
-    </div>
+const extras = [
+  {
+    title: "Credits",
+    list: [
+      {
+        label: "concept, software, design",
+        item: () => <>August Black</>
+      }
+    ]
+  },
+  {
+    title: "Exhibitions",
+    list: [
+      {
+        item: () => <div><i>Audio Compost</i> - <Link external href="https://piksel.no/">Piksel Festival</Link> - Bergen, Norway. On-Site screen installation. 2022.</div>
+      }
+    ]
+  },
+  {
+    title: "Performances",
+    list: [
+      {
+        item: () => <><i>All Our Voices, All Together, All At Once</i> for the <Link external href="https://www.emmanuelgallery.org/paw">Performance Art Week</Link> at Emmanuel Gallery, Denver, CO, April 2026. Using custom software and local network design, this piece brings all on-site participants into a sonic chant with one another using mobile devices.</>
+      },
+      {
+        item: () => <><i>Cowboy Sandbox</i> - Laramie, Wyoming USA, 2024. Live solo performance with my Audio Compost software in the Harry C Vaughan Planetarium.</>
+      },
+      {
+        item: () => <><i>Domo Lleno Festival</i> - Bogotá Colombia, 2023. Commissioned live solo performance with on-site my Audio Compost software in the Bogotá planetarium.</>
+      },
+      {
+        item: () => <><i>Audio Compost</i> - PIF Camp Festival - Soča, Slovenia, 2022. Live interactive performance.</>
+      },
+      {
+        item: () => <><i>Audio Compost</i> - Digital Naturalism Conference - Batticaloa, Sri Lanka, 2022. Live interactive performance.</>
+      }
+    ]
+  },
+  {
+    title: "Related Publications",
+    list: [
+      {
+        item: () => <>Black, August. <Link external href="https://doi.org/10.5281/zenodo.17642103">Audio Compost: a collaborative virtual frippertronic loop</Link> <i>Proceedings of the ACM International Conference on Web Audio.</i> Nov 19-21, 2025, Paris, France. <Link external href="https://wac-2025.ircam.fr/award.html"><b>BEST PAPER AWARD</b></Link>. <br />DOI: 10.5281/zenodo.17642103</>
+      }
+    ]
+  }
 ]
 const Compost: Project = {
   kind: ['performance', 'installation', 'software'],
@@ -134,7 +166,7 @@ const Compost: Project = {
   place: 'various',
   media,
   text,
-  extra,
+  extras,
   logos: ['ckweb']
 }
 
