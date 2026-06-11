@@ -1,8 +1,8 @@
-import { Component, For, JSX } from "solid-js"
+import { For, JSX } from "solid-js"
 import { Project } from './types'
 import { MediaProps, Audio } from '../media'
 import { Link, LinkPlain } from '../link'
-import { Logos } from './logos'
+import Image from '../image'
 
 const BetaGroup = {
   'Galen Joseph-Hunter': 'https://wavefarm.org',
@@ -38,8 +38,15 @@ const media: MediaProps[] = [
     height: 3148,
     blurDataURL: "data:image/webp;base64,UklGRsYAAABXRUJQVlA4WAoAAAAQAAAACQAACQAAQUxQSFcAAAABcFTbttqcMHNSJgfkAi20o2qIhk5JAtcAd8quSENETAD/ZgYh2MMMrNM5jNMd7OOFNHrHRzhEq/7kFhzgID+u9abwQVgADtD2jSQvJXVoxV6t5GQL/AsAVlA4IEgAAACwAQCdASoKAAoAAUAmJbACdLoABGaAAP7od5Qg7xlgvQJy11s27j17L3PXr8kwCMAxjXyqf9r/9XNCVKYCP7Px//1ofNKxoAA=",
     bg: 'bg-black',
-    imgClass: 'object-contain w-full h-full',
+    imgClass: 'object-contain w-full h-full aspect-video',
     alt: 'mezcal logo'
+  },
+  {
+    kind: "video",
+    src: "https://assets.august.black/media/mezcal/mezcal_demoCut_2025-03-20.mp4",
+    poster: "https://assets.august.black/media/mezcal/mezcal_demoCut_2025-03-20.jpg",
+    bg: "bg-black",
+    imgClass: "object-contain "
   },
   {
     kind: "image",
@@ -96,7 +103,7 @@ const media: MediaProps[] = [
     blurDataURL: "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAADwAQCdASoKAAcAAUAmJaACdAEf2jz7eAAA/vuJK7DOUxslqIDPi0bXxaVur1pB9FMtBMjSXv/6WRPyrXUnfiVvuPyqGU1nzVkdbyQm7av8wq61NEqhNfiE/sWiVQAA",
     alt: 'mezcal in use on laptops sitting on table in the hull of a large boat',
     caption: () => (<div class='flex flex-row'>
-      <div class='flex-grow'>Mezcal at work for the <LinkPlain external href="https://acousticommons.net/~/#">Spree Channelsea Radio Group</LinkPlain>.
+      <div class='flex-grow'>Mort Drew attending to Mezcal for the <LinkPlain external href="https://acousticommons.net/~/#">Spree Channelsea Radio Group</LinkPlain>.
       </div>
     </div>
     )
@@ -271,13 +278,26 @@ const media: MediaProps[] = [
 ]
 
 const text: Array<() => JSX.Element> = [
-  () => <>
-    Mezcal is a browser - based instrument that I made for the purpose of re - wilding(or simply wilding) radio space beyond the standard forms of talk and music playback.It allows for real - time acoustic interchange that is mobile, accessible, and lives on the web as a 24 / 7 WebRTC service.End - users need not deal with app - stores or long - term maintenance of software.Each participant that visits the URL for the server is automatically connected together in a horizontal improvisational audio context; no one controls the mix.</>
+  () => <div>
+    Mezcal is a browser-based instrument for making an ambulent, live, and discursive form of radio; beyond the standard forms of talk and music playback. It allows for real-time acoustic interchange among multiple producers that is mobile and accessible.  Liveing on the web as a 24 / 7 WebRTC service, end-users need not deal with app stores or long term maintenance of software. Each participant that visits the URL for the server is automatically connected together in a horizontal improvisational audio context; no one controls the mix.
+  </div>
   ,
+  () => <div>
+    The interface presents each participant with an uncluttered audio mixing interface that allows one to play sound from various sources (archives, files, streams) along with input from multiple virtual and connected sound devices (mic, external devices, Jack/Blackhole, etc.). Altogether, when combined with broadcasting strategies, Mezcal allows multiple remote participants to collaborate with sub-second latency and affords a more ambulant and discursive style of radio that is often cross-border, archive-driven, and environmentally engaged.
+    <div class="pt-8">
+      <Image
+        draggable={false}
+        src={"media/mezcal/mezcalv2_mobiles.png"}
+        width={6114}
+        height={2390}
+        alt={"mezcal screenshots from mobile phones"}
+        blurDataURL={"data:image/webp;base64,UklGRogAAABXRUJQVlA4WAoAAAAQAAAACQAAAwAAQUxQSCUAAAABR6CobSOGP9fb63mhERGBsNwnIAsweUcwkkgiyV8ghYj+xxq5AFZQOCA8AAAA8AEAnQEqCgAEAAFAJiWMAnR/ABgaT+eIAP7HeD7/BYmkab3achSYXE0wMgl9oj+UzdF07NrHW4bc6OAA"}
+      />
+    </div>
+  </div>,
+
   () => <>
-    The interface presents each participant with an uncluttered audio mixing interface that allows one to play sound from various sources (archives, files, streams) along with input from multiple virtual and connected sound devices (mic, external devices, Jack/Blackhole, etc.). Altogether, when combined with broadcasting strategies, Mezcal allows multiple remote participants to collaborate with sub-second latency and affords a more ambulant and discursive style of radio that is often cross-border, archive-driven, and environmentally engaged.</>,
-  () => <>
-    As a telematic service that allows multiple constituents to fluidly participate in broadcast-like scenarios through their mobile devices at the flick of their thumbs and the swipe of their trackpads, it affords a new kind of radio-making that is built for live scenarios, where your hand is on the dial. It is cheap and quick and easy and more akin to live sports broadcast, but for art and activism. I see it as a compliment to the canned podcast radio magazine format.
+    As a telematic service that allows multiple constituents to fluidly participate in broadcast-like scenarios through their mobile devices at the flick of their thumbs and the swipe of their trackpads, it affords a new kind of radio-making that is built for live scenarios, where your hand is on the dial. It is cheap and quick and easy, and more akin to live sports broadcast, but for art and activism. I see it as a compliment to the canned podcast radio magazine format.
   </>,
   () => <>
     Listeners get an immediate way to call in and contribute.  Producers can make shows by themselves, in collaboration with others, at remote locations or on site, and/or in synchronous or asynchronous modes. Both listeners and producers can hop-on or off the stream at will. It all works in a browser, outside of app stores, and is a different kind of networked radio where the boundary between listener and producer can be strict or blurred.
@@ -293,66 +313,126 @@ const text: Array<() => JSX.Element> = [
   </>
 ]
 
-const extra: Array<() => JSX.Element> = [
-  () => <div class=""><b>Related events:</b>
-    <div class="space-y-1 m-4">
-      <div><Link external href="https://www.nsota.org/">New School of the Anthropocene</Link> collaborative radio show for <LinkPlain external href="https://www.mixcloud.com/Resonance/playlists/bad-punk/">‘Bad Punk’</LinkPlain> on Resonance FM 2024</div>
-      <div><Link external href="https://www.kunstradio.at/PROJECTS/AB2024/">Art&lsquo;s Birthday 2024</Link></div>
-      <div><Link external href="https://acousticommons.net/~/#">Spree Channelsea Radio Group 2023</Link></div>
-      <div ><Link external href="https://centrodeartesonoro.cultura.gob.ar/actividad/terra-ignota/">Terra Ignota Radio Forum 2023</Link></div>
-      <div ><Link external href="http://kunstradio.at/PROJECTS/AB2023/network-kunstradio-party.php">Art&lsquo;s Birthday 2023</Link></div>
-      <div ><Link external href="https://wavefarm.org/radio/wgxc/audio-archive/jbrxxs">The Conduction Series, Nov. 2021 - ongoing</Link></div>
-      <div ><Link external href="https://acousticommons.net/listen/land-to-return">Acoustic Commons - Земля повернення, земля турботи, 2022</Link></div>
-      <div ><Link external href="https://wavefarm.org/ta/archive/works/b0eaj7">Radio Research Residency @ Wave Farm 2021</Link></div>
-      <div ><Link external href="https://wavefarm.org/wf/archive/v93f5v">Migrant Detention Radio, 2021</Link></div>
-    </div>
-  </div>,
-  () =>
-    <div class=""><b>Workshops:</b>
-      <div class="space-y-1 m-4">
-        <div><Link external href="https://todalateoriadeluniverso.org/">Todo la Teor&iacute;a del Universo</Link> by Florencia Curci</div>
-        <div ><Link external href="https://radiopreservation.org/2023-conference/">Radio Preservation Task Force 2023, Library of Congress DC</Link></div>
-        <div ><Link external href="https://piksel.no/2022/11/01/pikselxx-ai-ai-ai-workshops">Piksel 2022, Norway</Link></div>
-        <div ><Link external href="https://pif.camp/piflog-day-4/">PIF Camp 2022, Slovenia</Link></div>
-        <div ><Link external href="https://107.org.au/event/mezcal-radio-workshop/">Radio Workshops @ Project 107 Sydney, Australia 2023</Link> by Jon Panther</div>
-        <div ><Link external href="https://107.org.au/event/mezcal-radio-transmission-and-sound-art-2/">Radio Workshops @ Project 107 Sydney, Australia 2022</Link> by Jon Panther</div>
-        <div ><Link external href="https://wavefarm.org/ta/archive/works/b0eaj7">Wave Farm 2021</Link></div>
-      </div>
-    </div>
-  ,
-  () =>
-    <div class=""><b>Credits:</b>
-      <div class="space-y-1 m-4">
-        <div>concept, design, software: August Black</div>
-        <div><span>beta group: </span>
+const extras = [
+  {
+    title: "Related Events",
+    list: [
+      {
+        item: () => <><Link external href="https://www.nsota.org/">New School of the Anthropocene</Link> collaborative radio show for <LinkPlain external href="https://www.mixcloud.com/Resonance/playlists/bad-punk/">‘Bad Punk’</LinkPlain> on Resonance FM 2024.</>
+      },
+      {
+        item: () => <Link external href="https://www.kunstradio.at/PROJECTS/AB2024/">Art&lsquo;s Birthday 2024</Link>
+      },
+      {
+        item: () => <Link external href="https://acousticommons.net/~/#">Spree Channelsea Radio Group 2023</Link>
+      },
+      {
+        item: () => <Link external href="https://centrodeartesonoro.cultura.gob.ar/actividad/terra-ignota/">Terra Ignota Radio Forum 2023.</Link>
+      },
+      {
+        item: () => <Link external href="http://kunstradio.at/PROJECTS/AB2023/network-kunstradio-party.php">Art&lsquo;s Birthday 2023</Link>
+      },
+      {
+        item: () => <Link external href="https://wavefarm.org/radio/wgxc/audio-archive/jbrxxs">The Conduction Series, Nov. 2021 - ongoing</Link>
+      },
+      {
+        item: () => <Link external href="https://acousticommons.net/listen/land-to-return">Acoustic Commons - Земля повернення, земля турботи, 2022</Link>
+      },
+      {
+        item: () => <Link external href="https://wavefarm.org/ta/archive/works/b0eaj7">Radio Research Residency @ Wave Farm 2021</Link>
+      },
+      {
+        item: () => <Link external href="https://wavefarm.org/wf/archive/v93f5v">Migrant Detention Radio, 2021</Link>
+      }
+    ]
+  },
+  {
+    title: 'Workshops',
+    list: [
+      {
+        item: () => <div><Link external href="https://todalateoriadeluniverso.org/">Todo la Teor&iacute;a del Universo</Link> by Florencia Curci</div>
+      },
+      {
+        item: () => <div ><Link external href="https://radiopreservation.org/2023-conference/">Radio Preservation Task Force 2023, Library of Congress DC</Link></div>
+      },
+      {
+        item: () => <div ><Link external href="https://piksel.no/2022/11/01/pikselxx-ai-ai-ai-workshops">Piksel 2022, Norway</Link></div>
+      },
+      {
+        item: () => <div ><Link external href="https://pif.camp/piflog-day-4/">PIF Camp 2022, Slovenia</Link></div>
+      },
+      {
+        item: () => <div ><Link external href="https://107.org.au/event/mezcal-radio-workshop/">Radio Workshops @ Project 107 Sydney, Australia 2023</Link> by Jon Panther</div>
+      },
+      {
+        item: () => <div ><Link external href="https://107.org.au/event/mezcal-radio-transmission-and-sound-art-2/">Radio Workshops @ Project 107 Sydney, Australia 2022</Link> by Jon Panther</div>
+      },
+      {
+        item: () => <div ><Link external href="https://wavefarm.org/ta/archive/works/b0eaj7">Wave Farm 2021</Link></div>
+      }
+
+    ]
+
+  },
+  {
+    title: 'Credits',
+    list: [
+      {
+        label: 'concept, design, software',
+        item: () => <>August Black</>
+      },
+      {
+        label: 'beta group',
+        item: () =>
           <For each={Array.from(Object.entries(BetaGroup))}>
             {([k, url], idx) => (<span>{idx() === 0 ? '' : ', '}<LinkPlain external href={url}>{k}</LinkPlain></span>)}
           </For>
-        </div>
-        <div><span>documenation and grant writing: </span>
+      },
+      {
+        label: 'documentaion and grant writing',
+        item: () =>
           <For each={Array.from(Object.entries(InfraGroup))}>
             {([k, url], idx) => (<span>{idx() === 0 ? '' : ', '}<LinkPlain external href={url}>{k}</LinkPlain></span>)}
           </For>
-        </div>
-        <div><span>interns:  </span>
-          <For each={Array.from(Object.entries(InternGroup))}>
-            {([k, url], idx) => (<span>{idx() === 0 ? '' : ', '}<LinkPlain external href={url}>{k}</LinkPlain></span>)}
-          </For>
-        </div>
+      },
+      {
+        label: 'interns',
+        item: () => <For each={Array.from(Object.entries(InternGroup))}>
+          {([k, url], idx) => (<span>{idx() === 0 ? '' : ', '}<LinkPlain external href={url}>{k}</LinkPlain></span>)}
+        </For>
+      },
+      { label: 'logo', item: () => <LinkPlain external href="https://nimabahrehmand.com/">Nima Bahrehmand</LinkPlain> }
+    ]
 
-        <div>logo: <LinkPlain external href="https://nimabahrehmand.com/">Nima Bahrehmand</LinkPlain></div>
-      </div>
-    </div>
-  ,
-  () =>
-    <div class=""><b>Press, publications:</b>
-      <div class="space-y-1 m-4">
-        <div ><Link external href='https://oe1.orf.at/programm/20240229/750542/Kuenstliche-Intelligenz-feiert-den-Geburtstag-der-Kunst'>Künstliche Intelligenz feiert den Geburtstag der Kunst</Link> on <Link external href='https://oe1.orf.at/soundart/kunstzumhoeren'>KUNST ZUM HÖREN</Link> 2024 (at minute 11, I speak about mezcal)</div>
-        <div ><Link external href='https://oe1.orf.at/programm/20210627/642046/Akustische-Live-Vernetzung-ueber-Grenzen-hinweg'>Akustische Live Vernetzung</Link> 2023</div>
-        <div ><Link external href='https://www.newmediacaucus.org/migrant-detention-radio-on-wave-farm-wgxc-90-7-fm/'>New Media Caucus</Link> 2021</div>
-      </div>
-    </div>
-
+  },
+  {
+    title: 'Press',
+    list: [
+      {
+        item: () => <div ><Link external href='https://oe1.orf.at/programm/20240229/750542/Kuenstliche-Intelligenz-feiert-den-Geburtstag-der-Kunst'>Künstliche Intelligenz feiert den Geburtstag der Kunst</Link> on <Link external href='https://oe1.orf.at/soundart/kunstzumhoeren'>KUNST ZUM HÖREN</Link> 2024 (at minute 11, I speak about mezcal)</div>
+      },
+      {
+        item: () => <div > <Link external href='https://oe1.orf.at/programm/20210627/642046/Akustische-Live-Vernetzung-ueber-Grenzen-hinweg'>Akustische Live Vernetzung</Link> 2023</div >
+      },
+      {
+        item: () => <div ><Link external href='https://www.newmediacaucus.org/migrant-detention-radio-on-wave-farm-wgxc-90-7-fm/'>New Media Caucus</Link> 2021</div>
+      }
+    ]
+  },
+  {
+    title: 'Related Publications',
+    list: [
+      {
+        item: () => <>Black, A. <i>Mezcal: A Collaborative Transmission Art Instrument</i> <i>Proceedings of the International Conference on New Interfaces for Musical Expression (NIME '26)</i>, June 23–26, 2026, London, UK. <span class="text-xs">(DOI forthcoming June 2026)</span></>
+      },
+      {
+        item: () => <>Black, A. et al. <i>The Conduction Series: Live Collaborative Transmission Art Across Borders</i> <i>Proceedings of the 20th International Audio Mostly Conference on Interactive Audio.</i> July 3-7, 2025, Coimbra, Portugal. <Link external href="https://doi.org/10.1145/3771594.3771612">https://doi.org/10.1145/3771594.3771612</Link></>
+      },
+      {
+        item: () => <>Black, A. <i>Boutique Permasoftware: micro-cultures of care and stewardship in software ecologies</i> <i>Politics of the Machine.</i> <Link external href="http://doi.org/10.14236/ewic/POM24.33">http://doi.org/10.14236/ewic/POM24.33</Link> </>
+      }
+    ]
+  }
 ]
 
 const Mezcal: Project = {
@@ -365,7 +445,7 @@ const Mezcal: Project = {
   place: 'Boulder, CO',
   media,
   text,
-  extra,
+  extras,
   logos: ['wavefarm', 'atlas', 'dcmp']
 }
 
