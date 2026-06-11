@@ -95,10 +95,9 @@ const text: Array<() => JSX.Element> = [
   </div>
   ,
   () => <div>
-    Most shows were made either by recording while traveling or by one of us phoning or streaming in live to the radio station.
+    Our goal with Standup Radio was to create an ambulent, on-the-go, style of radio. It wasn't a "travel" show in the classical sense, but we wanted the sound to be the sound of travel and in-motion. Most shows were made either by recording while traveling or by one of us phoning or streaming in live to the radio station.
   </div>
 ]
-
 
 const Standup: Project = {
   kind: ['radio', 'performance', 'installation'],
