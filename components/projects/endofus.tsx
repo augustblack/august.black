@@ -11,7 +11,7 @@ const media: MediaProps[] = [
     height: 720,
     blurDataURL: "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADQAQCdASoKAAYAAUAmJYwCdADygCtgwAD+BeRsAuPXtI+ZWXxvXBjDZpRUW4ESZgLDPBy0yZpGFpQVEA5MIYwmknRqy1IE1ruwAAAA",
     alt: "Close-up view of superworms (Zophobas Morio) used in The End of Us performances, eating styrofoam",
-    caption: () => <>Zophobas Morio, also known as superworms, are the only living creatures known to digest Styrofoam.</>
+    caption: () => <>Zophobas Morio, also known as superworms, are one of few living creatures known to digest polystyrene.</>
   },
   {
     kind: "image",
@@ -150,13 +150,13 @@ const media: MediaProps[] = [
 
 const text: Array<() => JSX.Element> = [
   () => <div>
-    <div class="inline-block font-medium">The End of Us</div> is a speculative media project, made in collaboration <Link external href="https://nimabahrehmand.com/">Nima Bahrehmand</Link>, that creates performances and installations in collaboration with Zophobas Morio (aka superworms or larva of the darkling beetle).
+    <div class="inline-block font-medium">The End of Us</div> is a speculative media project, by August Black and <Link external href="https://nimabahrehmand.com/">Nima Bahrehmand</Link>, that creates performances and installations in collaboration with Zophobas Morio (aka superworms or larva of the darkling beetle).
   </div>,
   () => <div>
     Zophobas Morio are one of few living creatures that can digest polystyrene. We look at these creatures and their ecosystem as a way to contemplate an anticipated future where resources for living are over-extracted and depleted. Our work examines the intersection of ecological collapse, capitalist extractivism, and interspecies collaboration through performance and installation.
   </div>,
   () => <div>
-    In Mark Fisher's <i>Capitalist Realism</i>, borrowing from Slavoj Žižek and Frederic Jameson, he famously states that it is easier to imagine the end of the world than the end of capitalism. <div class="inline-block font-medium">The End of Us</div> investigates moments of catharsis in the face of global crisis and systemic antagonism (late-stage capitalism, global warming, rising sea levels, increased authoritarianism, and other global imbalances).
+    In Mark Fisher's <i>Capitalist Realism</i>, borrowing from Slavoj Žižek and Frederic Jameson, he famously states that it is easier to imagine the end of the world than the end of capitalism. <div class="inline-block font-medium">The End of Us</div> investigates moments of catharsis in the face of global crisis, systemic antagonism, and our own impending self-destruction due to late-stage capitalism, global warming, rising sea levels, increased authoritarianism, and other interrelated global imbalances.
   </div>,
   () => <div>
     In our initial performance at the Evans School in Denver we created a WebRTC app that allows us to live VJ a moving interrogation of the "worms" with a cell phone camera projected large. At the same time we speak about the science behind the worms and philosophy of the end of the world, while whipping the audience up into a chant of "worms!" over the noise of the critters feeding on the polystyrene.
