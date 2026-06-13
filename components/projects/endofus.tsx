@@ -57,17 +57,6 @@ const media: MediaProps[] = [
     imgClass: "object-contain ",
     caption: () => <>A month of superworm activity.</>
   },
-
-  /*
-  {
-    kind: "image",
-    src: "media/endofus/leaf_opening_02.jpg",
-    width: 6022,
-    height: 4024,
-    blurDataURL: "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAADwAQCdASoKAAcAAUAmJQBOj+ACdwVjpjAA/upEbyyzXg5a7mai9hnaJAKE97xmUi34wYT4Zv0G5Tw0votoPrDoBYDo9cT9DjkPs1/x/T5ldZQico89P/2Nlmuds5SubwAAAA==",
-    alt: "Second frame of leaf opening sequence showing progressive decomposition"
-  },
-  */
   {
     kind: "image",
     src: "media/endofus/leaf_opening_03.jpg",
@@ -94,6 +83,7 @@ const media: MediaProps[] = [
     blurDataURL: "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAAAQAgCdASoKAAcAAUAmJYwCdAEDfuJ//JQwAP7yEKlGyFM7hqc/fleT8alPuiTdve4TkK4Zy1dtgty7vIxhxcN2e2SMkaIz5hq9yNGY5X1Ge/68KsuCANjobNAAAA==",
     alt: "Final frame of leaf opening sequence showing advanced decomposition by superworms",
   },
+  /*
   {
     kind: "image",
     src: "media/endofus/evans_2024_03_16_worms02.jpg",
@@ -102,6 +92,25 @@ const media: MediaProps[] = [
     blurDataURL: "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAACwAQCdASoKAAYAAUAmJQBOgBuPBkHwAP7we6+QcgbKGJLJs9ZnALD5SDgIATYdYf260xDLBoXNVCVNJgjchR64ubkTlgy3OygAAA==",
     alt: "Detail view of superworms interacting with styrofoam or polystyrene materials"
   },
+  {
+    kind: "image",
+    src: "media/endofus/leaf_opening_02.jpg",
+    width: 6022,
+    height: 4024,
+    blurDataURL: "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAADwAQCdASoKAAcAAUAmJQBOj+ACdwVjpjAA/upEbyyzXg5a7mai9hnaJAKE97xmUi34wYT4Zv0G5Tw0votoPrDoBYDo9cT9DjkPs1/x/T5ldZQico89P/2Nlmuds5SubwAAAA==",
+    alt: "Second frame of leaf opening sequence showing progressive decomposition"
+  },
+  */
+  {
+    kind: "image",
+    src: "media/endofus/leaf_cam_mic.jpg",
+    width: 6000,
+    height: 4000,
+    alt: "picture of the contact mic and camera.",
+    blurDataURL: "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAACwAQCdASoKAAcAAUAmJZQAApx3ZROAAP7oMe9iKwGS+kdZYF89NyCzXFkr2h4EKK85rR+wFlub8r4qMFHGu7q8+VYPu0+7bAAAAA==",
+    caption: () => <>Each side of the frame contained two contact microphones and a camera. Viewers could tune into the superworms live from home and work.</>
+  },
+
   {
     kind: "image",
     src: "media/endofus/evans_2024_03_16-checkered.jpg",
