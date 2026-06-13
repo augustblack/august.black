@@ -134,16 +134,16 @@ const extras = [
         item: () => <><i>All Our Voices, All Together, All At Once</i> for the <Link external href="https://www.emmanuelgallery.org/paw">Performance Art Week</Link> at Emmanuel Gallery, Denver, CO, April 2026. Using custom software and local network design, this piece brings all on-site participants into a sonic chant with one another using mobile devices.</>
       },
       {
-        item: () => <><i>Cowboy Sandbox</i> - Laramie, Wyoming USA, 2024. Live solo performance with my Audio Compost software in the Harry C Vaughan Planetarium.</>
+        item: () => <><i>Cowboy Sandbox</i> - Laramie, Wyoming USA, 2024. Live solo performance in the Harry C Vaughan Planetarium.</>
       },
       {
-        item: () => <><i>Domo Lleno Festival</i> - Bogotá Colombia, 2023. Commissioned live solo performance with on-site my Audio Compost software in the Bogotá planetarium.</>
+        item: () => <><i>Domo Lleno Festival</i> - Bogotá Colombia, 2023. Commissioned live solo performance software in the Bogotá planetarium.</>
       },
       {
-        item: () => <><i>Audio Compost</i> - PIF Camp Festival - Soča, Slovenia, 2022. Live interactive performance.</>
+        item: () => <><i>PIF Camp Festival</i> - Soča, Slovenia, 2022. Live interactive performance.</>
       },
       {
-        item: () => <><i>Audio Compost</i> - Digital Naturalism Conference - Batticaloa, Sri Lanka, 2022. Live interactive performance.</>
+        item: () => <><i>Digital Naturalism Conference</i> - Batticaloa, Sri Lanka, 2022. Live interactive performance.</>
       }
     ]
   },
