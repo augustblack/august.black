@@ -20,7 +20,19 @@ const media: MediaProps[] = [
       </div>
     )
   },
-
+  {
+    kind: "image",
+    alt: 'August Black in ornate room with many old portrait paintings, under chandelier, with many other artists working on media projects.',
+    src: "img/fairytale_sonar.jpg",
+    width: 4032,
+    height: 2268,
+    blurDataURL: "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAAAQAgCdASoKAAYAAUAmJYwCdAEszvn3yEAAAP7mC5/MikIJPk3uIno2UaVrPvQ9izpWWrQZ/vs23EeWjRHO1H9IoVMsNCndnH/wofDSu2v6pGZOEYgAAA==",
+    caption: () => (
+      <div>
+        August Black hacking on-site at the <Link href="https://sonar.es/en/activity/showcase-hacklab" external>AI Performance Playground</Link> (front right) that took place at the <Link href="https://www.llotjademar.cat/en" external>Llotja de Mar</Link> historic building in Barcelona, Spain, and as part of Sonar+D.  June 2026.
+      </div>
+    ),
+  },
   {
     kind: 'image',
     src: "img/whitebox_ai_mcluhan.jpg",
