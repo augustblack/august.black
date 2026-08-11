@@ -25,6 +25,7 @@ type ImageProps = {
   alt: string
   draggable?: boolean
   class?: string
+  sizes?: string
   width: number
   height: number
 }
@@ -65,7 +66,7 @@ const Img: Component<ImageProps> = (props) => {
       width={props.width}
       height={props.height}
       class={props.class + " blur transition-filter"}
-      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+      sizes={props.sizes || "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"}
     />
   )
 }
