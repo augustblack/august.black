@@ -1,4 +1,4 @@
-import { Component, For, createEffect, useContext } from 'solid-js'
+import { Component, For, Show, createEffect, createSignal, useContext } from 'solid-js'
 import { MainContext } from '../zzz'
 
 import ProjectRow from './row'
@@ -38,6 +38,11 @@ export const projects: Project[] = [
   Standup,
   Funda
 ]
+
+const startYear = (p: Project) => parseInt(p.date, 10)
+const recent = projects.filter(p => startYear(p) >= 2020)
+const older = projects.filter(p => startYear(p) < 2020)
+
 const Sun: Component<{ on: boolean }> = (props) => (
   <svg
     class={props.on
@@ -66,12 +71,10 @@ const Moon: Component<{ on: boolean }> = (props) => (
 
 const Proyectos: Component<{ pid: string }> = (props) => {
   const { state, setState } = useContext(MainContext)
+  const [showOlder, setShowOlder] = createSignal(false)
   let labelRef !: HTMLLabelElement
 
-  const projectIndex = projects.findIndex(p => p.key === props.pid)
-  const project = projectIndex !== -1 ? projects[projectIndex] : undefined
-  const prev = projectIndex > 0 ? projects[projectIndex - 1] : undefined
-  const next = projectIndex !== -1 && projectIndex < projects.length - 1 ? projects[projectIndex + 1] : undefined
+  const project = projects.find(p => p.key === props.pid)
   const toggleDark = () => setState("theme", (st: string) => st === "dark" ? "light" : "dark")
 
   createEffect(() => {
@@ -85,7 +88,7 @@ const Proyectos: Component<{ pid: string }> = (props) => {
   })
 
   return project && project!.key
-    ? (<ProjectPage project={project} next={next} prev={prev} />)
+    ? (<ProjectPage project={project} recent={recent} older={older} />)
     : (
       <>
         <div class="p-4 md:p-6 lg:p-10 uppercase leading-[1.6] text-lg sm:text-xl md:text-2xl lg:text-3xl font-light text-base-content text-shadow-lg ">I'm August Black. I investigate mediated modes of collectivity and togetherness. My research is a mixture of applied conceptual art, critical design, community activism, and expanded engineering. I write software, organize collectives, build instrumentation, and construct new formats for real-time interactive performance.
@@ -97,9 +100,20 @@ const Proyectos: Component<{ pid: string }> = (props) => {
             <a class='btn btn-md md:btn-lg btn-ghost btn-primary font-light lowercase' href='/about'>...more</a>
           </div>
         </div>
-        <For each={projects}>
+        <For each={recent}>
           {(p) => <ProjectRow pid={props.pid} project={p} open={props.pid === p.key} />}
         </For>
+        <div class="p-4 md:p-6 lg:p-10">
+          <button
+            class="btn btn-md md:btn-lg btn-ghost btn-primary font-light lowercase"
+            onclick={() => setShowOlder(o => !o)}
+          >{showOlder() ? "hide older projects" : "older projects"}</button>
+        </div>
+        <Show when={showOlder()}>
+          <For each={older}>
+            {(p) => <ProjectRow pid={props.pid} project={p} open={props.pid === p.key} />}
+          </For>
+        </Show>
       </>
     )
 }

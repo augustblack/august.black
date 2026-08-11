@@ -1,4 +1,4 @@
-import { Component, For, Show } from 'solid-js'
+import { Component, For, Show, createSignal } from 'solid-js'
 import { Media, type MediaProps } from '../media'
 import Image from '../image'
 import { Logos } from './logos'
@@ -11,22 +11,65 @@ import { Project } from './types'
 // LinkPlain to wrap this AND since captions can have another LinkPlain or <a> tag
 // inside it, we can create a circular situation for Solid.js.
 // Anchor tags are not allowed to wrap other anchor tags
-const ShowFirstImage: Component<{ media?: MediaProps[] }> = (props) => {
+const ShowFirstImage: Component<{ media?: MediaProps[], current: boolean }> = (props) => {
   const media = props.media?.find(m => m.kind === 'image')
   return (
     <Show when={media}>
-      <div class={"max-w-42 aspect-video outline " + (media?.bg ? media.bg : "")}>
+      <div class={"h-24 aspect-video outline " + (media?.bg ? media.bg : "")}>
         <Image
           draggable={false}
           src={media?.src || 'wtf'}
           alt={media?.alt || 'wtf'}
-          class={media?.imgClass || "object-cover object-center w-full h-full "}
+          class={(props.current ? "grayscale " : "") + (media?.imgClass || "object-cover object-center w-full h-full")}
           width={media?.width || 10}
           height={media?.height || 10}
           blurDataURL={media?.blurDataURL}
+          sizes="100px"
         />
       </div>
     </Show>
+  )
+}
+
+const ProjectSlide: Component<{ project: Project, current: boolean }> = (props) => (
+  <div class="carousel-item flex flex-col gap-1">
+    <LinkPlain href={'/' + props.project.key} class="" disabled={props.current}>
+      <ShowFirstImage media={props.project.media} current={props.current} />
+      <div class={"flex justify-center uppercase text-xs text-nowrap whitespace-no-wrap overflow-hidden text-ellipsis "
+        + (props.current ? "bg-black text-primary rounded px-1" : "")}>
+        {props.project.title}
+      </div>
+    </LinkPlain>
+  </div>
+)
+
+const ProjectCarousel: Component<{ current: string, recent: Project[], older: Project[] }> = (props) => {
+  const [showOlder, setShowOlder] = createSignal(props.older.some(p => p.key === props.current))
+
+  const slide = (p: Project) => (
+    <ProjectSlide
+      project={p}
+      current={p.key === props.current}
+    />
+  )
+
+  return (
+    <div
+      class="w-full flex justify-center gap-4 bg-linear-to-t from-primary/100 via-base-100/100 to-base-100/0"
+    >
+      <div class="carousel carousel-center w-full lg:w-2/3 gap-4 px-4 mt-10 py-8 ">
+        <For each={props.recent}>{slide}</For>
+        <div class="carousel-item items-center">
+          <button
+            class="btn btn-sm btn-ghost btn-primary font-light lowercase text-nowrap"
+            onclick={() => setShowOlder(o => !o)}
+          >{showOlder() ? "hide older" : "older projects"}</button>
+        </div>
+        <Show when={showOlder()}>
+          <For each={props.older}>{slide}</For>
+        </Show>
+      </div>
+    </div >
   )
 }
 
@@ -194,51 +237,20 @@ export const ProjectPage: Component<{ project: Project }> = (props) => {
   )
 }
 
-const PageFull: Component<{ project: Project, next?: Project, prev?: Project, showTitle?: boolean }> = (props) => {
+const PageFull: Component<{ project: Project, recent: Project[], older: Project[] }> = (props) => {
   return (
     <>
       <Menu />
 
       <div class="font-medium w-full text-nowrap flex flex-col items-center py-4 gap-2 text-shadow-lg ">
-        <div class="text-3xl whitespace-no-wrap tracking-widest uppercase">{props.project.title}</div>
+        <div class="text-xl md:text-2xl lg:text-3xl whitespace-no-wrap tracking-widest uppercase">{props.project.title}</div>
         <div class="whitespace-no-wrap uppercase tracking-wide ">
           <span class="pr-4">{props.project.shortDesc}</span>
           <span class="pl-4 hidden md:inline">{props.project.date} </span>
         </div>
       </div >
       <ProjectPage project={props.project} />
-      <div class="w-full flex flex-row gap-2 mt-10 py-8 bg-linear-to-t from-primary/100 via-base-100/100 to-base-100/0 ">
-        <div class="w-0 hidden lg:flex lg:w-1/6" />
-        <div class="w-full lg:w-2/3 flex flex-row items-center text-xs">
-          <Show when={props.prev}>
-            <button class="w-1/2 p-4 flex place-content-start">
-              <LinkPlain href={'/' + props.prev?.key}>
-                <div class="text-left max-w-42 uppercase text-nowrap whitespace-no-wrap overflow-hidden text-ellipsis ">
-                  {props.prev?.title}
-                </div>
-                <div class="flex justify-items-start ">
-                  <ShowFirstImage media={props.prev?.media} />
-                </div>
-              </LinkPlain>
-            </button>
-          </Show>
-          <Show when={props.next}>
-            <button class="w-1/2 p-4 flex flex-col place-items-end ">
-              <LinkPlain href={'/' + props.next?.key}>
-                <div class="text-right max-w-42 uppercase text-nowrap whitespace-no-wrap overflow-hidden text-ellipsis ">
-                  {props.next?.title}
-                </div>
-                <div class="flex items-center justify-items-center ">
-                  <ShowFirstImage media={props.next?.media} />
-                </div>
-              </LinkPlain>
-            </button>
-          </Show>
-
-        </div >
-        <div class="w-0 hidden lg:flex lg:w-1/6 " />
-      </div >
-
+      <ProjectCarousel current={props.project.key} recent={props.recent} older={props.older} />
     </>
   )
 }
