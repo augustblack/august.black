@@ -279,7 +279,7 @@ const media: MediaProps[] = [
 
 const text: Array<() => JSX.Element> = [
   () => <div>
-    Mezcal is a browser-based instrument for making an ambulent, live, and discursive form of radio; beyond the standard forms of talk and music playback. It allows for real-time acoustic interchange among multiple producers that is mobile and accessible.  Liveing on the web as a 24 / 7 WebRTC service, end-users need not deal with app stores or long term maintenance of software. Each participant that visits the URL for the server is automatically connected together in a horizontal improvisational audio context; no one controls the mix.
+    Mezcal is a browser-based instrument for making an ambulant, live, and discursive form of radio; beyond the standard forms of talk and music playback. It allows for real-time acoustic interchange among multiple producers that is mobile and accessible.  Living on the web as a 24 / 7 WebRTC service, end-users need not deal with app stores or long term maintenance of software. Each participant that visits the URL for the server is automatically connected together in a horizontal improvisational audio context; no one controls the mix.
   </div>
   ,
   () => <div>
@@ -297,7 +297,7 @@ const text: Array<() => JSX.Element> = [
   </div>,
 
   () => <>
-    As a telematic service that allows multiple constituents to fluidly participate in broadcast-like scenarios through their mobile devices at the flick of their thumbs and the swipe of their trackpads, it affords a new kind of radio-making that is built for live scenarios, where your hand is on the dial. It is cheap and quick and easy, and more akin to live sports broadcast, but for art and activism. I see it as a compliment to the canned podcast radio magazine format.
+    As a telematic service that allows multiple constituents to fluidly participate in broadcast-like scenarios through their mobile devices at the flick of their thumbs and the swipe of their track pads, it affords a new kind of radio-making that is built for live scenarios, where your hand is on the dial. It is cheap and quick and easy, and more akin to live sports broadcast, but for art and activism. I see it as a compliment to the canned podcast radio magazine format.
   </>,
   () => <>
     Listeners get an immediate way to call in and contribute.  Producers can make shows by themselves, in collaboration with others, at remote locations or on site, and/or in synchronous or asynchronous modes. Both listeners and producers can hop-on or off the stream at will. It all works in a browser, outside of app stores, and is a different kind of networked radio where the boundary between listener and producer can be strict or blurred.
