@@ -3,7 +3,7 @@
 export default function HeadDefault() {
   return (
     <>
-      <link rel="icon" href="https://assets.august.black/img/camo64.png" type="image/png" />
+      <link rel="icon" href="/favicon.svg" type="image/svg+xml" sizes="any" />
       <title>august black</title>
       <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
       <meta name="Author" content="August Black" />
