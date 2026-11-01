@@ -141,7 +141,7 @@ const extras = [
     title: "Related Publications",
     list: [
       {
-        item: () => <>Lettang, J., Black, A. <i>Aquapella: Gestural Interactions with Liquid Turbulence as Musical Expression</i> <i>Proceedings of the ACM International Conference on New Interfaces for Musical Expression.</i> June 24-27, 2025, Canberra, Australia. <Link external href="https://doi.org/10.5281/zenodo.15699626">https://doi.org/10.5281/zenodo.15699626</Link> </>
+        item: () => <>Lettang, J., Black, A. <i>Aquapella: Gestural Interactions with Liquid Turbulence as Musical Expression</i> <i>Proceedings of the International Conference on New Interfaces for Musical Expression.</i> June 24-27, 2025, Canberra, Australia. <Link external href="https://doi.org/10.5281/zenodo.15699626">https://doi.org/10.5281/zenodo.15699626</Link> </>
       }
     ]
   }

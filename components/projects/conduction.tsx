@@ -212,7 +212,7 @@ const extras = [
     title: "Related Publications",
     list: [
       {
-        item: () => <>Black, August. et al. <Link external href="https://doi.org/10.1145/3771594.3771612">The Conduction Series: Live Collaborative Transmission Art Across Borders"</Link> <i>Proceedings of the 20th International Audio Mostly Conference on Interactive Audio.</i> July 3-7, 2025, Coimbra, Portugal.<br />DOI:10.1145/3771594.3771612</>
+        item: () => <>Black, August. et al. <Link external href="https://doi.org/10.1145/3771594.3771612">The Conduction Series: Live Collaborative Transmission Art Across Borders"</Link> <i>Proceedings of the 20th International Audio Mostly Conference on Interactive Audio.</i> ACM. July 3-7, 2025, Coimbra, Portugal.<br />DOI:10.1145/3771594.3771612</>
       }
     ]
   },

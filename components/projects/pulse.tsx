@@ -193,7 +193,7 @@ const extras = [
     title: "Related Publications",
     list: [
       {
-        item: () => <>Brook Vann, J Molina-Garcia, August Black. 2024. <Link external href="https://dl.acm.org/doi/pdf/10.1145/3680530.3695450">Pulse Memorial. SA &apos;24: SIGGRAPH Asia 2024 Art Papers Article No.: 27, Pages 1 - 6</Link>, DOI: 10.1145/3680530.3695450</>
+        item: () => <>Brook Vann, J Molina-Garcia, August Black. 2024. <i>Pulse Memorial. SA &apos;24: SIGGRAPH Asia 2024 Art Papers Article No.: 27, Pages 1 - 6</i>. ACM. DOI: <Link external href="https://dl.acm.org/doi/pdf/10.1145/3680530.3695450">10.1145/3680530.3695450</Link></>
       }
     ]
   }
