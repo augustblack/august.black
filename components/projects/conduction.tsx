@@ -34,7 +34,6 @@ const media: MediaProps[] = [
     height: 940,
     blurDataURL: "data:image/webp;base64,UklGRpQAAABXRUJQVlA4WAoAAAAQAAAACQAACAAAQUxQSFUAAAABcGPbtprcuLu7u6dKoKSjpWMx/5EwiIgIEGAkEABAQHPpP/n1HL8tCOD6ncPnbYNQjjnUYn3iUXS6w/t6VBB1bCukbvpVWPCqDFFTlSjSDAoQNckGAFZQOCAYAAAAMAEAnQEqCgAJAAFAJiWkAANwAP79NmgA"
   },
-  */
 
   {
     kind: 'image',
@@ -44,6 +43,18 @@ const media: MediaProps[] = [
     height: 1773,
     blurDataURL: "data:image/webp;base64,UklGRjQAAABXRUJQVlA4ICgAAAAwAQCdASoKAAgAAUAmJaQAA3AA/vwfOPcl2H7gHODDkXwwu84gHgAA"
   },
+  */
+  {
+    kind: 'image',
+    alt: 'block print of conduction series logo',
+    imgClass: 'object-contain w-full h-full bg-white dark:invert p-2 md:p-4 lg:p-5 ',
+    src: "media/conduction_series/seed_lungs_block.jpg",
+    width: 2272,
+    height: 1053,
+    blurDataURL: "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADQAQCdASoKAAUAAUAmJaQAAxdChnrI0AD+7j/4fr22Tku9+HJS8Ql959QhY/4YZI3T/JOZ7yIGrXRD4UH7PzrFi/2QRx4/izb4NEAAAAA=",
+    caption: () => (<div>Our logo speaks to our polar modes of breathful listening and outward propagation. We sometimes operate under the motto "There can be no conspiracy without shared breath".</div>)
+  },
+
   {
     kind: 'image',
     src: "media/conduction_series/ConductionGroup2025.jpg",
@@ -51,7 +62,11 @@ const media: MediaProps[] = [
     imgClass: 'object-contain w-full h-full bg-black',
     width: 6000,
     height: 6000,
-    blurDataURL: "data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAACQAgCdASoKAAoAAUAmJYgCdAaXfnac2LroOY8mgAD+4leOF/V1stkr/JbqvquR19se3qwKedLTmzYhWwidSi+791c9a6Ih5eb+ayMiff7QWecb74PjW0K34RuPWKd7TVUiMtrwkS8CyG5Gkd4OAQqWkTZfWxkBcRN39+tNdhoMAAAA"
+    blurDataURL: "data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAACQAgCdASoKAAoAAUAmJYgCdAaXfnac2LroOY8mgAD+4leOF/V1stkr/JbqvquR19se3qwKedLTmzYhWwidSi+791c9a6Ih5eb+ayMiff7QWecb74PjW0K34RuPWKd7TVUiMtrwkS8CyG5Gkd4OAQqWkTZfWxkBcRN39+tNdhoMAAAA",
+    caption: () => (<div class='text-xs hidden lg:block'><span class='pr-2'>top: Anna Friz, Jimmy Garver, Virginia Mantinian</span>
+      <span class='pr-2'>middle: Florencia Curci,  August Black, Betsey Biggs, Rodrigo Zunino</span>
+      <span class=''>bottom: Peter Courtemanche, Jeff Economy, Maximilian Goldfarb</span></div>)
+
   },
   {
     kind: 'image',
@@ -146,16 +161,6 @@ const media: MediaProps[] = [
       <span class=''>bottom: Peter Courtemanche, Jeff Economy, Betsey Biggs</span></div>)
   },
   {
-    kind: 'image',
-    alt: 'block print of conduction series logo',
-    src: "media/conduction_series/logo_block.jpg",
-    imgClass: 'object-contain w-full h-full bg-white dark:invert',
-    width: 2330,
-    height: 1188,
-    blurDataURL: "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAACwAQCdASoKAAUAAUAmJaQAAsZ5atcAAP7oqNc1jnnnL1o/nKqbURGNNWUm2V7+V/bYnwT2b/2gkeA5Hp6WWNczEJ+aZH+86E9iveSmt9PNBKAAAAA=",
-    caption: () => (<div>Our logo speaks to our polar modes of breathful listening and outward propagation. We sometimes operate under the motto "There can be no conspiracy without shared breath".</div>)
-  },
-  {
     kind: "image",
     src: "media/conduction_series/conduction_merch.jpg",
     width: 5484,
@@ -212,7 +217,7 @@ const extras = [
     title: "Related Publications",
     list: [
       {
-        item: () => <>Black, August. et al. <Link external href="https://doi.org/10.1145/3771594.3771612">The Conduction Series: Live Collaborative Transmission Art Across Borders"</Link> <i>Proceedings of the 20th International Audio Mostly Conference on Interactive Audio.</i> ACM. July 3-7, 2025, Coimbra, Portugal.<br />DOI:10.1145/3771594.3771612</>
+        item: () => <>Black, August. et al. The Conduction Series: Live Collaborative Transmission Art Across Borders <i>Proceedings of the 20th International Audio Mostly Conference on Interactive Audio.</i> ACM. July 3-7, 2025, Coimbra, Portugal. DOI:<Link external href="https://doi.org/10.1145/3771594.3771612">10.1145/3771594.3771612</Link></>
       }
     ]
   },

@@ -40,8 +40,8 @@ export const projects: Project[] = [
 ]
 
 const startYear = (p: Project) => parseInt(p.date, 10)
-const recent = projects.filter(p => startYear(p) >= 2020)
-const older = projects.filter(p => startYear(p) < 2020)
+export const recent = projects.filter(p => startYear(p) >= 2020)
+export const older = projects.filter(p => startYear(p) < 2020)
 
 const Sun: Component<{ on: boolean }> = (props) => (
   <svg
@@ -97,7 +97,7 @@ const Proyectos: Component<{ pid: string }> = (props) => {
               <Sun on={true} />
               <Moon on={false} />
             </label>
-            <a class='btn btn-md md:btn-lg btn-ghost btn-primary font-light lowercase' href='/about'>...more</a>
+            <a class='btn btn-md md:btn-lg btn-ghost btn-primary font-light lowercase' href='/about'>about</a>
           </div>
         </div>
         <For each={recent}>
@@ -107,7 +107,7 @@ const Proyectos: Component<{ pid: string }> = (props) => {
           <button
             class="btn btn-md md:btn-lg btn-ghost btn-primary font-light lowercase"
             onclick={() => setShowOlder(o => !o)}
-          >{showOlder() ? "hide older projects" : "older projects"}</button>
+          >{showOlder() ? "less" : "more"}</button>
         </div>
         <Show when={showOlder()}>
           <For each={older}>

@@ -423,13 +423,13 @@ const extras = [
     title: 'Related Publications',
     list: [
       {
-        item: () => <>Black, A. <i>Mezcal: A Collaborative Transmission Art Instrument</i> <i>Proceedings of the International Conference on New Interfaces for Musical Expression (NIME '26)</i>, June 23–26, 2026, London, UK. <Link external href="https://doi.org/10.5281/zenodo.20784196">https://doi.org/10.5281/zenodo.20784196</Link></>
+        item: () => <>Black, A. <i>Mezcal: A Collaborative Transmission Art Instrument</i> <i>Proceedings of the International Conference on New Interfaces for Musical Expression (NIME '26)</i>, June 23–26, 2026, London, UK. DOI: <Link external href="https://doi.org/10.5281/zenodo.20784196">10.5281/zenodo.20784196</Link></>
       },
       {
-        item: () => <>Black, A. et al. <i>The Conduction Series: Live Collaborative Transmission Art Across Borders</i> <i>Proceedings of the 20th International Audio Mostly Conference on Interactive Audio.</i> ACM. July 3-7, 2025, Coimbra, Portugal. <Link external href="https://doi.org/10.1145/3771594.3771612">https://doi.org/10.1145/3771594.3771612</Link></>
+        item: () => <>Black, A. et al. <i>The Conduction Series: Live Collaborative Transmission Art Across Borders</i> <i>Proceedings of the 20th International Audio Mostly Conference on Interactive Audio.</i> ACM. July 3-7, 2025, Coimbra, Portugal. DOI: <Link external href="https://doi.org/10.1145/3771594.3771612">10.1145/3771594.3771612</Link></>
       },
       {
-        item: () => <>Black, A. <i>Boutique Permasoftware: micro-cultures of care and stewardship in software ecologies</i> <i>Politics of the Machine.</i> <Link external href="http://doi.org/10.14236/ewic/POM24.33">http://doi.org/10.14236/ewic/POM24.33</Link> </>
+        item: () => <>Black, A. <i>Boutique Permasoftware: micro-cultures of care and stewardship in software ecologies</i> <i>Politics of the Machine.</i> DOI: <Link external href="http://doi.org/10.14236/ewic/POM24.33">10.14236/ewic/POM24.33</Link></>
       }
     ]
   }

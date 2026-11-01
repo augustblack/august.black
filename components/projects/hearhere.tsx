@@ -65,7 +65,7 @@ const extras = [
     title: "Related Publications",
     list: [
       {
-        item: () => <>August Black. 2017. <Link external href="/media/hearhere/hear.pdf">Hear-Here. In Proceedings of ACM Audio Mostly conference</Link>, London, UK, August 2017 (Audio Mostly'17), 6 pages. DOI: 10.475/123_4</>
+        item: () => <>August Black. 2017. <Link external href="/media/hearhere/hear.pdf">Hear-Here. In Proceedings of ACM Audio Mostly conference</Link>, London, UK, August 2017 (Audio Mostly'17), 6 pages. DOI: <Link external href="https://doi.org/10.1145/3123514.3123552">10.1145/3123514.3123552</Link></>
       }
     ]
   }

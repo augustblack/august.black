@@ -82,7 +82,7 @@ const extras = [
     title: "Related Publications",
     list: [
       {
-        item: () => <>August Black. 2004. <Link external href="https://assets.august.black/media/userradio/userradio.pdf">Userradio. In Proceedings of ACM Multimedia</Link>, New York, NY, USA, October 10 - 16, 2004. ISBN:1-58113-893-8 DOI: 10.1145/1027527.1027570</>
+        item: () => <>August Black. 2004. <Link external href="https://assets.august.black/media/userradio/userradio.pdf">Userradio. In Proceedings of ACM Multimedia</Link>, New York, NY, USA, October 10 - 16, 2004. ISBN:1-58113-893-8 DOI: <Link external href="https://doi.org/10.1145/1027527.1027570">10.1145/1027527.1027570</Link></>
       }
     ]
   }

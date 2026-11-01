@@ -151,7 +151,7 @@ const extras = [
     title: "Related Publications",
     list: [
       {
-        item: () => <>Black, August. <Link external href="https://doi.org/10.5281/zenodo.17642103">Audio Compost: a collaborative virtual frippertronic loop</Link> <i>Proceedings of the International Conference on Web Audio.</i> Nov 19-21, 2025, Paris, France. <Link external href="https://wac-2025.ircam.fr/award.html"><b>BEST PAPER AWARD</b></Link>. <br />DOI: 10.5281/zenodo.17642103</>
+        item: () => <>Black, August. Audio Compost: a collaborative virtual frippertronic loop <i>Proceedings of the International Conference on Web Audio.</i> Nov 19-21, 2025, Paris, France. <Link external href="https://wac-2025.ircam.fr/award.html"><b>BEST PAPER AWARD</b></Link>. <br />DOI:<Link external href="https://doi.org/10.5281/zenodo.17642103">10.5281/zenodo.17642103</Link></>
       }
     ]
   }

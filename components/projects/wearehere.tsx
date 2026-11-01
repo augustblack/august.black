@@ -180,7 +180,7 @@ const extras = [
     title: "Related Publications",
     list: [
       {
-        item: () => <>Biggs, E., Black, A. <Link external href="https://doi.org/10.7273/fxjt-f515">We Are Here FM</Link> <i>The Digital Review</i>, September 01, 2022. <br />DOI:10.7273/fxjt-f515</>
+        item: () => <>Biggs, E., Black, A. We Are Here FM <i>The Digital Review</i>, September 01, 2022. <br />DOI:<Link external href="https://doi.org/10.7273/fxjt-f515">10.7273/fxjt-f515</Link></>
       },
     ]
   },

@@ -5,6 +5,7 @@ import { Logos } from './logos'
 import Menu from '../menu'
 import { LinkPlain } from '../link'
 import { Project } from './types'
+import About from './about'
 
 // bg-linear-to-b from-primary/100 via-base-100/100 to-base-100/10 
 // NOTE: do not use Media instead of ShowFirstImage.  Since we are using a 
@@ -15,12 +16,12 @@ const ShowFirstImage: Component<{ media?: MediaProps[], current: boolean }> = (p
   const media = props.media?.find(m => m.kind === 'image')
   return (
     <Show when={media}>
-      <div class={"h-24 aspect-video outline " + (media?.bg ? media.bg : "")}>
+      <div class={"h-24 aspect-video rounded " + (media?.bg ? media.bg : "")}>
         <Image
           draggable={false}
           src={media?.src || 'wtf'}
           alt={media?.alt || 'wtf'}
-          class={(props.current ? "grayscale " : "") + (media?.imgClass || "object-cover object-center w-full h-full")}
+          class={(props.current ? "grayscale rounded " : "rounded ") + (media?.imgClass || "object-cover object-center w-full h-full")}
           width={media?.width || 10}
           height={media?.height || 10}
           blurDataURL={media?.blurDataURL}
@@ -43,7 +44,7 @@ const ProjectSlide: Component<{ project: Project, current: boolean }> = (props) 
   </div>
 )
 
-const ProjectCarousel: Component<{ current: string, recent: Project[], older: Project[] }> = (props) => {
+export const ProjectCarousel: Component<{ current: string, recent: Project[], older: Project[] }> = (props) => {
   const [showOlder, setShowOlder] = createSignal(props.older.some(p => p.key === props.current))
 
   const slide = (p: Project) => (
@@ -58,12 +59,13 @@ const ProjectCarousel: Component<{ current: string, recent: Project[], older: Pr
       class="w-full flex justify-center gap-4 bg-linear-to-t from-primary/100 via-base-100/100 to-base-100/0"
     >
       <div class="carousel carousel-center w-full lg:w-2/3 gap-4 px-4 mt-10 py-8 ">
+        {slide(About)}
         <For each={props.recent}>{slide}</For>
         <div class="carousel-item items-center">
           <button
-            class="btn btn-sm btn-ghost btn-primary font-light lowercase text-nowrap"
+            class="btn btn-ghost btn-primary font-light uppercase text-nowrap"
             onclick={() => setShowOlder(o => !o)}
-          >{showOlder() ? "hide older" : "older projects"}</button>
+          >{showOlder() ? "less" : "more"}</button>
         </div>
         <Show when={showOlder()}>
           <For each={props.older}>{slide}</For>
