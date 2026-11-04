@@ -141,6 +141,9 @@ const text: Array<() => JSX.Element> = [
   </div>,
   () => <div>
     These API&apos;s come from the free software libraries of glib, gtk+, cairo and pango. It included direct support for reading and writing of files, albeit with no current security model or sandbox strategy. Underweb &ldquo;pages&rdquo; can be written in C, vala, javascript and python, but could potentially support other languages automatically through GOBject introspection.  It also includes support for decoding many multimedia formats that are currently unsupported by standard browsers, as well as a simple software hook to internally embed other browser engines such as Safari&apos;s webkit.  Furthermore, the Underweb browser also includes full socket support so that the browser is not only a client on the WWW, but also potentially the server.
+  </div>,
+  () => <div>
+    The original code from 2007-2011 can be found at <LinkPlain href="https://code.launchpad.net/underweb">https://code.launchpad.net/underweb</LinkPlain>
   </div>
 ]
 const Underweb: Project = {
